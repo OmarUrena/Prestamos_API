@@ -1,0 +1,183 @@
+generator client {
+  provider        = "prisma-client-js"
+  output          = "../src/generated/prisma"
+  previewFeatures = ["views"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model clientes {
+  id_cliente     Int         @id @default(autoincrement())
+  nombre         String      @db.VarChar(100)
+  cedula         String      @unique @db.VarChar(20)
+  telefono       String?     @db.VarChar(20)
+  email          String?     @db.VarChar(30)
+  direccion      String?
+  foto_url       String?
+  notas          String?
+  referido_por   String?
+  fecha_registro DateTime?   @default(dbgenerated("CURRENT_DATE")) @db.Date
+  prestamos      prestamos[]
+}
+
+model cuotas {
+  id_cuota       Int           @id @default(autoincrement())
+  id_prestamo    Int
+  numero         Int
+  fecha_prevista DateTime      @db.Date
+  monto          Decimal       @db.Decimal(10, 2)
+  monto_restante Decimal       @db.Decimal(10, 2)
+  intereses_mora Decimal?      @default(0) @db.Decimal(10, 2)
+  estado_pago    estado_cuota? @default(pendiente)
+  prestamos      prestamos     @relation(fields: [id_prestamo], references: [id_prestamo], onDelete: NoAction, onUpdate: NoAction)
+  pagos          pagos[]
+}
+
+model logactividad {
+  id_log     Int       @id @default(autoincrement())
+  id_usuario Int?
+  accion     String
+  fecha_hora DateTime? @default(now()) @db.Timestamp(6)
+  usuarios   usuarios? @relation(fields: [id_usuario], references: [id_usuario], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model movimientoscaja {
+  id_movimiento Int             @id @default(autoincrement())
+  tipo          tipo_movimiento
+  prestamo_id   Int?
+  pago_id       Int?
+  descripcion   String?
+  monto         Decimal         @db.Decimal(10, 2)
+  fecha         DateTime?       @default(dbgenerated("CURRENT_DATE")) @db.Date
+  usuario_id    Int?
+  usuarios      usuarios?       @relation(fields: [usuario_id], references: [id_usuario], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model pagos {
+  id_pago       Int         @id @default(autoincrement())
+  id_cuota      Int
+  fecha_pago    DateTime    @db.Date
+  monto_pagado  Decimal     @db.Decimal(10, 2)
+  forma_pago    forma_pago? @default(efectivo)
+  recibo_numero Int?
+  cobrador_id   Int?
+  observaciones String?
+  usuarios      usuarios?   @relation(fields: [cobrador_id], references: [id_usuario], onDelete: NoAction, onUpdate: NoAction)
+  cuotas        cuotas      @relation(fields: [id_cuota], references: [id_cuota], onDelete: NoAction, onUpdate: NoAction, map: "pagos_cuota_id_fkey")
+}
+
+model prestamos {
+  id_prestamo       Int              @id @default(autoincrement())
+  id_cliente        Int
+  monto             Decimal          @db.Decimal(10, 2)
+  interes           Decimal          @db.Decimal(5, 2)
+  total_pagado      Decimal?         @default(0.0) @db.Decimal(10, 2)
+  tipo_interes      tipo_interes?    @default(simple)
+  id_usuario        Int
+  cant_cuotas       Int
+  frecuencia_pago   frecuencia_pago
+  fecha_inicio      DateTime         @db.Date
+  fecha_vencimiento DateTime         @db.Date
+  estado            estado_prestamo? @default(activo)
+  notas             String?
+  cuotas            cuotas[]
+  clientes          clientes         @relation(fields: [id_cliente], references: [id_cliente], onDelete: NoAction, onUpdate: NoAction)
+  usuarios          usuarios         @relation(fields: [id_usuario], references: [id_usuario], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model usuarios {
+  id_usuario      Int               @id @default(autoincrement())
+  nombre_usuario  String            @unique @db.VarChar(50)
+  clave_hash      String            @db.VarChar(255)
+  rol             rol
+  fecha_creacion  DateTime?         @default(now()) @db.Timestamp(6)
+  ultimo_acceso   DateTime?         @db.Timestamp(6)
+  fecha_baja      DateTime?         @db.Date
+  razon_baja      String?
+  estado          estado_usuario?   @default(activo)
+  logactividad    logactividad[]
+  movimientoscaja movimientoscaja[]
+  pagos           pagos[]
+  prestamos       prestamos[]
+}
+
+
+view datos_prestamos {
+  id_prestamo       Int @unique
+  id_cliente        Int?
+  nombre            String?          @db.VarChar(100)
+  cedula            String?          @db.VarChar(20)
+  telefono          String?          @db.VarChar(20)
+  direccion         String?
+  foto_url          String?
+  monto             Decimal?         @db.Decimal(10, 2)
+  interes           Decimal?         @db.Decimal(5, 2)
+  cant_cuotas       Int?
+  frecuencia_pago   frecuencia_pago?
+  fecha_inicio      DateTime?        @db.Date
+  fecha_vencimiento DateTime?        @db.Date
+  estado            estado_prestamo?
+
+ 
+}
+
+enum estado_cuota {
+  pendiente
+  pagada
+  atrasada
+  parcial
+}
+
+enum estado_pago {
+  parcial
+  completo
+}
+
+enum estado_prestamo {
+  activo
+  finalizado
+  mora
+}
+
+enum estado_usuario {
+  activo
+  inactivo
+}
+
+enum forma_pago {
+  efectivo
+  transferencia
+  otro
+}
+
+enum frecuencia_pago {
+  diario
+  semanal
+  quincenal
+  mensual
+}
+
+enum referencia_tipo {
+  prestamo
+  pago
+  otro
+}
+
+enum rol {
+  admin
+  cobrador
+  secretario
+}
+
+enum tipo_interes {
+  simple
+  compuesto
+}
+
+enum tipo_movimiento {
+  entrada
+  salida
+}
