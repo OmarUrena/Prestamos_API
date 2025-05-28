@@ -138,6 +138,8 @@ exports.Prisma.CuotasScalarFieldEnum = {
   id_prestamo: 'id_prestamo',
   numero: 'numero',
   fecha_prevista: 'fecha_prevista',
+  monto_capital: 'monto_capital',
+  monto_interes: 'monto_interes',
   monto: 'monto',
   monto_restante: 'monto_restante',
   intereses_mora: 'intereses_mora',

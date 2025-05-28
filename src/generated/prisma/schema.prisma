@@ -28,6 +28,8 @@ model cuotas {
   id_prestamo    Int
   numero         Int
   fecha_prevista DateTime      @db.Date
+  monto_capital  Decimal       @db.Decimal(10, 2)
+  monto_interes  Decimal       @db.Decimal(10, 2)
   monto          Decimal       @db.Decimal(10, 2)
   monto_restante Decimal       @db.Decimal(10, 2)
   intereses_mora Decimal?      @default(0) @db.Decimal(10, 2)

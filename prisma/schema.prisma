@@ -24,10 +24,12 @@ model clientes {
 }
 
 model cuotas {
-  id_cuota       Int           @id @default(autoincrement())
+  id_cuota       Int          @id @default(autoincrement())
   id_prestamo    Int
   numero         Int
   fecha_prevista DateTime      @db.Date
+  monto_capital  Decimal       @db.Decimal(10, 2)
+  monto_interes  Decimal       @db.Decimal(10, 2)
   monto          Decimal       @db.Decimal(10, 2)
   monto_restante Decimal       @db.Decimal(10, 2)
   intereses_mora Decimal?      @default(0) @db.Decimal(10, 2)
@@ -104,9 +106,8 @@ model usuarios {
   prestamos       prestamos[]
 }
 
-
 view datos_prestamos {
-  id_prestamo       Int @unique
+  id_prestamo       Int              @unique
   id_cliente        Int?
   nombre            String?          @db.VarChar(100)
   cedula            String?          @db.VarChar(20)
@@ -120,8 +121,6 @@ view datos_prestamos {
   fecha_inicio      DateTime?        @db.Date
   fecha_vencimiento DateTime?        @db.Date
   estado            estado_prestamo?
-
- 
 }
 
 enum estado_cuota {

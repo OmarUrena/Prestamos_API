@@ -2974,6 +2974,8 @@ export namespace Prisma {
     id_cuota: number | null
     id_prestamo: number | null
     numero: number | null
+    monto_capital: Decimal | null
+    monto_interes: Decimal | null
     monto: Decimal | null
     monto_restante: Decimal | null
     intereses_mora: Decimal | null
@@ -2983,6 +2985,8 @@ export namespace Prisma {
     id_cuota: number | null
     id_prestamo: number | null
     numero: number | null
+    monto_capital: Decimal | null
+    monto_interes: Decimal | null
     monto: Decimal | null
     monto_restante: Decimal | null
     intereses_mora: Decimal | null
@@ -2993,6 +2997,8 @@ export namespace Prisma {
     id_prestamo: number | null
     numero: number | null
     fecha_prevista: Date | null
+    monto_capital: Decimal | null
+    monto_interes: Decimal | null
     monto: Decimal | null
     monto_restante: Decimal | null
     intereses_mora: Decimal | null
@@ -3004,6 +3010,8 @@ export namespace Prisma {
     id_prestamo: number | null
     numero: number | null
     fecha_prevista: Date | null
+    monto_capital: Decimal | null
+    monto_interes: Decimal | null
     monto: Decimal | null
     monto_restante: Decimal | null
     intereses_mora: Decimal | null
@@ -3015,6 +3023,8 @@ export namespace Prisma {
     id_prestamo: number
     numero: number
     fecha_prevista: number
+    monto_capital: number
+    monto_interes: number
     monto: number
     monto_restante: number
     intereses_mora: number
@@ -3027,6 +3037,8 @@ export namespace Prisma {
     id_cuota?: true
     id_prestamo?: true
     numero?: true
+    monto_capital?: true
+    monto_interes?: true
     monto?: true
     monto_restante?: true
     intereses_mora?: true
@@ -3036,6 +3048,8 @@ export namespace Prisma {
     id_cuota?: true
     id_prestamo?: true
     numero?: true
+    monto_capital?: true
+    monto_interes?: true
     monto?: true
     monto_restante?: true
     intereses_mora?: true
@@ -3046,6 +3060,8 @@ export namespace Prisma {
     id_prestamo?: true
     numero?: true
     fecha_prevista?: true
+    monto_capital?: true
+    monto_interes?: true
     monto?: true
     monto_restante?: true
     intereses_mora?: true
@@ -3057,6 +3073,8 @@ export namespace Prisma {
     id_prestamo?: true
     numero?: true
     fecha_prevista?: true
+    monto_capital?: true
+    monto_interes?: true
     monto?: true
     monto_restante?: true
     intereses_mora?: true
@@ -3068,6 +3086,8 @@ export namespace Prisma {
     id_prestamo?: true
     numero?: true
     fecha_prevista?: true
+    monto_capital?: true
+    monto_interes?: true
     monto?: true
     monto_restante?: true
     intereses_mora?: true
@@ -3166,6 +3186,8 @@ export namespace Prisma {
     id_prestamo: number
     numero: number
     fecha_prevista: Date
+    monto_capital: Decimal
+    monto_interes: Decimal
     monto: Decimal
     monto_restante: Decimal
     intereses_mora: Decimal | null
@@ -3196,6 +3218,8 @@ export namespace Prisma {
     id_prestamo?: boolean
     numero?: boolean
     fecha_prevista?: boolean
+    monto_capital?: boolean
+    monto_interes?: boolean
     monto?: boolean
     monto_restante?: boolean
     intereses_mora?: boolean
@@ -3210,6 +3234,8 @@ export namespace Prisma {
     id_prestamo?: boolean
     numero?: boolean
     fecha_prevista?: boolean
+    monto_capital?: boolean
+    monto_interes?: boolean
     monto?: boolean
     monto_restante?: boolean
     intereses_mora?: boolean
@@ -3222,6 +3248,8 @@ export namespace Prisma {
     id_prestamo?: boolean
     numero?: boolean
     fecha_prevista?: boolean
+    monto_capital?: boolean
+    monto_interes?: boolean
     monto?: boolean
     monto_restante?: boolean
     intereses_mora?: boolean
@@ -3234,13 +3262,15 @@ export namespace Prisma {
     id_prestamo?: boolean
     numero?: boolean
     fecha_prevista?: boolean
+    monto_capital?: boolean
+    monto_interes?: boolean
     monto?: boolean
     monto_restante?: boolean
     intereses_mora?: boolean
     estado_pago?: boolean
   }
 
-  export type cuotasOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id_cuota" | "id_prestamo" | "numero" | "fecha_prevista" | "monto" | "monto_restante" | "intereses_mora" | "estado_pago", ExtArgs["result"]["cuotas"]>
+  export type cuotasOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id_cuota" | "id_prestamo" | "numero" | "fecha_prevista" | "monto_capital" | "monto_interes" | "monto" | "monto_restante" | "intereses_mora" | "estado_pago", ExtArgs["result"]["cuotas"]>
   export type cuotasInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     prestamos?: boolean | prestamosDefaultArgs<ExtArgs>
     pagos?: boolean | cuotas$pagosArgs<ExtArgs>
@@ -3264,6 +3294,8 @@ export namespace Prisma {
       id_prestamo: number
       numero: number
       fecha_prevista: Date
+      monto_capital: Prisma.Decimal
+      monto_interes: Prisma.Decimal
       monto: Prisma.Decimal
       monto_restante: Prisma.Decimal
       intereses_mora: Prisma.Decimal | null
@@ -3697,6 +3729,8 @@ export namespace Prisma {
     readonly id_prestamo: FieldRef<"cuotas", 'Int'>
     readonly numero: FieldRef<"cuotas", 'Int'>
     readonly fecha_prevista: FieldRef<"cuotas", 'DateTime'>
+    readonly monto_capital: FieldRef<"cuotas", 'Decimal'>
+    readonly monto_interes: FieldRef<"cuotas", 'Decimal'>
     readonly monto: FieldRef<"cuotas", 'Decimal'>
     readonly monto_restante: FieldRef<"cuotas", 'Decimal'>
     readonly intereses_mora: FieldRef<"cuotas", 'Decimal'>
@@ -11276,6 +11310,8 @@ export namespace Prisma {
     id_prestamo: 'id_prestamo',
     numero: 'numero',
     fecha_prevista: 'fecha_prevista',
+    monto_capital: 'monto_capital',
+    monto_interes: 'monto_interes',
     monto: 'monto',
     monto_restante: 'monto_restante',
     intereses_mora: 'intereses_mora',
@@ -11681,6 +11717,8 @@ export namespace Prisma {
     id_prestamo?: IntFilter<"cuotas"> | number
     numero?: IntFilter<"cuotas"> | number
     fecha_prevista?: DateTimeFilter<"cuotas"> | Date | string
+    monto_capital?: DecimalFilter<"cuotas"> | Decimal | DecimalJsLike | number | string
+    monto_interes?: DecimalFilter<"cuotas"> | Decimal | DecimalJsLike | number | string
     monto?: DecimalFilter<"cuotas"> | Decimal | DecimalJsLike | number | string
     monto_restante?: DecimalFilter<"cuotas"> | Decimal | DecimalJsLike | number | string
     intereses_mora?: DecimalNullableFilter<"cuotas"> | Decimal | DecimalJsLike | number | string | null
@@ -11694,6 +11732,8 @@ export namespace Prisma {
     id_prestamo?: SortOrder
     numero?: SortOrder
     fecha_prevista?: SortOrder
+    monto_capital?: SortOrder
+    monto_interes?: SortOrder
     monto?: SortOrder
     monto_restante?: SortOrder
     intereses_mora?: SortOrderInput | SortOrder
@@ -11710,6 +11750,8 @@ export namespace Prisma {
     id_prestamo?: IntFilter<"cuotas"> | number
     numero?: IntFilter<"cuotas"> | number
     fecha_prevista?: DateTimeFilter<"cuotas"> | Date | string
+    monto_capital?: DecimalFilter<"cuotas"> | Decimal | DecimalJsLike | number | string
+    monto_interes?: DecimalFilter<"cuotas"> | Decimal | DecimalJsLike | number | string
     monto?: DecimalFilter<"cuotas"> | Decimal | DecimalJsLike | number | string
     monto_restante?: DecimalFilter<"cuotas"> | Decimal | DecimalJsLike | number | string
     intereses_mora?: DecimalNullableFilter<"cuotas"> | Decimal | DecimalJsLike | number | string | null
@@ -11723,6 +11765,8 @@ export namespace Prisma {
     id_prestamo?: SortOrder
     numero?: SortOrder
     fecha_prevista?: SortOrder
+    monto_capital?: SortOrder
+    monto_interes?: SortOrder
     monto?: SortOrder
     monto_restante?: SortOrder
     intereses_mora?: SortOrderInput | SortOrder
@@ -11742,6 +11786,8 @@ export namespace Prisma {
     id_prestamo?: IntWithAggregatesFilter<"cuotas"> | number
     numero?: IntWithAggregatesFilter<"cuotas"> | number
     fecha_prevista?: DateTimeWithAggregatesFilter<"cuotas"> | Date | string
+    monto_capital?: DecimalWithAggregatesFilter<"cuotas"> | Decimal | DecimalJsLike | number | string
+    monto_interes?: DecimalWithAggregatesFilter<"cuotas"> | Decimal | DecimalJsLike | number | string
     monto?: DecimalWithAggregatesFilter<"cuotas"> | Decimal | DecimalJsLike | number | string
     monto_restante?: DecimalWithAggregatesFilter<"cuotas"> | Decimal | DecimalJsLike | number | string
     intereses_mora?: DecimalNullableWithAggregatesFilter<"cuotas"> | Decimal | DecimalJsLike | number | string | null
@@ -12330,6 +12376,8 @@ export namespace Prisma {
   export type cuotasCreateInput = {
     numero: number
     fecha_prevista: Date | string
+    monto_capital: Decimal | DecimalJsLike | number | string
+    monto_interes: Decimal | DecimalJsLike | number | string
     monto: Decimal | DecimalJsLike | number | string
     monto_restante: Decimal | DecimalJsLike | number | string
     intereses_mora?: Decimal | DecimalJsLike | number | string | null
@@ -12343,6 +12391,8 @@ export namespace Prisma {
     id_prestamo: number
     numero: number
     fecha_prevista: Date | string
+    monto_capital: Decimal | DecimalJsLike | number | string
+    monto_interes: Decimal | DecimalJsLike | number | string
     monto: Decimal | DecimalJsLike | number | string
     monto_restante: Decimal | DecimalJsLike | number | string
     intereses_mora?: Decimal | DecimalJsLike | number | string | null
@@ -12353,6 +12403,8 @@ export namespace Prisma {
   export type cuotasUpdateInput = {
     numero?: IntFieldUpdateOperationsInput | number
     fecha_prevista?: DateTimeFieldUpdateOperationsInput | Date | string
+    monto_capital?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    monto_interes?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     monto?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     monto_restante?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     intereses_mora?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
@@ -12366,6 +12418,8 @@ export namespace Prisma {
     id_prestamo?: IntFieldUpdateOperationsInput | number
     numero?: IntFieldUpdateOperationsInput | number
     fecha_prevista?: DateTimeFieldUpdateOperationsInput | Date | string
+    monto_capital?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    monto_interes?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     monto?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     monto_restante?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     intereses_mora?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
@@ -12378,6 +12432,8 @@ export namespace Prisma {
     id_prestamo: number
     numero: number
     fecha_prevista: Date | string
+    monto_capital: Decimal | DecimalJsLike | number | string
+    monto_interes: Decimal | DecimalJsLike | number | string
     monto: Decimal | DecimalJsLike | number | string
     monto_restante: Decimal | DecimalJsLike | number | string
     intereses_mora?: Decimal | DecimalJsLike | number | string | null
@@ -12387,6 +12443,8 @@ export namespace Prisma {
   export type cuotasUpdateManyMutationInput = {
     numero?: IntFieldUpdateOperationsInput | number
     fecha_prevista?: DateTimeFieldUpdateOperationsInput | Date | string
+    monto_capital?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    monto_interes?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     monto?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     monto_restante?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     intereses_mora?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
@@ -12398,6 +12456,8 @@ export namespace Prisma {
     id_prestamo?: IntFieldUpdateOperationsInput | number
     numero?: IntFieldUpdateOperationsInput | number
     fecha_prevista?: DateTimeFieldUpdateOperationsInput | Date | string
+    monto_capital?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    monto_interes?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     monto?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     monto_restante?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     intereses_mora?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
@@ -13161,6 +13221,8 @@ export namespace Prisma {
     id_prestamo?: SortOrder
     numero?: SortOrder
     fecha_prevista?: SortOrder
+    monto_capital?: SortOrder
+    monto_interes?: SortOrder
     monto?: SortOrder
     monto_restante?: SortOrder
     intereses_mora?: SortOrder
@@ -13171,6 +13233,8 @@ export namespace Prisma {
     id_cuota?: SortOrder
     id_prestamo?: SortOrder
     numero?: SortOrder
+    monto_capital?: SortOrder
+    monto_interes?: SortOrder
     monto?: SortOrder
     monto_restante?: SortOrder
     intereses_mora?: SortOrder
@@ -13181,6 +13245,8 @@ export namespace Prisma {
     id_prestamo?: SortOrder
     numero?: SortOrder
     fecha_prevista?: SortOrder
+    monto_capital?: SortOrder
+    monto_interes?: SortOrder
     monto?: SortOrder
     monto_restante?: SortOrder
     intereses_mora?: SortOrder
@@ -13192,6 +13258,8 @@ export namespace Prisma {
     id_prestamo?: SortOrder
     numero?: SortOrder
     fecha_prevista?: SortOrder
+    monto_capital?: SortOrder
+    monto_interes?: SortOrder
     monto?: SortOrder
     monto_restante?: SortOrder
     intereses_mora?: SortOrder
@@ -13202,6 +13270,8 @@ export namespace Prisma {
     id_cuota?: SortOrder
     id_prestamo?: SortOrder
     numero?: SortOrder
+    monto_capital?: SortOrder
+    monto_interes?: SortOrder
     monto?: SortOrder
     monto_restante?: SortOrder
     intereses_mora?: SortOrder
@@ -15059,6 +15129,8 @@ export namespace Prisma {
   export type cuotasCreateWithoutPagosInput = {
     numero: number
     fecha_prevista: Date | string
+    monto_capital: Decimal | DecimalJsLike | number | string
+    monto_interes: Decimal | DecimalJsLike | number | string
     monto: Decimal | DecimalJsLike | number | string
     monto_restante: Decimal | DecimalJsLike | number | string
     intereses_mora?: Decimal | DecimalJsLike | number | string | null
@@ -15071,6 +15143,8 @@ export namespace Prisma {
     id_prestamo: number
     numero: number
     fecha_prevista: Date | string
+    monto_capital: Decimal | DecimalJsLike | number | string
+    monto_interes: Decimal | DecimalJsLike | number | string
     monto: Decimal | DecimalJsLike | number | string
     monto_restante: Decimal | DecimalJsLike | number | string
     intereses_mora?: Decimal | DecimalJsLike | number | string | null
@@ -15136,6 +15210,8 @@ export namespace Prisma {
   export type cuotasUpdateWithoutPagosInput = {
     numero?: IntFieldUpdateOperationsInput | number
     fecha_prevista?: DateTimeFieldUpdateOperationsInput | Date | string
+    monto_capital?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    monto_interes?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     monto?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     monto_restante?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     intereses_mora?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
@@ -15148,6 +15224,8 @@ export namespace Prisma {
     id_prestamo?: IntFieldUpdateOperationsInput | number
     numero?: IntFieldUpdateOperationsInput | number
     fecha_prevista?: DateTimeFieldUpdateOperationsInput | Date | string
+    monto_capital?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    monto_interes?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     monto?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     monto_restante?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     intereses_mora?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
@@ -15157,6 +15235,8 @@ export namespace Prisma {
   export type cuotasCreateWithoutPrestamosInput = {
     numero: number
     fecha_prevista: Date | string
+    monto_capital: Decimal | DecimalJsLike | number | string
+    monto_interes: Decimal | DecimalJsLike | number | string
     monto: Decimal | DecimalJsLike | number | string
     monto_restante: Decimal | DecimalJsLike | number | string
     intereses_mora?: Decimal | DecimalJsLike | number | string | null
@@ -15168,6 +15248,8 @@ export namespace Prisma {
     id_cuota?: number
     numero: number
     fecha_prevista: Date | string
+    monto_capital: Decimal | DecimalJsLike | number | string
+    monto_interes: Decimal | DecimalJsLike | number | string
     monto: Decimal | DecimalJsLike | number | string
     monto_restante: Decimal | DecimalJsLike | number | string
     intereses_mora?: Decimal | DecimalJsLike | number | string | null
@@ -15273,6 +15355,8 @@ export namespace Prisma {
     id_prestamo?: IntFilter<"cuotas"> | number
     numero?: IntFilter<"cuotas"> | number
     fecha_prevista?: DateTimeFilter<"cuotas"> | Date | string
+    monto_capital?: DecimalFilter<"cuotas"> | Decimal | DecimalJsLike | number | string
+    monto_interes?: DecimalFilter<"cuotas"> | Decimal | DecimalJsLike | number | string
     monto?: DecimalFilter<"cuotas"> | Decimal | DecimalJsLike | number | string
     monto_restante?: DecimalFilter<"cuotas"> | Decimal | DecimalJsLike | number | string
     intereses_mora?: DecimalNullableFilter<"cuotas"> | Decimal | DecimalJsLike | number | string | null
@@ -15667,6 +15751,8 @@ export namespace Prisma {
     id_cuota?: number
     numero: number
     fecha_prevista: Date | string
+    monto_capital: Decimal | DecimalJsLike | number | string
+    monto_interes: Decimal | DecimalJsLike | number | string
     monto: Decimal | DecimalJsLike | number | string
     monto_restante: Decimal | DecimalJsLike | number | string
     intereses_mora?: Decimal | DecimalJsLike | number | string | null
@@ -15676,6 +15762,8 @@ export namespace Prisma {
   export type cuotasUpdateWithoutPrestamosInput = {
     numero?: IntFieldUpdateOperationsInput | number
     fecha_prevista?: DateTimeFieldUpdateOperationsInput | Date | string
+    monto_capital?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    monto_interes?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     monto?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     monto_restante?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     intereses_mora?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
@@ -15687,6 +15775,8 @@ export namespace Prisma {
     id_cuota?: IntFieldUpdateOperationsInput | number
     numero?: IntFieldUpdateOperationsInput | number
     fecha_prevista?: DateTimeFieldUpdateOperationsInput | Date | string
+    monto_capital?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    monto_interes?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     monto?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     monto_restante?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     intereses_mora?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
@@ -15698,6 +15788,8 @@ export namespace Prisma {
     id_cuota?: IntFieldUpdateOperationsInput | number
     numero?: IntFieldUpdateOperationsInput | number
     fecha_prevista?: DateTimeFieldUpdateOperationsInput | Date | string
+    monto_capital?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    monto_interes?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     monto?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     monto_restante?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     intereses_mora?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null

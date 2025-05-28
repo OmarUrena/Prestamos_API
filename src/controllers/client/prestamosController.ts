@@ -1,5 +1,8 @@
-import { pagos, prestamos, PrismaClient } from "../../generated/prisma";
+import { cuotas, frecuencia_pago, pagos, prestamos, PrismaClient, tipo_interes } from "../../generated/prisma";
 import { Request, Response } from "express";
+import { Decimal } from "../../generated/prisma/runtime/library";
+import { generarCuotas } from "../services";
+import { ADDRGETNETWORKPARAMS } from "dns";
 
 
 const prisma = new PrismaClient()
@@ -8,15 +11,17 @@ const prisma = new PrismaClient()
 export const obtenerPrestamos = async (req: Request, res: Response) => {
     const prestamos = await prisma.prestamos.findMany({
         include: {
-            cuotas : true
+            cuotas: true
         }
     })
     res.json(prestamos)
 }
 
 
+
+
 export const obtenerPrestamo = async (req: Request, res: Response) => {
-    const id =Number(req.params["id"])
+    const id = Number(req.params["id"])
     console.log(id)
     const prestamo = await prisma.prestamos.findUnique({
         where: {
@@ -28,10 +33,10 @@ export const obtenerPrestamo = async (req: Request, res: Response) => {
         }
     })
 
-    if(prestamo != null){
+    if (prestamo != null) {
         res.json(prestamo)
     }
-    else{
+    else {
         res.status(404).send(`No se encontró el préstamo con el id: ${id}`)
     }
 }
@@ -49,20 +54,20 @@ export const obtenerCuotas = async (req: Request, res: Response) => {
                     pagos: true
                 }
             }
-            
+
         }
 
 
     })
 
-    if(prestamo != null){
+    if (prestamo != null) {
         res.json(prestamo?.cuotas)
     }
-    else{
+    else {
         res.status(404).send(`No se encontró el préstamo con el id: ${id}`)
     }
 
-    
+
 }
 
 export const obtenerPagos = async (req: Request, res: Response) => {
@@ -78,24 +83,24 @@ export const obtenerPagos = async (req: Request, res: Response) => {
                     pagos: true
                 }
             }
-            
+
         }
 
 
     })
 
-    if(prestamo != null){
-        let pagos : pagos[] = []
+    if (prestamo != null) {
+        let pagos: pagos[] = []
         prestamo.cuotas.map((cuota) => {
             cuota.pagos.map((pago) => pagos.push(pago))
         })
         res.json(pagos)
     }
-    else{
+    else {
         res.status(404).send(`No se encontró el préstamo con el id: ${id}`)
     }
 
-    
+
 }
 
 
@@ -109,10 +114,10 @@ export const eliminarPrestamo = async (req: Request, res: Response) => {
     })
     const prestamo = await prisma.prestamos.delete({
         where: {
-            id_prestamo : id
+            id_prestamo: id
         }
     }
-        
+
     )
 
     res.json(prestamo)
@@ -137,40 +142,65 @@ export const actualizarPrestamo = async (req: Request, res: Response) => {
 
 
 export const nuevoPrestamo = async (req: Request, res: Response) => {
-    const datos : prestamos = req.body
+    const datos: prestamos = req.body
+
 
     
-    console.log(datos)
 
-    
-    try{
+
+    try {
         const resultado = await prisma.prestamos.create({
-        data: {
-            id_cliente: Number(datos.id_cliente),
-            monto: Number(datos.monto),
-            interes: Number(datos.interes),
-            id_usuario: Number (datos.id_usuario),
-            cant_cuotas: Number (datos.cant_cuotas),
-            frecuencia_pago: datos.frecuencia_pago,
-            fecha_inicio: datos.fecha_inicio,
-            fecha_vencimiento: datos.fecha_vencimiento,
+            data: {
+                id_cliente: Number(datos.id_cliente),
+                monto: Number(datos.monto),
+                interes: Number(datos.interes),
+                id_usuario: Number(datos.id_usuario),
+                cant_cuotas: Number(datos.cant_cuotas),
+                frecuencia_pago: datos.frecuencia_pago,
+                fecha_inicio: datos.fecha_inicio,
+                fecha_vencimiento: datos.fecha_vencimiento,
+
+            }
+
+
+        })
+
+        if (resultado) {
+            
+
+            const datos = generarCuotas(resultado);
+           
+            const nuevasCuotas = await prisma.cuotas.createMany({
+                data: datos.nuevasCuotas
+            })
+
+            console.log(Array.isArray(datos.nuevasCuotas))
+
+            if(nuevasCuotas) {
+                const actualizado = await prisma.prestamos.update({
+                    where: {
+                        id_prestamo : resultado.id_prestamo
+                    },
+                    data: {
+                        fecha_vencimiento: datos.nuevasCuotas[resultado.cant_cuotas -1].fecha_prevista
+                    }
+                })
+
+                res.json({actualizado, nuevasCuotas})
+            }
+
             
         }
-
-    
-    })
-
-    if(resultado){
-        res.status(200).send("Prestamo generado correctamente!")
-    }
-    else{
-        res.status(500).send("No se pudo generar el prestamo")
-    }
+        else {
+            res.status(500).send("No se pudo generar el prestamo")
+        }
     }
 
-    catch(e){
+    catch (e) {
         res.status(500).send(`Ha ocurrido un error: ${e}`)
     }
-    
+
 
 }
+
+
