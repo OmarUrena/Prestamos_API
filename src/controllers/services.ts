@@ -1,16 +1,77 @@
 import { Decimal } from "@prisma/client/runtime/library"
-import { prestamos } from "../generated/prisma"
+import { prestamos, PrismaClient } from "../generated/prisma"
+
+const prisma = new PrismaClient()
 
 
 
-
-
+//Devuelve los intereses de la Mora, en base al monto, la tasa de interes y los días transcurridos
 const calcularMora = (monto : number, interes : number, dias : number ) =>{
     const mora : Number = monto*interes*dias/360
-    console.log(mora)
+    return mora
 }
 
 
+/* Verifica las cuotas atrasadas y las actualiza agregando los intereses, los montos restantes,
+el estado y la fecha de actualización */
+export const actualizarCuotas = async () => {
+    const date = new Date();
+    const cuotas = await prisma.cuotas.findMany({
+        where: {
+            AND: [
+                {
+                    fecha_prevista: {
+                        lt: date
+                    }
+                },
+
+                {
+                    estado_pago: {
+                        not : 'pagada'
+                }
+            }
+            ]
+            
+        }
+    })
+
+
+    for (const cuota of cuotas) {
+        const diasMora = Math.floor((date.getTime() - cuota.fecha_prevista.getTime()) / (1000 * 60 * 60 * 24));
+        if (diasMora > 0){
+            const mora = Number(calcularMora(Number(cuota.monto), 0.18, diasMora))
+            console.log(mora)
+            const agregarPendiente = Number(cuota.monto_restante) + mora - Number(cuota.intereses_mora)
+
+            await prisma.cuotas.update({
+                where: {
+                    id_cuota: cuota.id_cuota
+                },
+                data: {
+                    prestamos: {
+                        update : {
+                            where : {id_prestamo : cuota.id_prestamo},
+                            data: {estado: 'mora'}
+                        }
+                    },
+                    estado_pago: 'atrasada',
+                    intereses_mora: Decimal(mora),
+                    monto_restante: Decimal(agregarPendiente),
+                    fecha_actualizacion: date
+                }
+            })
+
+
+        }
+    }
+
+    
+}
+
+
+
+/*Genera todas las cuotas de un préstamo, calculando las cuotas, el abono al capital el abono a los intereses
+y la fecha pautada para pagar cada una. Devuelve el monto de las cuotas y la lista de cuotas*/
 export const generarCuotas = (prestamo : prestamos) =>{
     const nuevasCuotas = []
     let cuota = 0
@@ -65,6 +126,7 @@ export const generarCuotas = (prestamo : prestamos) =>{
             monto_capital: Decimal(montoCapital),
             monto_interes: Decimal(montoInteres),
             monto_restante: Decimal(cuota),
+            fecha_actualizacion: new Date()
 
 
 
@@ -83,4 +145,8 @@ export const generarCuotas = (prestamo : prestamos) =>{
         nuevasCuotas
     }
 }
+
+
+
+
 

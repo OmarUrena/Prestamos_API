@@ -143,7 +143,8 @@ exports.Prisma.CuotasScalarFieldEnum = {
   monto: 'monto',
   monto_restante: 'monto_restante',
   intereses_mora: 'intereses_mora',
-  estado_pago: 'estado_pago'
+  estado_pago: 'estado_pago',
+  fecha_actualizacion: 'fecha_actualizacion'
 };
 
 exports.Prisma.LogactividadScalarFieldEnum = {

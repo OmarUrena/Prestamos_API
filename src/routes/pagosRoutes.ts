@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { actualizarPago, eliminarPago, nuevoPago, obtenerPago, obtenerPagos } from "../controllers/client/pagosController";
+import { calcularMora } from "../controllers/utils";
 
 
 const router = Router()
@@ -13,6 +14,8 @@ router.post('/', nuevoPago)
 router.put('/:id', actualizarPago)
 
 router.delete('/:id', eliminarPago)
+
+
 
 
 export default router;

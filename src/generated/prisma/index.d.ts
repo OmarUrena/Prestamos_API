@@ -3003,6 +3003,7 @@ export namespace Prisma {
     monto_restante: Decimal | null
     intereses_mora: Decimal | null
     estado_pago: $Enums.estado_cuota | null
+    fecha_actualizacion: Date | null
   }
 
   export type CuotasMaxAggregateOutputType = {
@@ -3016,6 +3017,7 @@ export namespace Prisma {
     monto_restante: Decimal | null
     intereses_mora: Decimal | null
     estado_pago: $Enums.estado_cuota | null
+    fecha_actualizacion: Date | null
   }
 
   export type CuotasCountAggregateOutputType = {
@@ -3029,6 +3031,7 @@ export namespace Prisma {
     monto_restante: number
     intereses_mora: number
     estado_pago: number
+    fecha_actualizacion: number
     _all: number
   }
 
@@ -3066,6 +3069,7 @@ export namespace Prisma {
     monto_restante?: true
     intereses_mora?: true
     estado_pago?: true
+    fecha_actualizacion?: true
   }
 
   export type CuotasMaxAggregateInputType = {
@@ -3079,6 +3083,7 @@ export namespace Prisma {
     monto_restante?: true
     intereses_mora?: true
     estado_pago?: true
+    fecha_actualizacion?: true
   }
 
   export type CuotasCountAggregateInputType = {
@@ -3092,6 +3097,7 @@ export namespace Prisma {
     monto_restante?: true
     intereses_mora?: true
     estado_pago?: true
+    fecha_actualizacion?: true
     _all?: true
   }
 
@@ -3192,6 +3198,7 @@ export namespace Prisma {
     monto_restante: Decimal
     intereses_mora: Decimal | null
     estado_pago: $Enums.estado_cuota | null
+    fecha_actualizacion: Date | null
     _count: CuotasCountAggregateOutputType | null
     _avg: CuotasAvgAggregateOutputType | null
     _sum: CuotasSumAggregateOutputType | null
@@ -3224,6 +3231,7 @@ export namespace Prisma {
     monto_restante?: boolean
     intereses_mora?: boolean
     estado_pago?: boolean
+    fecha_actualizacion?: boolean
     prestamos?: boolean | prestamosDefaultArgs<ExtArgs>
     pagos?: boolean | cuotas$pagosArgs<ExtArgs>
     _count?: boolean | CuotasCountOutputTypeDefaultArgs<ExtArgs>
@@ -3240,6 +3248,7 @@ export namespace Prisma {
     monto_restante?: boolean
     intereses_mora?: boolean
     estado_pago?: boolean
+    fecha_actualizacion?: boolean
     prestamos?: boolean | prestamosDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["cuotas"]>
 
@@ -3254,6 +3263,7 @@ export namespace Prisma {
     monto_restante?: boolean
     intereses_mora?: boolean
     estado_pago?: boolean
+    fecha_actualizacion?: boolean
     prestamos?: boolean | prestamosDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["cuotas"]>
 
@@ -3268,9 +3278,10 @@ export namespace Prisma {
     monto_restante?: boolean
     intereses_mora?: boolean
     estado_pago?: boolean
+    fecha_actualizacion?: boolean
   }
 
-  export type cuotasOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id_cuota" | "id_prestamo" | "numero" | "fecha_prevista" | "monto_capital" | "monto_interes" | "monto" | "monto_restante" | "intereses_mora" | "estado_pago", ExtArgs["result"]["cuotas"]>
+  export type cuotasOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id_cuota" | "id_prestamo" | "numero" | "fecha_prevista" | "monto_capital" | "monto_interes" | "monto" | "monto_restante" | "intereses_mora" | "estado_pago" | "fecha_actualizacion", ExtArgs["result"]["cuotas"]>
   export type cuotasInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     prestamos?: boolean | prestamosDefaultArgs<ExtArgs>
     pagos?: boolean | cuotas$pagosArgs<ExtArgs>
@@ -3300,6 +3311,7 @@ export namespace Prisma {
       monto_restante: Prisma.Decimal
       intereses_mora: Prisma.Decimal | null
       estado_pago: $Enums.estado_cuota | null
+      fecha_actualizacion: Date | null
     }, ExtArgs["result"]["cuotas"]>
     composites: {}
   }
@@ -3735,6 +3747,7 @@ export namespace Prisma {
     readonly monto_restante: FieldRef<"cuotas", 'Decimal'>
     readonly intereses_mora: FieldRef<"cuotas", 'Decimal'>
     readonly estado_pago: FieldRef<"cuotas", 'estado_cuota'>
+    readonly fecha_actualizacion: FieldRef<"cuotas", 'DateTime'>
   }
     
 
@@ -11315,7 +11328,8 @@ export namespace Prisma {
     monto: 'monto',
     monto_restante: 'monto_restante',
     intereses_mora: 'intereses_mora',
-    estado_pago: 'estado_pago'
+    estado_pago: 'estado_pago',
+    fecha_actualizacion: 'fecha_actualizacion'
   };
 
   export type CuotasScalarFieldEnum = (typeof CuotasScalarFieldEnum)[keyof typeof CuotasScalarFieldEnum]
@@ -11723,6 +11737,7 @@ export namespace Prisma {
     monto_restante?: DecimalFilter<"cuotas"> | Decimal | DecimalJsLike | number | string
     intereses_mora?: DecimalNullableFilter<"cuotas"> | Decimal | DecimalJsLike | number | string | null
     estado_pago?: Enumestado_cuotaNullableFilter<"cuotas"> | $Enums.estado_cuota | null
+    fecha_actualizacion?: DateTimeNullableFilter<"cuotas"> | Date | string | null
     prestamos?: XOR<PrestamosScalarRelationFilter, prestamosWhereInput>
     pagos?: PagosListRelationFilter
   }
@@ -11738,6 +11753,7 @@ export namespace Prisma {
     monto_restante?: SortOrder
     intereses_mora?: SortOrderInput | SortOrder
     estado_pago?: SortOrderInput | SortOrder
+    fecha_actualizacion?: SortOrderInput | SortOrder
     prestamos?: prestamosOrderByWithRelationInput
     pagos?: pagosOrderByRelationAggregateInput
   }
@@ -11756,6 +11772,7 @@ export namespace Prisma {
     monto_restante?: DecimalFilter<"cuotas"> | Decimal | DecimalJsLike | number | string
     intereses_mora?: DecimalNullableFilter<"cuotas"> | Decimal | DecimalJsLike | number | string | null
     estado_pago?: Enumestado_cuotaNullableFilter<"cuotas"> | $Enums.estado_cuota | null
+    fecha_actualizacion?: DateTimeNullableFilter<"cuotas"> | Date | string | null
     prestamos?: XOR<PrestamosScalarRelationFilter, prestamosWhereInput>
     pagos?: PagosListRelationFilter
   }, "id_cuota">
@@ -11771,6 +11788,7 @@ export namespace Prisma {
     monto_restante?: SortOrder
     intereses_mora?: SortOrderInput | SortOrder
     estado_pago?: SortOrderInput | SortOrder
+    fecha_actualizacion?: SortOrderInput | SortOrder
     _count?: cuotasCountOrderByAggregateInput
     _avg?: cuotasAvgOrderByAggregateInput
     _max?: cuotasMaxOrderByAggregateInput
@@ -11792,6 +11810,7 @@ export namespace Prisma {
     monto_restante?: DecimalWithAggregatesFilter<"cuotas"> | Decimal | DecimalJsLike | number | string
     intereses_mora?: DecimalNullableWithAggregatesFilter<"cuotas"> | Decimal | DecimalJsLike | number | string | null
     estado_pago?: Enumestado_cuotaNullableWithAggregatesFilter<"cuotas"> | $Enums.estado_cuota | null
+    fecha_actualizacion?: DateTimeNullableWithAggregatesFilter<"cuotas"> | Date | string | null
   }
 
   export type logactividadWhereInput = {
@@ -12382,6 +12401,7 @@ export namespace Prisma {
     monto_restante: Decimal | DecimalJsLike | number | string
     intereses_mora?: Decimal | DecimalJsLike | number | string | null
     estado_pago?: $Enums.estado_cuota | null
+    fecha_actualizacion?: Date | string | null
     prestamos: prestamosCreateNestedOneWithoutCuotasInput
     pagos?: pagosCreateNestedManyWithoutCuotasInput
   }
@@ -12397,6 +12417,7 @@ export namespace Prisma {
     monto_restante: Decimal | DecimalJsLike | number | string
     intereses_mora?: Decimal | DecimalJsLike | number | string | null
     estado_pago?: $Enums.estado_cuota | null
+    fecha_actualizacion?: Date | string | null
     pagos?: pagosUncheckedCreateNestedManyWithoutCuotasInput
   }
 
@@ -12409,6 +12430,7 @@ export namespace Prisma {
     monto_restante?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     intereses_mora?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     estado_pago?: NullableEnumestado_cuotaFieldUpdateOperationsInput | $Enums.estado_cuota | null
+    fecha_actualizacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     prestamos?: prestamosUpdateOneRequiredWithoutCuotasNestedInput
     pagos?: pagosUpdateManyWithoutCuotasNestedInput
   }
@@ -12424,6 +12446,7 @@ export namespace Prisma {
     monto_restante?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     intereses_mora?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     estado_pago?: NullableEnumestado_cuotaFieldUpdateOperationsInput | $Enums.estado_cuota | null
+    fecha_actualizacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     pagos?: pagosUncheckedUpdateManyWithoutCuotasNestedInput
   }
 
@@ -12438,6 +12461,7 @@ export namespace Prisma {
     monto_restante: Decimal | DecimalJsLike | number | string
     intereses_mora?: Decimal | DecimalJsLike | number | string | null
     estado_pago?: $Enums.estado_cuota | null
+    fecha_actualizacion?: Date | string | null
   }
 
   export type cuotasUpdateManyMutationInput = {
@@ -12449,6 +12473,7 @@ export namespace Prisma {
     monto_restante?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     intereses_mora?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     estado_pago?: NullableEnumestado_cuotaFieldUpdateOperationsInput | $Enums.estado_cuota | null
+    fecha_actualizacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type cuotasUncheckedUpdateManyInput = {
@@ -12462,6 +12487,7 @@ export namespace Prisma {
     monto_restante?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     intereses_mora?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     estado_pago?: NullableEnumestado_cuotaFieldUpdateOperationsInput | $Enums.estado_cuota | null
+    fecha_actualizacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type logactividadCreateInput = {
@@ -13227,6 +13253,7 @@ export namespace Prisma {
     monto_restante?: SortOrder
     intereses_mora?: SortOrder
     estado_pago?: SortOrder
+    fecha_actualizacion?: SortOrder
   }
 
   export type cuotasAvgOrderByAggregateInput = {
@@ -13251,6 +13278,7 @@ export namespace Prisma {
     monto_restante?: SortOrder
     intereses_mora?: SortOrder
     estado_pago?: SortOrder
+    fecha_actualizacion?: SortOrder
   }
 
   export type cuotasMinOrderByAggregateInput = {
@@ -13264,6 +13292,7 @@ export namespace Prisma {
     monto_restante?: SortOrder
     intereses_mora?: SortOrder
     estado_pago?: SortOrder
+    fecha_actualizacion?: SortOrder
   }
 
   export type cuotasSumOrderByAggregateInput = {
@@ -15135,6 +15164,7 @@ export namespace Prisma {
     monto_restante: Decimal | DecimalJsLike | number | string
     intereses_mora?: Decimal | DecimalJsLike | number | string | null
     estado_pago?: $Enums.estado_cuota | null
+    fecha_actualizacion?: Date | string | null
     prestamos: prestamosCreateNestedOneWithoutCuotasInput
   }
 
@@ -15149,6 +15179,7 @@ export namespace Prisma {
     monto_restante: Decimal | DecimalJsLike | number | string
     intereses_mora?: Decimal | DecimalJsLike | number | string | null
     estado_pago?: $Enums.estado_cuota | null
+    fecha_actualizacion?: Date | string | null
   }
 
   export type cuotasCreateOrConnectWithoutPagosInput = {
@@ -15216,6 +15247,7 @@ export namespace Prisma {
     monto_restante?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     intereses_mora?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     estado_pago?: NullableEnumestado_cuotaFieldUpdateOperationsInput | $Enums.estado_cuota | null
+    fecha_actualizacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     prestamos?: prestamosUpdateOneRequiredWithoutCuotasNestedInput
   }
 
@@ -15230,6 +15262,7 @@ export namespace Prisma {
     monto_restante?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     intereses_mora?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     estado_pago?: NullableEnumestado_cuotaFieldUpdateOperationsInput | $Enums.estado_cuota | null
+    fecha_actualizacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type cuotasCreateWithoutPrestamosInput = {
@@ -15241,6 +15274,7 @@ export namespace Prisma {
     monto_restante: Decimal | DecimalJsLike | number | string
     intereses_mora?: Decimal | DecimalJsLike | number | string | null
     estado_pago?: $Enums.estado_cuota | null
+    fecha_actualizacion?: Date | string | null
     pagos?: pagosCreateNestedManyWithoutCuotasInput
   }
 
@@ -15254,6 +15288,7 @@ export namespace Prisma {
     monto_restante: Decimal | DecimalJsLike | number | string
     intereses_mora?: Decimal | DecimalJsLike | number | string | null
     estado_pago?: $Enums.estado_cuota | null
+    fecha_actualizacion?: Date | string | null
     pagos?: pagosUncheckedCreateNestedManyWithoutCuotasInput
   }
 
@@ -15361,6 +15396,7 @@ export namespace Prisma {
     monto_restante?: DecimalFilter<"cuotas"> | Decimal | DecimalJsLike | number | string
     intereses_mora?: DecimalNullableFilter<"cuotas"> | Decimal | DecimalJsLike | number | string | null
     estado_pago?: Enumestado_cuotaNullableFilter<"cuotas"> | $Enums.estado_cuota | null
+    fecha_actualizacion?: DateTimeNullableFilter<"cuotas"> | Date | string | null
   }
 
   export type clientesUpsertWithoutPrestamosInput = {
@@ -15757,6 +15793,7 @@ export namespace Prisma {
     monto_restante: Decimal | DecimalJsLike | number | string
     intereses_mora?: Decimal | DecimalJsLike | number | string | null
     estado_pago?: $Enums.estado_cuota | null
+    fecha_actualizacion?: Date | string | null
   }
 
   export type cuotasUpdateWithoutPrestamosInput = {
@@ -15768,6 +15805,7 @@ export namespace Prisma {
     monto_restante?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     intereses_mora?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     estado_pago?: NullableEnumestado_cuotaFieldUpdateOperationsInput | $Enums.estado_cuota | null
+    fecha_actualizacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     pagos?: pagosUpdateManyWithoutCuotasNestedInput
   }
 
@@ -15781,6 +15819,7 @@ export namespace Prisma {
     monto_restante?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     intereses_mora?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     estado_pago?: NullableEnumestado_cuotaFieldUpdateOperationsInput | $Enums.estado_cuota | null
+    fecha_actualizacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     pagos?: pagosUncheckedUpdateManyWithoutCuotasNestedInput
   }
 
@@ -15794,6 +15833,7 @@ export namespace Prisma {
     monto_restante?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     intereses_mora?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     estado_pago?: NullableEnumestado_cuotaFieldUpdateOperationsInput | $Enums.estado_cuota | null
+    fecha_actualizacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type logactividadCreateManyUsuariosInput = {

@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import authRoutes from './routes/authRoutes'
 import clientRoutes from './routes/clientRoutes'
 import bodyParser from "body-parser";
+import "./jobs/moraJob"
 dotenv.config();
 
 
