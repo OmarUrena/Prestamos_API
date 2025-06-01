@@ -41,7 +41,7 @@ export const actualizarCuotas = async () => {
         if (diasMora > 0){
             const mora = Number(calcularMora(Number(cuota.monto), 0.18, diasMora))
             console.log(mora)
-            const agregarPendiente = Number(cuota.monto_restante) + mora - Number(cuota.intereses_mora)
+            const agregarPendiente = mora - Number(cuota.intereses_mora)
 
             await prisma.cuotas.update({
                 where: {
@@ -56,7 +56,9 @@ export const actualizarCuotas = async () => {
                     },
                     estado_pago: 'atrasada',
                     intereses_mora: Decimal(mora),
-                    monto_restante: Decimal(agregarPendiente),
+                    monto_restante: {
+                        increment: Decimal(agregarPendiente)
+                    },
                     fecha_actualizacion: date
                 }
             })
