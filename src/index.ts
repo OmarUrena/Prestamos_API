@@ -19,6 +19,7 @@ app.use(express.json());
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded())
 app.use("/client", clientRoutes)
+app.use("/auth", authRoutes)
 
 
 app.listen(3000, () => {
