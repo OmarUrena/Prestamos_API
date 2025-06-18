@@ -1,11 +1,8 @@
-import { Router } from "express";
-import { actualizarPrestamo, eliminarPrestamo, nuevoPrestamo, obtenerCuotas, obtenerCuotasPendientes, obtenerPagos, obtenerPrestamo, obtenerPrestamos, visualizarCuotas } from "../controllers/client/prestamosController";
-
-const router = Router();
-
-
-
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const prestamosController_1 = require("../controllers/client/prestamosController");
+const router = (0, express_1.Router)();
 /**
 * @swagger
 * tags:
@@ -30,8 +27,7 @@ const router = Router();
  *       200:
  *         description: Lista de cuotas
  */
-router.get('/cuotas/fecha', obtenerCuotasPendientes);
-
+router.get('/cuotas/fecha', prestamosController_1.obtenerCuotasPendientes);
 /**
  * @swagger
  * /client/prestamos/cuotas:
@@ -48,7 +44,7 @@ router.get('/cuotas/fecha', obtenerCuotasPendientes);
  *       200:
  *         description: Cuotas generadas para visualización
  */
-router.post('/cuotas', visualizarCuotas);
+router.post('/cuotas', prestamosController_1.visualizarCuotas);
 /**
  * @swagger
  * /client/prestamos:
@@ -59,8 +55,7 @@ router.post('/cuotas', visualizarCuotas);
  *       200:
  *         description: Lista de préstamos
  */
-router.get("/", obtenerPrestamos);
-
+router.get("/", prestamosController_1.obtenerPrestamos);
 /**
  * @swagger
  * /client/prestamos:
@@ -77,8 +72,7 @@ router.get("/", obtenerPrestamos);
  *       201:
  *         description: Préstamo creado
  */
-router.post('/', nuevoPrestamo);
-
+router.post('/', prestamosController_1.nuevoPrestamo);
 /**
  * @swagger
  * /client/prestamos/{id}:
@@ -98,8 +92,7 @@ router.post('/', nuevoPrestamo);
  *       404:
  *         description: Préstamo no encontrado
  */
-router.get('/:id', obtenerPrestamo);
-
+router.get('/:id', prestamosController_1.obtenerPrestamo);
 /**
  * @swagger
  * /client/prestamos/{id}/cuotas:
@@ -117,8 +110,7 @@ router.get('/:id', obtenerPrestamo);
  *       200:
  *         description: Lista de cuotas
  */
-router.get('/:id/cuotas', obtenerCuotas);
-
+router.get('/:id/cuotas', prestamosController_1.obtenerCuotas);
 /**
  * @swagger
  * /client/prestamos/{id}:
@@ -138,8 +130,7 @@ router.get('/:id/cuotas', obtenerCuotas);
  *       404:
  *         description: Préstamo no encontrado
  */
-router.delete('/:id', eliminarPrestamo);
-
+router.delete('/:id', prestamosController_1.eliminarPrestamo);
 /**
  * @swagger
  * /client/prestamos/{id}:
@@ -165,8 +156,7 @@ router.delete('/:id', eliminarPrestamo);
  *       404:
  *         description: Préstamo no encontrado
  */
-router.put('/:id', actualizarPrestamo);
-
+router.put('/:id', prestamosController_1.actualizarPrestamo);
 /**
  * @swagger
  * /client/prestamos/{id}/pagos:
@@ -184,10 +174,5 @@ router.put('/:id', actualizarPrestamo);
  *       200:
  *         description: Lista de pagos
  */
-router.get('/:id/pagos', obtenerPagos);
-
-
-
-
-
-export default router;
+router.get('/:id/pagos', prestamosController_1.obtenerPagos);
+exports.default = router;

@@ -1,10 +1,8 @@
-import { Router } from "express";
-import { actualizarPago, eliminarPago, nuevoPago, obtenerPago, obtenerPagos, obtenerPagosPorFecha } from "../controllers/client/pagosController";
-import { calcularMora } from "../controllers/utils";
-
-
-const router = Router()
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const pagosController_1 = require("../controllers/client/pagosController");
+const router = (0, express_1.Router)();
 /**
  * @swagger
  * /client/pagos/fecha:
@@ -23,15 +21,13 @@ const router = Router()
  *       200:
  *         description: Lista de pagos
  */
-router.get('/fecha', obtenerPagosPorFecha);
-
+router.get('/fecha', pagosController_1.obtenerPagosPorFecha);
 /**
  * @swagger
  * tags:
  *   name: Pagos
  *   description: Endpoints para la gestión de pagos
  */
-
 /**
  * @swagger
  * /client/pagos:
@@ -42,8 +38,7 @@ router.get('/fecha', obtenerPagosPorFecha);
  *       200:
  *         description: Lista de pagos
  */
-router.get('/', obtenerPagos);
-
+router.get('/', pagosController_1.obtenerPagos);
 /**
  * @swagger
  * /client/pagos/{id}:
@@ -63,8 +58,7 @@ router.get('/', obtenerPagos);
  *       404:
  *         description: Pago no encontrado
  */
-router.get('/:id', obtenerPago);
-
+router.get('/:id', pagosController_1.obtenerPago);
 /**
  * @swagger
  * /client/pagos:
@@ -81,8 +75,7 @@ router.get('/:id', obtenerPago);
  *       201:
  *         description: Pago registrado
  */
-router.post('/', nuevoPago);
-
+router.post('/', pagosController_1.nuevoPago);
 /**
  * @swagger
  * /client/pagos/{id}:
@@ -108,8 +101,7 @@ router.post('/', nuevoPago);
  *       404:
  *         description: Pago no encontrado
  */
-router.put('/:id', actualizarPago);
-
+router.put('/:id', pagosController_1.actualizarPago);
 /**
  * @swagger
  * /client/pagos/{id}:
@@ -129,9 +121,5 @@ router.put('/:id', actualizarPago);
  *       404:
  *         description: Pago no encontrado
  */
-router.delete('/:id', eliminarPago);
-
-
-
-
-export default router;
+router.delete('/:id', pagosController_1.eliminarPago);
+exports.default = router;

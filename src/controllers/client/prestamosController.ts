@@ -1,7 +1,7 @@
 import { cuotas, frecuencia_pago, pagos, prestamos, PrismaClient, tipo_interes } from "../../generated/prisma";
 import { Request, Response } from "express";
 import { Decimal } from "../../generated/prisma/runtime/library";
-import { generarCuotas } from "../services";
+import { generarCuotasPrestamo, generarCuotasReferencia } from "../services";
 import { ADDRGETNETWORKPARAMS } from "dns";
 
 
@@ -17,6 +17,29 @@ export const obtenerPrestamos = async (req: Request, res: Response) => {
     res.json(prestamos)
 }
 
+
+export const obtenerCuotasPendientes = async (req: Request, res: Response) =>{
+    const {fecha} = req.query;
+    console.log(2)
+    const cuotasPendientes = await prisma.cuotas.findMany({
+        where:{
+            fecha_prevista: new Date(fecha as string)
+        }, 
+
+        include: {
+            prestamos: {
+                include: {
+                    clientes: {}
+                }
+            }
+        }
+    })
+    
+    if(cuotasPendientes.length>0){
+        res.status(200).json(cuotasPendientes)
+    }
+    res.status(404).send("No hay cuotas pendientes para esa fecha")
+}
 
 
 
@@ -168,7 +191,7 @@ export const nuevoPrestamo = async (req: Request, res: Response) => {
         if (resultado) {
             
 
-            const datos = generarCuotas(resultado);
+            const datos = generarCuotasPrestamo(resultado);
            
             const nuevasCuotas = await prisma.cuotas.createMany({
                 data: datos.nuevasCuotas
@@ -203,4 +226,12 @@ export const nuevoPrestamo = async (req: Request, res: Response) => {
 
 }
 
+export const visualizarCuotas = async (req: Request, res: Response) => {
+    const datos = req.body
+
+    const cuotas = generarCuotasReferencia(datos.interes,datos.monto, datos.fecha_inicio, datos.frecuencia_pago, datos.tipo_interes, datos.cant_cuotas)
+    res.status(201).send(cuotas)
+   
+    
+}
 

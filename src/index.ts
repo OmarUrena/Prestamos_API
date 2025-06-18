@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import authRoutes from './routes/authRoutes'
 import clientRoutes from './routes/clientRoutes'
 import bodyParser from "body-parser";
+import {swaggerSpec, swaggerUi} from './swagger';
 import "./jobs/moraJob"
 dotenv.config();
 
@@ -16,10 +17,11 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 app.use(express.json());
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded())
-app.use("/client", clientRoutes)
-app.use("/auth", authRoutes)
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+app.use("/client", clientRoutes);
+app.use("/auth", authRoutes);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 
 app.listen(3000, () => {

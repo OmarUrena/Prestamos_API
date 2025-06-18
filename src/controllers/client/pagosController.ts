@@ -20,7 +20,14 @@ export const obtenerPago = async (req: Request, res: Response) => {
             id_pago : id
         }
     })
+
+    if(pago){
+        res.status(200).json(pago)
+    }
+    res.status(404).send("Pago no encontrado")
 }
+
+
 
 
 /*Agrega un nuevo pago en la base de datos, actualiza el monto restante de la cuota y el estado de la misma
@@ -118,4 +125,20 @@ export const eliminarPago = async (req: Request, res: Response) => {
             id_pago: id
         }
     })
+}
+
+
+
+export const obtenerPagosPorFecha = async (req: Request, res: Response) => {
+    const {fecha} = req.query;
+
+    const pagos = await prisma.pagos.findMany({
+        where: {
+            fecha_pago: new Date(fecha as string)
+        }
+    })
+
+    res.json(pagos)
+
+
 }
