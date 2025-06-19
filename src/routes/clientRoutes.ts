@@ -4,6 +4,7 @@ import  clientesRoutes from './clientesRoutes'
 import pagosRoutes from './pagosRoutes'
 import movimientosRoutes from './movimientosRoutes'
 import usuariosRoutes from './usuariosRoutes'
+import actividadRoutes from './actividadRoutes'
 const router = Router()
 
 
@@ -20,5 +21,7 @@ router.use('/pagos', pagosRoutes)
 router.use('/movimientos', movimientosRoutes)
 
 router.use('/usuarios', usuariosRoutes)
+
+router.use('/actividad', actividadRoutes);
 
 export default router;

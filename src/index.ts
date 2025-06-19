@@ -5,6 +5,7 @@ import authRoutes from './routes/authRoutes'
 import clientRoutes from './routes/clientRoutes'
 import bodyParser from "body-parser";
 import {swaggerSpec, swaggerUi} from './swagger';
+import cookieParser from 'cookie-parser';
 import "./jobs/moraJob"
 dotenv.config();
 
@@ -17,6 +18,7 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 app.use(express.json());
+app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use("/client", clientRoutes);
