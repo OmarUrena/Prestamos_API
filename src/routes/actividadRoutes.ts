@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { obtenerActividades, registrarActividad } from "../controllers/client/actividadController";
+import { logout } from "../controllers/authControllers";
 
 const router = Router();
 
@@ -55,5 +56,8 @@ router.get('/', obtenerActividades);
  *         description: Error al registrar la actividad
  */
 router.post('/', registrarActividad);
+
+
+
 
 export default router;

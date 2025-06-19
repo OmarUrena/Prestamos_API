@@ -166,3 +166,20 @@ export const refresh = (req: Request, res: Response) => {
     })
 }
 
+
+export const logout = (req: Request, res: Response) => {
+    const { refreshToken } = req.cookies;
+
+    if (!refreshToken || !refreshTokens.includes(refreshToken)) {
+        res.status(403).send("Refresh token no es valido");
+    }
+
+    // Elimina el refreshToken del arreglo de tokens activos.
+    refreshTokens = refreshTokens.filter(token => token !== refreshToken);
+    
+    // Elimina la cookie del cliente.
+    res.clearCookie('refreshToken');
+    
+    res.status(200).send("Sesión Terminada exitosamente");
+};
+

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { login, refresh, register } from "../controllers/authControllers";
+import { login, logout, refresh, register } from "../controllers/authControllers";
 
 const router = Router();
 
@@ -98,5 +98,19 @@ router.post('/register', register);
  *         description: Error interno del servidor
  */
 router.post('/refresh', refresh);
+
+/**
+ * @swagger
+ * /auth/logout:
+ *   post:
+ *     summary: Cierra la sesión actual del usuario
+ *     tags: [Auth]
+ *     responses:
+ *       200:
+ *         description: Sesión cerrada exitosamente
+ *       500:
+ *         description: Error al cerrar la sesión
+ */
+router.post('/logout', logout)
 
 export default router;
