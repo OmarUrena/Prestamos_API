@@ -15,6 +15,8 @@ const router = Router();
  * /client/usuarios:
  *   get:
  *     summary: Obtiene todos los usuarios
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Usuarios]
  *     responses:
  *       200:

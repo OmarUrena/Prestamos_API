@@ -12,8 +12,16 @@ dotenv.config();
 
 const app = express();
 const corsOptions = {
-  origin: '"http://localhost:3000"',
-  credentials: true,
+  origin: function (origin: string | undefined, callback: (error: Error | null, success?: boolean) => void) {
+    const allowedOrigins = ['http://localhost:3000', 'https://prestamos-api-nzhe.onrender.com']; // Lista de orígenes permitidos
+    if (allowedOrigins.indexOf(origin as string) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error(origin));
+    }
+  },
+
+ 
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
