@@ -1,16 +1,27 @@
 import { Request, Response } from "express";
 import { movimientoscaja, PrismaClient } from "../../generated/prisma";
+import { verificarToken } from "../services";
 
 
 const prisma = new PrismaClient()
 
 export const obtenerMovimientos = async (req: Request, res: Response) => {
+    const verificacion = await verificarToken(req, res, ["admin", "agente"]);
+        if (verificacion && verificacion?.statusCode != 200) {
+            res.status(verificacion?.statusCode).send(verificacion?.statusMessage);
+    
+        }
     const movimientos = await prisma.movimientoscaja.findMany()
 
     res.json(movimientos)
 }
 
 export const nuevoMovimiento = async (req: Request, res: Response) => {
+    const verificacion = await verificarToken(req, res, ["admin", "agente"]);
+    if (verificacion && verificacion?.statusCode != 200) {
+        res.status(verificacion?.statusCode).send(verificacion?.statusMessage);
+
+    }
     const datos: movimientoscaja = req.body
     try{
         const resultado = await prisma.movimientoscaja.create({

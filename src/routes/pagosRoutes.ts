@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { actualizarPago, eliminarPago, nuevoPago, obtenerPago, obtenerPagos, obtenerPagosPorFecha } from "../controllers/client/pagosController";
-import { calcularMora } from "../controllers/utils";
+
 
 
 const router = Router()
@@ -10,6 +10,8 @@ const router = Router()
  * /client/pagos/fecha:
  *   get:
  *     summary: Obtiene los pagos hechos en una fecha específica
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Pagos]
  *     parameters:
  *       - in: query
@@ -37,6 +39,8 @@ router.get('/fecha', obtenerPagosPorFecha);
  * /client/pagos:
  *   get:
  *     summary: Obtiene todos los pagos
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Pagos]
  *     responses:
  *       200:
@@ -49,6 +53,8 @@ router.get('/', obtenerPagos);
  * /client/pagos/{id}:
  *   get:
  *     summary: Obtiene un pago por ID
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Pagos]
  *     parameters:
  *       - in: path
@@ -70,6 +76,8 @@ router.get('/:id', obtenerPago);
  * /client/pagos:
  *   post:
  *     summary: Registra un nuevo pago
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Pagos]
  *     requestBody:
  *       required: true
@@ -88,6 +96,8 @@ router.post('/', nuevoPago);
  * /client/pagos/{id}:
  *   put:
  *     summary: Actualiza un pago por ID
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Pagos]
  *     parameters:
  *       - in: path
@@ -115,6 +125,8 @@ router.put('/:id', actualizarPago);
  * /client/pagos/{id}:
  *   delete:
  *     summary: Elimina un pago por ID
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Pagos]
  *     parameters:
  *       - in: path

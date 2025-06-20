@@ -54,6 +54,8 @@ router.post('/cuotas', visualizarCuotas);
  * /client/prestamos:
  *   get:
  *     summary: Obtiene todos los préstamos
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Prestamos]
  *     responses:
  *       200:
@@ -66,6 +68,8 @@ router.get("/", obtenerPrestamos);
  * /client/prestamos:
  *   post:
  *     summary: Crea un nuevo préstamo
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Prestamos]
  *     requestBody:
  *       required: true
@@ -84,6 +88,8 @@ router.post('/', nuevoPrestamo);
  * /client/prestamos/{id}:
  *   get:
  *     summary: Obtiene un préstamo por ID
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Prestamos]
  *     parameters:
  *       - in: path
@@ -105,6 +111,8 @@ router.get('/:id', obtenerPrestamo);
  * /client/prestamos/{id}/cuotas:
  *   get:
  *     summary: Obtiene las cuotas de un préstamo
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Prestamos]
  *     parameters:
  *       - in: path
@@ -124,6 +132,8 @@ router.get('/:id/cuotas', obtenerCuotas);
  * /client/prestamos/{id}:
  *   delete:
  *     summary: Elimina un préstamo por ID
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Prestamos]
  *     parameters:
  *       - in: path
@@ -145,6 +155,8 @@ router.delete('/:id', eliminarPrestamo);
  * /client/prestamos/{id}:
  *   put:
  *     summary: Actualiza un préstamo por ID
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Prestamos]
  *     parameters:
  *       - in: path
@@ -172,6 +184,8 @@ router.put('/:id', actualizarPrestamo);
  * /client/prestamos/{id}/pagos:
  *   get:
  *     summary: Obtiene los pagos de un préstamo
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Prestamos]
  *     parameters:
  *       - in: path

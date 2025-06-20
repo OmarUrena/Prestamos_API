@@ -1,10 +1,16 @@
 import { Request, Response } from "express";
 import { PrismaClient } from "../../generated/prisma";
+import { verificarToken } from "../services";
 
 
 const prisma = new PrismaClient();
 
 export const obtenerUsuarios = async (req: Request, res: Response) => {
+    const verificacion = await verificarToken(req, res, ["admin"]);
+        if (verificacion && verificacion?.statusCode != 200) {
+            res.status(verificacion?.statusCode).send(verificacion?.statusMessage);
+    
+        }
 
     const usuarios = await prisma.usuarios.findMany()
 
@@ -20,6 +26,11 @@ export const obtenerUsuarios = async (req: Request, res: Response) => {
 
 
 export const desactivarUsuario = async (req: Request, res: Response) => {
+    const verificacion = await verificarToken(req, res, ["admin"]);
+    if (verificacion && verificacion?.statusCode != 200) {
+        res.status(verificacion?.statusCode).send(verificacion?.statusMessage);
+
+    }
     const id = Number(req.params["id"])
     const razon_baja = req.body.razon_baja;
 
@@ -47,6 +58,11 @@ export const desactivarUsuario = async (req: Request, res: Response) => {
 }
 
 export const activarUsuario = async (req: Request, res: Response) => {
+    const verificacion = await verificarToken(req, res, ["admin"]);
+    if (verificacion && verificacion?.statusCode != 200) {
+        res.status(verificacion?.statusCode).send(verificacion?.statusMessage);
+
+    }
     const id = Number(req.params["id"])
     
 
@@ -75,6 +91,11 @@ export const activarUsuario = async (req: Request, res: Response) => {
 
 
 export const actualizarUsuario = async (req: Request, res: Response) => {
+    const verificacion = await verificarToken(req, res, ["admin"]);
+    if (verificacion && verificacion?.statusCode != 200) {
+        res.status(verificacion?.statusCode).send(verificacion?.statusMessage);
+
+    }
     const id = Number(req.params["id"])
     const {clave_hash, rol} = req.body;
 

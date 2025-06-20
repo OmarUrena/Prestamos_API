@@ -28,6 +28,8 @@ const generateToken = (user: any) => {
         ACCESS_TOKEN_SECRET,
         { expiresIn: accessTokenLife }
     );
+
+    console.log("Access Token generado:", accessToken);
     
     // Genera el token de refresco usando la clave REFRESH_TOKEN_SECRET y su tiempo de expiración.
     const refreshToken = jwt.sign(
@@ -38,6 +40,7 @@ const generateToken = (user: any) => {
     
     // Guarda el refreshToken en un arreglo para mantenerlo activo o poder revocarlo en el futuro.
     refreshTokens.push(refreshToken);
+    console.log("Refresh Token generado:", refreshToken);
     
     return { accessToken, refreshToken };
 };
@@ -79,6 +82,8 @@ export const login = async (req: Request, res: Response) => {
                 }
             });
 
+            console.log("Usuario autenticado:", user);
+
             // Genera el accessToken y refreshToken para el usuario autenticado.
             const { accessToken, refreshToken } = generateToken(user);
             
@@ -115,6 +120,7 @@ export const register = async(req: Request, res: Response) => {
 
         if(usuarioExistente){
             res.status(400).json({ message: "El nombre de usuario ya está en uso" });
+            return;
         }
 
         const nuevoUsuario = await prisma.usuarios.create({
@@ -151,6 +157,7 @@ export const refresh = (req: Request, res: Response) => {
     jwt.verify(refreshToken, REFRESH_TOKEN_SECRET, (err: any, user: any) => {
         if(err) {
             res.status(403).send("Refresh token expirado");
+            return
         }
 
         const newAccessToken = jwt.sign(
@@ -169,11 +176,11 @@ export const refresh = (req: Request, res: Response) => {
 
 export const logout = (req: Request, res: Response) => {
     const { refreshToken } = req.cookies;
-
+    
     if (!refreshToken || !refreshTokens.includes(refreshToken)) {
         res.status(403).send("Refresh token no es valido");
     }
-
+    else{
     // Elimina el refreshToken del arreglo de tokens activos.
     refreshTokens = refreshTokens.filter(token => token !== refreshToken);
     
@@ -181,5 +188,6 @@ export const logout = (req: Request, res: Response) => {
     res.clearCookie('refreshToken');
     
     res.status(200).send("Sesión Terminada exitosamente");
+    }
 };
 

@@ -1,14 +1,25 @@
 import { cuotas, frecuencia_pago, pagos, prestamos, PrismaClient, tipo_interes } from "../../generated/prisma";
-import { Request, Response } from "express";
 import { Decimal } from "../../generated/prisma/runtime/library";
 import { generarCuotasPrestamo, generarCuotasReferencia } from "../services";
 import { ADDRGETNETWORKPARAMS } from "dns";
+import jwt from "jsonwebtoken";
+import { Request, Response } from "express";
+import { verificarToken } from "../services";
 
 
 const prisma = new PrismaClient()
 
 
+
+
 export const obtenerPrestamos = async (req: Request, res: Response) => {
+
+    const verificacion = await verificarToken(req, res, ["admin", "agente"]);
+    
+    if (verificacion && verificacion?.statusCode != 200) {
+        res.status(verificacion?.statusCode).send(verificacion?.statusMessage);
+
+    }
     const prestamos = await prisma.prestamos.findMany({
         include: {
             cuotas: true
@@ -18,13 +29,18 @@ export const obtenerPrestamos = async (req: Request, res: Response) => {
 }
 
 
-export const obtenerCuotasPendientes = async (req: Request, res: Response) =>{
-    const {fecha} = req.query;
-    console.log(2)
+export const obtenerCuotasPendientes = async (req: Request, res: Response) => {
+    const verificacion = await verificarToken(req, res, ["admin", "agente"]);
+    
+    if (verificacion && verificacion?.statusCode != 200) {
+        res.status(verificacion?.statusCode).send(verificacion?.statusMessage);
+
+    }
+    const { fecha } = req.query;
     const cuotasPendientes = await prisma.cuotas.findMany({
-        where:{
+        where: {
             fecha_prevista: new Date(fecha as string)
-        }, 
+        },
 
         include: {
             prestamos: {
@@ -34,8 +50,8 @@ export const obtenerCuotasPendientes = async (req: Request, res: Response) =>{
             }
         }
     })
-    
-    if(cuotasPendientes.length>0){
+
+    if (cuotasPendientes.length > 0) {
         res.status(200).json(cuotasPendientes)
     }
     res.status(404).send("No hay cuotas pendientes para esa fecha")
@@ -44,8 +60,11 @@ export const obtenerCuotasPendientes = async (req: Request, res: Response) =>{
 
 
 export const obtenerPrestamo = async (req: Request, res: Response) => {
+    const verificacion = await verificarToken(req, res, ["admin", "agente"]);
+    if (verificacion && verificacion?.statusCode != 200) {
+        res.status(verificacion?.statusCode).send(verificacion?.statusMessage);
+    }
     const id = Number(req.params["id"])
-    console.log(id)
     const prestamo = await prisma.prestamos.findUnique({
         where: {
             id_prestamo: id
@@ -65,8 +84,13 @@ export const obtenerPrestamo = async (req: Request, res: Response) => {
 }
 
 export const obtenerCuotas = async (req: Request, res: Response) => {
+    const verificacion = await verificarToken(req, res, ["admin", "agente"]);
+    
+    if (verificacion && verificacion?.statusCode != 200) {
+        res.status(verificacion?.statusCode).send(verificacion?.statusMessage);
+
+    }
     const id = Number(req.params["id"])
-    console.log(id)
     const prestamo = await prisma.prestamos.findUnique({
         where: {
             id_prestamo: id
@@ -94,8 +118,13 @@ export const obtenerCuotas = async (req: Request, res: Response) => {
 }
 
 export const obtenerPagos = async (req: Request, res: Response) => {
+    const verificacion = await verificarToken(req, res, ["admin", "agente"]);
+    
+    if (verificacion && verificacion?.statusCode != 200) {
+        res.status(verificacion?.statusCode).send(verificacion?.statusMessage);
+
+    }
     const id = Number(req.params["id"])
-    console.log(id)
     const prestamo = await prisma.prestamos.findUnique({
         where: {
             id_prestamo: id
@@ -128,6 +157,12 @@ export const obtenerPagos = async (req: Request, res: Response) => {
 
 
 export const eliminarPrestamo = async (req: Request, res: Response) => {
+    const verificacion = await verificarToken(req, res, ["admin", "agente"]);
+    
+    if (verificacion && verificacion?.statusCode != 200) {
+        res.status(verificacion?.statusCode).send(verificacion?.statusMessage);
+
+    }
     const id = Number(req.params['id'])
 
     const cuotas = await prisma.cuotas.deleteMany({
@@ -148,6 +183,12 @@ export const eliminarPrestamo = async (req: Request, res: Response) => {
 
 
 export const actualizarPrestamo = async (req: Request, res: Response) => {
+    const verificacion = await verificarToken(req, res, ["admin", "agente"]);
+    
+    if (verificacion && verificacion?.statusCode != 200) {
+        res.status(verificacion?.statusCode).send(verificacion?.statusMessage);
+
+    }
     const id = Number(req.params['id'])
     const datos = req.body
     const prestamo = await prisma.prestamos.update({
@@ -165,10 +206,17 @@ export const actualizarPrestamo = async (req: Request, res: Response) => {
 
 
 export const nuevoPrestamo = async (req: Request, res: Response) => {
+    
+    const verificacion = await verificarToken(req, res, ["admin", "agente"]);
+    
+    if (verificacion && verificacion?.statusCode != 200) {
+        res.status(verificacion?.statusCode).send(verificacion?.statusMessage);
+
+    }
     const datos: prestamos = req.body
 
 
-    
+
 
 
     try {
@@ -189,30 +237,30 @@ export const nuevoPrestamo = async (req: Request, res: Response) => {
         })
 
         if (resultado) {
-            
+
 
             const datos = generarCuotasPrestamo(resultado);
-           
+
             const nuevasCuotas = await prisma.cuotas.createMany({
                 data: datos.nuevasCuotas
             })
 
             console.log(Array.isArray(datos.nuevasCuotas))
 
-            if(nuevasCuotas) {
+            if (nuevasCuotas) {
                 const actualizado = await prisma.prestamos.update({
                     where: {
-                        id_prestamo : resultado.id_prestamo
+                        id_prestamo: resultado.id_prestamo
                     },
                     data: {
-                        fecha_vencimiento: datos.nuevasCuotas[resultado.cant_cuotas -1].fecha_prevista
+                        fecha_vencimiento: datos.nuevasCuotas[resultado.cant_cuotas - 1].fecha_prevista
                     }
                 })
 
-                res.json({actualizado, nuevasCuotas})
+                res.json({ actualizado, nuevasCuotas })
             }
 
-            
+
         }
         else {
             res.status(500).send("No se pudo generar el prestamo")
@@ -227,11 +275,17 @@ export const nuevoPrestamo = async (req: Request, res: Response) => {
 }
 
 export const visualizarCuotas = async (req: Request, res: Response) => {
+    const verificacion = await verificarToken(req, res, ["admin", "agente"]);
+    
+    if (verificacion && verificacion?.statusCode != 200) {
+        res.status(verificacion?.statusCode).send(verificacion?.statusMessage);
+
+    }
     const datos = req.body
 
-    const cuotas = generarCuotasReferencia(datos.interes,datos.monto, datos.fecha_inicio, datos.frecuencia_pago, datos.tipo_interes, datos.cant_cuotas)
+    const cuotas = generarCuotasReferencia(datos.interes, datos.monto, datos.fecha_inicio, datos.frecuencia_pago, datos.tipo_interes, datos.cant_cuotas)
     res.status(201).send(cuotas)
-   
-    
+
+
 }
 

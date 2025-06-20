@@ -15,6 +15,8 @@ const router = Router();
  * /client/movimientos:
  *   get:
  *     summary: Obtiene todos los movimientos
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Movimientos]
  *     responses:
  *       200:
@@ -27,6 +29,8 @@ router.get('/', obtenerMovimientos);
  * /client/movimientos:
  *   post:
  *     summary: Crea un nuevo movimiento
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Movimientos]
  *     requestBody:
  *       required: true

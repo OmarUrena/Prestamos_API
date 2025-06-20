@@ -27,6 +27,8 @@ router.get('/', obtenerUsuarios);
  * /client/usuarios/{id}:
  *   put:
  *     summary: Actualiza un usuario por su ID
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Usuarios]
  *     parameters:
  *       - in: path
@@ -57,6 +59,8 @@ router.put('/:id', actualizarUsuario);
  * /client/usuarios/disable/{id}:
  *   put:
  *     summary: Desactiva un usuario por su ID
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Usuarios]
  *     parameters:
  *       - in: path
@@ -78,6 +82,8 @@ router.put('/disable/:id', desactivarUsuario);
  * /client/usuarios/enable/{id}:
  *   put:
  *     summary: Activa un usuario por su ID
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Usuarios]
  *     parameters:
  *       - in: path

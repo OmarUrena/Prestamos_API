@@ -1,10 +1,16 @@
 import { clientes, PrismaClient } from "../../generated/prisma";
 import { Request, Response } from "express";
+import { verificarToken } from "../services";
 
 
 const prisma = new PrismaClient()
 
 export const  obtenerClientes = async (req: Request, res: Response) => {
+    const verificacion = await verificarToken(req, res, ["admin", "agente"]);
+        if (verificacion && verificacion?.statusCode != 200) {
+            res.status(verificacion?.statusCode).send(verificacion?.statusMessage);
+    
+        }
     const clientes = await prisma.clientes.findMany({
         include: {
             prestamos: true
@@ -16,6 +22,11 @@ export const  obtenerClientes = async (req: Request, res: Response) => {
 
 
 export const obtenerCliente = async (req: Request, res: Response) => {
+    const verificacion = await verificarToken(req, res, ["admin", "agente"]);
+    if (verificacion && verificacion?.statusCode != 200) {
+        res.status(verificacion?.statusCode).send(verificacion?.statusMessage);
+
+    }
     const id = Number(req.params["id"])
     const cliente = await prisma.clientes.findUnique({
         where: {
@@ -36,6 +47,11 @@ export const obtenerCliente = async (req: Request, res: Response) => {
 
 
 export const nuevoCliente = async (req: Request, res: Response) => {
+    const verificacion = await verificarToken(req, res, ["admin", "agente"]);
+    if (verificacion && verificacion?.statusCode != 200) {
+        res.status(verificacion?.statusCode).send(verificacion?.statusMessage);
+
+    }
     const datos : clientes = req.body
 
     
@@ -78,6 +94,11 @@ export const nuevoCliente = async (req: Request, res: Response) => {
 }
 
 export const actualizarCliente = async (req: Request, res: Response) => {
+    const verificacion = await verificarToken(req, res, ["admin", "agente"]);
+    if (verificacion && verificacion?.statusCode != 200) {
+        res.status(verificacion?.statusCode).send(verificacion?.statusMessage);
+
+    }
     const id = Number(req.params['id'])
     const datos = req.body
     const cliente = await prisma.clientes.update({
@@ -95,6 +116,11 @@ export const actualizarCliente = async (req: Request, res: Response) => {
 
 
 export const eliminarCliente = async (req: Request, res: Response) => {
+    const verificacion = await verificarToken(req, res, ["admin"]);
+    if (verificacion && verificacion?.statusCode != 200) {
+        res.status(verificacion?.statusCode).send(verificacion?.statusMessage);
+
+    }
     const id = Number(req.params['id'])
 
     const prestamos = await prisma.prestamos.deleteMany({

@@ -15,6 +15,8 @@ const router = Router();
  * /client/clientes:
  *   get:
  *     summary: Obtiene todos los clientes
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Clientes]
  *     responses:
  *       200:
@@ -27,6 +29,8 @@ router.get("/", obtenerClientes);
  * /client/clientes/{id}:
  *   get:
  *     summary: Obtiene un cliente por su ID
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Clientes]
  *     parameters:
  *       - in: path
@@ -48,6 +52,8 @@ router.get("/:id", obtenerCliente);
  * /client/clientes:
  *   post:
  *     summary: Crea un nuevo cliente
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Clientes]
  *     requestBody:
  *       required: true
@@ -74,6 +80,8 @@ router.post("/", nuevoCliente);
  * /client/clientes/{id}:
  *   put:
  *     summary: Actualiza un cliente existente por ID
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Clientes]
  *     parameters:
  *       - in: path
@@ -109,6 +117,8 @@ router.put("/:id", actualizarCliente);
  * /client/clientes/{id}:
  *   delete:
  *     summary: Elimina un cliente por su ID
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Clientes]
  *     parameters:
  *       - in: path

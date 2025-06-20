@@ -1,5 +1,6 @@
 import { logactividad, PrismaClient } from "../../generated/prisma";
 import { Request, Response } from "express";
+import { verificarToken } from "../services";
 const prisma = new PrismaClient();
 
 type ActividadInput = {
@@ -26,6 +27,11 @@ export const registrarActividad = async (req: Request, res: Response) => {
 
 
 export const obtenerActividades = async (req: Request, res: Response) => {
+    const verificacion = await verificarToken(req, res, ["admin"]);
+        if (verificacion && verificacion?.statusCode != 200) {
+            res.status(verificacion?.statusCode).send(verificacion?.statusMessage);
+    
+        }
     try {
         const actividades = await prisma.logactividad.findMany({
             orderBy: {

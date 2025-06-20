@@ -81,6 +81,8 @@ router.post('/register', register);
  * /auth/refresh:
  *   post:
  *     summary: Refresca el token de autenticación utilizando el refreshToken
+ *     security:
+ *      - bearerAuth: []
  *     tags: [Auth]
  *     parameters:
  *      - in: cookie
@@ -104,6 +106,8 @@ router.post('/refresh', refresh);
  * /auth/logout:
  *   post:
  *     summary: Cierra la sesión actual del usuario
+ *     security:
+ *       - bearerAuth: []
  *     tags: [Auth]
  *     responses:
  *       200:

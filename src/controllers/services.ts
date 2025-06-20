@@ -1,5 +1,7 @@
 import { Decimal } from "@prisma/client/runtime/library"
 import { prestamos, PrismaClient } from "../generated/prisma"
+import { Request, Response } from "express"
+import jwt from "jsonwebtoken"
 
 const prisma = new PrismaClient()
 
@@ -40,7 +42,7 @@ export const actualizarCuotas = async () => {
         const diasMora = Math.floor((date.getTime() - cuota.fecha_prevista.getTime()) / (1000 * 60 * 60 * 24));
         if (diasMora > 0) {
             const mora = Number(calcularMora(Number(cuota.monto), 0.18, diasMora))
-            console.log(mora)
+            
             const agregarPendiente = mora - Number(cuota.intereses_mora)
 
             await prisma.cuotas.update({
@@ -217,6 +219,41 @@ export const generarCuotasReferencia = (interes: number, monto: number, fecha: D
         cuota: cuota,
         nuevasCuotas
     }
+}
+
+export const verificarToken = async (req: Request, res: Response, roles: string[]) => {
+    const authHeader = req.headers.authorization;
+    const token = authHeader && authHeader.split(' ')[1];
+
+    if (!token) {
+        return { statusCode: 401, statusMessage: "No se ha proporcionado un token de autorización" };
+    }
+
+    // Now token is guaranteed to be a string.
+
+    try {
+        const user = await new Promise<any>((resolve, reject) => {
+            jwt.verify(token, process.env.ACCESS_TOKEN_SECRET as string, async (err: any, user: any) => {
+                if (err) {
+                    reject(err);
+                }
+                else {
+                    resolve(user);
+                }
+    
+            });
+        })
+    
+        if (user && !roles.includes(user.rol)) {
+            return { statusCode: 403, statusMessage: "No tienes permisos para acceder a esta ruta" };
+    
+        }
+    
+        return { statusCode: 200, statusMessage: "Token verificado correctamente", user: user };
+    } catch (error) {
+        return { statusCode: 401, statusMessage: "Token no válido" };
+    }
+
 }
 
 
