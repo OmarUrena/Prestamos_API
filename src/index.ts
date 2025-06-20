@@ -13,13 +13,15 @@ dotenv.config();
 const app = express();
 const corsOptions = {
   origin: function (origin: string | undefined, callback: (error: Error | null, success?: boolean) => void) {
-    const allowedOrigins = ['http://localhost:3000', 'https://prestamos-api-nzhe.onrender.com/api-docs']; // Lista de orígenes permitidos
+    const allowedOrigins = ['http://localhost:3000', 'https://prestamos-api-nzhe.onrender.com']; // Lista de orígenes permitidos
     if (allowedOrigins.indexOf(origin as string) !== -1 || !origin) {
       callback(null, true);
     } else {
       callback(new Error(origin));
     }
   },
+
+  credentials: true,
 
  
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
