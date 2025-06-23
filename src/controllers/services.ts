@@ -82,7 +82,7 @@ export const generarCuotasPrestamo = (prestamo: prestamos) => {
     let interval = 0
     let interes = Number(prestamo.interes)
     let montoRestante = Number(prestamo.monto)
-
+    let montoPrestamo = Number(prestamo.monto)
     let fecha: Date = prestamo.fecha_inicio
     switch (prestamo.frecuencia_pago) {
         case 'mensual':
@@ -201,7 +201,7 @@ export const generarCuotasReferencia = (interes: number, monto: number, fecha: D
             fecha_prevista: fecha1,
             monto_capital: Decimal(montoCapital),
             monto_interes: Decimal(montoInteres),
-            monto_restante: Decimal(cuota),
+            monto_restante: Decimal(montoRestante),
 
 
 
