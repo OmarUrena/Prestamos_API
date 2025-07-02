@@ -25,7 +25,14 @@ export const obtenerPrestamos = async (req: Request, res: Response) => {
             clientes: true
         }
     })
-    res.json(prestamos)
+
+    const serialized = prestamos.map((prestamo) => {
+        return {
+            ...prestamo,
+            monto: prestamo.monto.toNumber(),
+        }
+    })
+    res.json(serialized)
 }
 
 
@@ -81,7 +88,11 @@ export const obtenerPrestamo = async (req: Request, res: Response) => {
     })
 
     if (prestamo != null) {
-        res.json(prestamo)
+        const serialized = {
+            ...prestamo,
+            monto: prestamo.monto.toNumber()
+        }
+        res.json(serialized)
     }
     else {
         res.status(404).send(`No se encontró el préstamo con el id: ${id}`)
