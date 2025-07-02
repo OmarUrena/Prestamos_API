@@ -22,7 +22,7 @@ export const obtenerPrestamos = async (req: Request, res: Response) => {
     }
     const prestamos = await prisma.prestamos.findMany({
         include: {
-            cuotas: true
+            clientes: true
         }
     })
     res.json(prestamos)
@@ -45,7 +45,7 @@ export const obtenerCuotasPendientes = async (req: Request, res: Response) => {
         include: {
             prestamos: {
                 include: {
-                    clientes: {}
+                    clientes: true
                 }
             }
         }
@@ -71,7 +71,12 @@ export const obtenerPrestamo = async (req: Request, res: Response) => {
         },
         include: {
             clientes: true,
-            usuarios: true
+            usuarios: true,
+            cuotas: {
+                include: {
+                    pagos: true
+                }
+            }
         }
     })
 
@@ -257,7 +262,7 @@ export const nuevoPrestamo = async (req: Request, res: Response) => {
                     }
                 })
 
-                res.json({ actualizado, nuevasCuotas })
+                res.status(201).json({ actualizado, nuevasCuotas })
             }
 
 

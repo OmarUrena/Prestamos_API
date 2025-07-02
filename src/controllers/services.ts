@@ -196,12 +196,12 @@ export const generarCuotasReferencia = (interes: number, monto: number, fecha: D
 
         let fecha1 = new Date(fecha)
         const nuevaCuota = {
-            monto: Decimal(cuota),
+            monto: cuota,
             numero: index + 1,
             fecha_prevista: fecha1,
-            monto_capital: Decimal(montoCapital),
-            monto_interes: Decimal(montoInteres),
-            monto_restante: Decimal(montoRestante),
+            monto_capital: montoCapital,
+            monto_interes: montoInteres,
+            monto_restante: montoRestante,
 
 
 
