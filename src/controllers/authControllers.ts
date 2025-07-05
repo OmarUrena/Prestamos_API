@@ -109,7 +109,7 @@ export const login = async (req: Request, res: Response) => {
 
 
 export const register = async(req: Request, res: Response) => {
-    const { nombre_usuario, clave_hash, rol} = req.body;
+    const { nombre_usuario, clave_hash, rol, nombre, apellido} = req.body;
 
     try{
         const usuarioExistente = await prisma.usuarios.findUnique({
@@ -126,6 +126,8 @@ export const register = async(req: Request, res: Response) => {
         const nuevoUsuario = await prisma.usuarios.create({
             data: {
                 nombre_usuario: nombre_usuario,
+                apellido: apellido,
+                nombre: nombre,
                 clave_hash: clave_hash,
                 rol: rol,
                 fecha_creacion: new Date(),

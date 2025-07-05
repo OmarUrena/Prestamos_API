@@ -55,6 +55,8 @@ router.post('/login', login);
  *             type: object
  *             required:
  *               - nombre_usuario
+ *               - apellido
+ *               - nombre
  *               - rol
  *               - password
  *             properties:
@@ -64,10 +66,16 @@ router.post('/login', login);
  *                 type: string
  *               password:
  *                 type: string
+ *               nombre:
+ *                 type: string
+ *               apellido:
+ *                 type: string
  *             example:
  *               nombre_usuario: "Usuario Nuevo"
  *               rol: "admin"
  *               password: "contraseña123"
+ *               nombre: "Nombre"
+ *               apellido: "Apellido"
  *     responses:
  *       201:
  *         description: Usuario registrado exitosamente

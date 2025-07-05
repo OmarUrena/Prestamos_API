@@ -64,10 +64,19 @@ router.get("/:id", obtenerCliente);
  *             properties:
  *               nombre:
  *                 type: string
+ *               apellido:
+ *                 type: string
+ *               cedula:
+ *                 type: string
+ *               telefono:
+ *                 type: string
  *               email:
  *                 type: string
+ *              direccion:
+ *               
  *             example:
- *               nombre: "Juan Perez"
+ *               nombre: "Juan"
+ *               apellido: "Perez"
  *               email: "juan.perez@example.com"
  *     responses:
  *       201:

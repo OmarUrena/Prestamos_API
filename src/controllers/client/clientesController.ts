@@ -62,10 +62,10 @@ export const nuevoCliente = async (req: Request, res: Response) => {
         const resultado = await prisma.clientes.create({
         data: {
             nombre: datos.nombre,
+            apellido: datos.apellido,
             cedula: datos.cedula,
             telefono: datos.telefono,
-            email: datos.email,          
-            direccion: datos.direccion,
+            email: datos.email,
             foto_url: datos.foto_url,
             notas: datos.notas,
             referido_por: datos.referido_por

@@ -126,11 +126,11 @@ exports.Prisma.ClientesScalarFieldEnum = {
   cedula: 'cedula',
   telefono: 'telefono',
   email: 'email',
-  direccion: 'direccion',
   foto_url: 'foto_url',
   notas: 'notas',
   referido_por: 'referido_por',
-  fecha_registro: 'fecha_registro'
+  fecha_registro: 'fecha_registro',
+  apellido: 'apellido'
 };
 
 exports.Prisma.CuotasScalarFieldEnum = {
@@ -201,24 +201,17 @@ exports.Prisma.UsuariosScalarFieldEnum = {
   ultimo_acceso: 'ultimo_acceso',
   fecha_baja: 'fecha_baja',
   razon_baja: 'razon_baja',
-  estado: 'estado'
+  estado: 'estado',
+  nombre: 'nombre',
+  apellido: 'apellido'
 };
 
-exports.Prisma.Datos_prestamosScalarFieldEnum = {
-  id_prestamo: 'id_prestamo',
+exports.Prisma.DireccionesScalarFieldEnum = {
+  id: 'id',
   id_cliente: 'id_cliente',
-  nombre: 'nombre',
-  cedula: 'cedula',
-  telefono: 'telefono',
-  direccion: 'direccion',
-  foto_url: 'foto_url',
-  monto: 'monto',
-  interes: 'interes',
-  cant_cuotas: 'cant_cuotas',
-  frecuencia_pago: 'frecuencia_pago',
-  fecha_inicio: 'fecha_inicio',
-  fecha_vencimiento: 'fecha_vencimiento',
-  estado: 'estado'
+  latitud: 'latitud',
+  longitud: 'longitud',
+  desripcion: 'desripcion'
 };
 
 exports.Prisma.SortOrder = {
@@ -290,7 +283,7 @@ exports.Prisma.ModelName = {
   pagos: 'pagos',
   prestamos: 'prestamos',
   usuarios: 'usuarios',
-  datos_prestamos: 'datos_prestamos'
+  direcciones: 'direcciones'
 };
 
 /**

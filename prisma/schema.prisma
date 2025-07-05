@@ -2,7 +2,7 @@ generator client {
   provider        = "prisma-client-js"
   output          = "../src/generated/prisma"
   previewFeatures = ["views"]
-  binaryTargets = ["native", "windows", "debian-openssl-3.0.x", "linux-musl-openssl-3.0.x"]
+  binaryTargets   = ["native", "windows", "debian-openssl-3.0.x", "linux-musl-openssl-3.0.x"]
 }
 
 datasource db {
@@ -11,16 +11,17 @@ datasource db {
 }
 
 model clientes {
-  id_cliente     Int         @id @default(autoincrement())
-  nombre         String      @db.VarChar(100)
-  cedula         String      @unique @db.VarChar(20)
-  telefono       String?     @db.VarChar(20)
-  email          String?     @db.VarChar(30)
-  direccion      String?
+  id_cliente     Int           @id @default(autoincrement())
+  nombre         String        @db.VarChar(100)
+  cedula         String        @unique @db.VarChar(20)
+  telefono       String?       @db.VarChar(20)
+  email          String?       @db.VarChar(30)
   foto_url       String?
   notas          String?
   referido_por   String?
-  fecha_registro DateTime?   @default(dbgenerated("CURRENT_DATE")) @db.Date
+  fecha_registro DateTime?     @default(dbgenerated("CURRENT_DATE")) @db.Date
+  apellido       String?       @db.VarChar(100)
+  direcciones    direcciones[]
   prestamos      prestamos[]
 }
 
@@ -102,27 +103,21 @@ model usuarios {
   fecha_baja      DateTime?         @db.Date
   razon_baja      String?
   estado          estado_usuario?   @default(activo)
+  nombre          String?           @db.VarChar
+  apellido        String?           @db.VarChar
   logactividad    logactividad[]
   movimientoscaja movimientoscaja[]
   pagos           pagos[]
   prestamos       prestamos[]
 }
 
-view datos_prestamos {
-  id_prestamo       Int              @unique
-  id_cliente        Int?
-  nombre            String?          @db.VarChar(100)
-  cedula            String?          @db.VarChar(20)
-  telefono          String?          @db.VarChar(20)
-  direccion         String?
-  foto_url          String?
-  monto             Decimal?         @db.Decimal(10, 2)
-  interes           Decimal?         @db.Decimal(5, 2)
-  cant_cuotas       Int?
-  frecuencia_pago   frecuencia_pago?
-  fecha_inicio      DateTime?        @db.Date
-  fecha_vencimiento DateTime?        @db.Date
-  estado            estado_prestamo?
+model direcciones {
+  id         Int      @id(map: "ubicaciones_pkey") @default(autoincrement())
+  id_cliente Int
+  latitud    Decimal  @db.Decimal
+  longitud   Decimal  @db.Decimal
+  desripcion String   @db.VarChar(50)
+  clientes   clientes @relation(fields: [id_cliente], references: [id_cliente], onDelete: NoAction, onUpdate: NoAction, map: "id_cliente_fk")
 }
 
 enum estado_cuota {

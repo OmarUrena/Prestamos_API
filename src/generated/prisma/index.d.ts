@@ -49,10 +49,10 @@ export type prestamos = $Result.DefaultSelection<Prisma.$prestamosPayload>
  */
 export type usuarios = $Result.DefaultSelection<Prisma.$usuariosPayload>
 /**
- * Model datos_prestamos
+ * Model direcciones
  * 
  */
-export type datos_prestamos = $Result.DefaultSelection<Prisma.$datos_prestamosPayload>
+export type direcciones = $Result.DefaultSelection<Prisma.$direccionesPayload>
 
 /**
  * Enums
@@ -383,14 +383,14 @@ export class PrismaClient<
   get usuarios(): Prisma.usuariosDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.datos_prestamos`: Exposes CRUD operations for the **datos_prestamos** model.
+   * `prisma.direcciones`: Exposes CRUD operations for the **direcciones** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Datos_prestamos
-    * const datos_prestamos = await prisma.datos_prestamos.findMany()
+    * // Fetch zero or more Direcciones
+    * const direcciones = await prisma.direcciones.findMany()
     * ```
     */
-  get datos_prestamos(): Prisma.datos_prestamosDelegate<ExtArgs, ClientOptions>;
+  get direcciones(): Prisma.direccionesDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -838,7 +838,7 @@ export namespace Prisma {
     pagos: 'pagos',
     prestamos: 'prestamos',
     usuarios: 'usuarios',
-    datos_prestamos: 'datos_prestamos'
+    direcciones: 'direcciones'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -857,7 +857,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "clientes" | "cuotas" | "logactividad" | "movimientoscaja" | "pagos" | "prestamos" | "usuarios" | "datos_prestamos"
+      modelProps: "clientes" | "cuotas" | "logactividad" | "movimientoscaja" | "pagos" | "prestamos" | "usuarios" | "direcciones"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1379,77 +1379,77 @@ export namespace Prisma {
           }
         }
       }
-      datos_prestamos: {
-        payload: Prisma.$datos_prestamosPayload<ExtArgs>
-        fields: Prisma.datos_prestamosFieldRefs
+      direcciones: {
+        payload: Prisma.$direccionesPayload<ExtArgs>
+        fields: Prisma.direccionesFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.datos_prestamosFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$datos_prestamosPayload> | null
+            args: Prisma.direccionesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$direccionesPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.datos_prestamosFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$datos_prestamosPayload>
+            args: Prisma.direccionesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$direccionesPayload>
           }
           findFirst: {
-            args: Prisma.datos_prestamosFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$datos_prestamosPayload> | null
+            args: Prisma.direccionesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$direccionesPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.datos_prestamosFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$datos_prestamosPayload>
+            args: Prisma.direccionesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$direccionesPayload>
           }
           findMany: {
-            args: Prisma.datos_prestamosFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$datos_prestamosPayload>[]
+            args: Prisma.direccionesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$direccionesPayload>[]
           }
           create: {
-            args: Prisma.datos_prestamosCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$datos_prestamosPayload>
+            args: Prisma.direccionesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$direccionesPayload>
           }
           createMany: {
-            args: Prisma.datos_prestamosCreateManyArgs<ExtArgs>
+            args: Prisma.direccionesCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.datos_prestamosCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$datos_prestamosPayload>[]
+            args: Prisma.direccionesCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$direccionesPayload>[]
           }
           delete: {
-            args: Prisma.datos_prestamosDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$datos_prestamosPayload>
+            args: Prisma.direccionesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$direccionesPayload>
           }
           update: {
-            args: Prisma.datos_prestamosUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$datos_prestamosPayload>
+            args: Prisma.direccionesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$direccionesPayload>
           }
           deleteMany: {
-            args: Prisma.datos_prestamosDeleteManyArgs<ExtArgs>
+            args: Prisma.direccionesDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.datos_prestamosUpdateManyArgs<ExtArgs>
+            args: Prisma.direccionesUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.datos_prestamosUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$datos_prestamosPayload>[]
+            args: Prisma.direccionesUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$direccionesPayload>[]
           }
           upsert: {
-            args: Prisma.datos_prestamosUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$datos_prestamosPayload>
+            args: Prisma.direccionesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$direccionesPayload>
           }
           aggregate: {
-            args: Prisma.Datos_prestamosAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateDatos_prestamos>
+            args: Prisma.DireccionesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDirecciones>
           }
           groupBy: {
-            args: Prisma.datos_prestamosGroupByArgs<ExtArgs>
-            result: $Utils.Optional<Datos_prestamosGroupByOutputType>[]
+            args: Prisma.direccionesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DireccionesGroupByOutputType>[]
           }
           count: {
-            args: Prisma.datos_prestamosCountArgs<ExtArgs>
-            result: $Utils.Optional<Datos_prestamosCountAggregateOutputType> | number
+            args: Prisma.direccionesCountArgs<ExtArgs>
+            result: $Utils.Optional<DireccionesCountAggregateOutputType> | number
           }
         }
       }
@@ -1544,7 +1544,7 @@ export namespace Prisma {
     pagos?: pagosOmit
     prestamos?: prestamosOmit
     usuarios?: usuariosOmit
-    datos_prestamos?: datos_prestamosOmit
+    direcciones?: direccionesOmit
   }
 
   /* Types for Logging */
@@ -1639,10 +1639,12 @@ export namespace Prisma {
    */
 
   export type ClientesCountOutputType = {
+    direcciones: number
     prestamos: number
   }
 
   export type ClientesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    direcciones?: boolean | ClientesCountOutputTypeCountDireccionesArgs
     prestamos?: boolean | ClientesCountOutputTypeCountPrestamosArgs
   }
 
@@ -1655,6 +1657,13 @@ export namespace Prisma {
      * Select specific fields to fetch from the ClientesCountOutputType
      */
     select?: ClientesCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ClientesCountOutputType without action
+   */
+  export type ClientesCountOutputTypeCountDireccionesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: direccionesWhereInput
   }
 
   /**
@@ -1815,11 +1824,11 @@ export namespace Prisma {
     cedula: string | null
     telefono: string | null
     email: string | null
-    direccion: string | null
     foto_url: string | null
     notas: string | null
     referido_por: string | null
     fecha_registro: Date | null
+    apellido: string | null
   }
 
   export type ClientesMaxAggregateOutputType = {
@@ -1828,11 +1837,11 @@ export namespace Prisma {
     cedula: string | null
     telefono: string | null
     email: string | null
-    direccion: string | null
     foto_url: string | null
     notas: string | null
     referido_por: string | null
     fecha_registro: Date | null
+    apellido: string | null
   }
 
   export type ClientesCountAggregateOutputType = {
@@ -1841,11 +1850,11 @@ export namespace Prisma {
     cedula: number
     telefono: number
     email: number
-    direccion: number
     foto_url: number
     notas: number
     referido_por: number
     fecha_registro: number
+    apellido: number
     _all: number
   }
 
@@ -1864,11 +1873,11 @@ export namespace Prisma {
     cedula?: true
     telefono?: true
     email?: true
-    direccion?: true
     foto_url?: true
     notas?: true
     referido_por?: true
     fecha_registro?: true
+    apellido?: true
   }
 
   export type ClientesMaxAggregateInputType = {
@@ -1877,11 +1886,11 @@ export namespace Prisma {
     cedula?: true
     telefono?: true
     email?: true
-    direccion?: true
     foto_url?: true
     notas?: true
     referido_por?: true
     fecha_registro?: true
+    apellido?: true
   }
 
   export type ClientesCountAggregateInputType = {
@@ -1890,11 +1899,11 @@ export namespace Prisma {
     cedula?: true
     telefono?: true
     email?: true
-    direccion?: true
     foto_url?: true
     notas?: true
     referido_por?: true
     fecha_registro?: true
+    apellido?: true
     _all?: true
   }
 
@@ -1990,11 +1999,11 @@ export namespace Prisma {
     cedula: string
     telefono: string | null
     email: string | null
-    direccion: string | null
     foto_url: string | null
     notas: string | null
     referido_por: string | null
     fecha_registro: Date | null
+    apellido: string | null
     _count: ClientesCountAggregateOutputType | null
     _avg: ClientesAvgAggregateOutputType | null
     _sum: ClientesSumAggregateOutputType | null
@@ -2022,11 +2031,12 @@ export namespace Prisma {
     cedula?: boolean
     telefono?: boolean
     email?: boolean
-    direccion?: boolean
     foto_url?: boolean
     notas?: boolean
     referido_por?: boolean
     fecha_registro?: boolean
+    apellido?: boolean
+    direcciones?: boolean | clientes$direccionesArgs<ExtArgs>
     prestamos?: boolean | clientes$prestamosArgs<ExtArgs>
     _count?: boolean | ClientesCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["clientes"]>
@@ -2037,11 +2047,11 @@ export namespace Prisma {
     cedula?: boolean
     telefono?: boolean
     email?: boolean
-    direccion?: boolean
     foto_url?: boolean
     notas?: boolean
     referido_por?: boolean
     fecha_registro?: boolean
+    apellido?: boolean
   }, ExtArgs["result"]["clientes"]>
 
   export type clientesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -2050,11 +2060,11 @@ export namespace Prisma {
     cedula?: boolean
     telefono?: boolean
     email?: boolean
-    direccion?: boolean
     foto_url?: boolean
     notas?: boolean
     referido_por?: boolean
     fecha_registro?: boolean
+    apellido?: boolean
   }, ExtArgs["result"]["clientes"]>
 
   export type clientesSelectScalar = {
@@ -2063,15 +2073,16 @@ export namespace Prisma {
     cedula?: boolean
     telefono?: boolean
     email?: boolean
-    direccion?: boolean
     foto_url?: boolean
     notas?: boolean
     referido_por?: boolean
     fecha_registro?: boolean
+    apellido?: boolean
   }
 
-  export type clientesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id_cliente" | "nombre" | "cedula" | "telefono" | "email" | "direccion" | "foto_url" | "notas" | "referido_por" | "fecha_registro", ExtArgs["result"]["clientes"]>
+  export type clientesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id_cliente" | "nombre" | "cedula" | "telefono" | "email" | "foto_url" | "notas" | "referido_por" | "fecha_registro" | "apellido", ExtArgs["result"]["clientes"]>
   export type clientesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    direcciones?: boolean | clientes$direccionesArgs<ExtArgs>
     prestamos?: boolean | clientes$prestamosArgs<ExtArgs>
     _count?: boolean | ClientesCountOutputTypeDefaultArgs<ExtArgs>
   }
@@ -2081,6 +2092,7 @@ export namespace Prisma {
   export type $clientesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "clientes"
     objects: {
+      direcciones: Prisma.$direccionesPayload<ExtArgs>[]
       prestamos: Prisma.$prestamosPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -2089,11 +2101,11 @@ export namespace Prisma {
       cedula: string
       telefono: string | null
       email: string | null
-      direccion: string | null
       foto_url: string | null
       notas: string | null
       referido_por: string | null
       fecha_registro: Date | null
+      apellido: string | null
     }, ExtArgs["result"]["clientes"]>
     composites: {}
   }
@@ -2488,6 +2500,7 @@ export namespace Prisma {
    */
   export interface Prisma__clientesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    direcciones<T extends clientes$direccionesArgs<ExtArgs> = {}>(args?: Subset<T, clientes$direccionesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$direccionesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     prestamos<T extends clientes$prestamosArgs<ExtArgs> = {}>(args?: Subset<T, clientes$prestamosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$prestamosPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -2523,11 +2536,11 @@ export namespace Prisma {
     readonly cedula: FieldRef<"clientes", 'String'>
     readonly telefono: FieldRef<"clientes", 'String'>
     readonly email: FieldRef<"clientes", 'String'>
-    readonly direccion: FieldRef<"clientes", 'String'>
     readonly foto_url: FieldRef<"clientes", 'String'>
     readonly notas: FieldRef<"clientes", 'String'>
     readonly referido_por: FieldRef<"clientes", 'String'>
     readonly fecha_registro: FieldRef<"clientes", 'DateTime'>
+    readonly apellido: FieldRef<"clientes", 'String'>
   }
     
 
@@ -2913,6 +2926,30 @@ export namespace Prisma {
      * Limit how many clientes to delete.
      */
     limit?: number
+  }
+
+  /**
+   * clientes.direcciones
+   */
+  export type clientes$direccionesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the direcciones
+     */
+    select?: direccionesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the direcciones
+     */
+    omit?: direccionesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: direccionesInclude<ExtArgs> | null
+    where?: direccionesWhereInput
+    orderBy?: direccionesOrderByWithRelationInput | direccionesOrderByWithRelationInput[]
+    cursor?: direccionesWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DireccionesScalarFieldEnum | DireccionesScalarFieldEnum[]
   }
 
   /**
@@ -8916,6 +8953,8 @@ export namespace Prisma {
     fecha_baja: Date | null
     razon_baja: string | null
     estado: $Enums.estado_usuario | null
+    nombre: string | null
+    apellido: string | null
   }
 
   export type UsuariosMaxAggregateOutputType = {
@@ -8928,6 +8967,8 @@ export namespace Prisma {
     fecha_baja: Date | null
     razon_baja: string | null
     estado: $Enums.estado_usuario | null
+    nombre: string | null
+    apellido: string | null
   }
 
   export type UsuariosCountAggregateOutputType = {
@@ -8940,6 +8981,8 @@ export namespace Prisma {
     fecha_baja: number
     razon_baja: number
     estado: number
+    nombre: number
+    apellido: number
     _all: number
   }
 
@@ -8962,6 +9005,8 @@ export namespace Prisma {
     fecha_baja?: true
     razon_baja?: true
     estado?: true
+    nombre?: true
+    apellido?: true
   }
 
   export type UsuariosMaxAggregateInputType = {
@@ -8974,6 +9019,8 @@ export namespace Prisma {
     fecha_baja?: true
     razon_baja?: true
     estado?: true
+    nombre?: true
+    apellido?: true
   }
 
   export type UsuariosCountAggregateInputType = {
@@ -8986,6 +9033,8 @@ export namespace Prisma {
     fecha_baja?: true
     razon_baja?: true
     estado?: true
+    nombre?: true
+    apellido?: true
     _all?: true
   }
 
@@ -9085,6 +9134,8 @@ export namespace Prisma {
     fecha_baja: Date | null
     razon_baja: string | null
     estado: $Enums.estado_usuario | null
+    nombre: string | null
+    apellido: string | null
     _count: UsuariosCountAggregateOutputType | null
     _avg: UsuariosAvgAggregateOutputType | null
     _sum: UsuariosSumAggregateOutputType | null
@@ -9116,6 +9167,8 @@ export namespace Prisma {
     fecha_baja?: boolean
     razon_baja?: boolean
     estado?: boolean
+    nombre?: boolean
+    apellido?: boolean
     logactividad?: boolean | usuarios$logactividadArgs<ExtArgs>
     movimientoscaja?: boolean | usuarios$movimientoscajaArgs<ExtArgs>
     pagos?: boolean | usuarios$pagosArgs<ExtArgs>
@@ -9133,6 +9186,8 @@ export namespace Prisma {
     fecha_baja?: boolean
     razon_baja?: boolean
     estado?: boolean
+    nombre?: boolean
+    apellido?: boolean
   }, ExtArgs["result"]["usuarios"]>
 
   export type usuariosSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -9145,6 +9200,8 @@ export namespace Prisma {
     fecha_baja?: boolean
     razon_baja?: boolean
     estado?: boolean
+    nombre?: boolean
+    apellido?: boolean
   }, ExtArgs["result"]["usuarios"]>
 
   export type usuariosSelectScalar = {
@@ -9157,9 +9214,11 @@ export namespace Prisma {
     fecha_baja?: boolean
     razon_baja?: boolean
     estado?: boolean
+    nombre?: boolean
+    apellido?: boolean
   }
 
-  export type usuariosOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id_usuario" | "nombre_usuario" | "clave_hash" | "rol" | "fecha_creacion" | "ultimo_acceso" | "fecha_baja" | "razon_baja" | "estado", ExtArgs["result"]["usuarios"]>
+  export type usuariosOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id_usuario" | "nombre_usuario" | "clave_hash" | "rol" | "fecha_creacion" | "ultimo_acceso" | "fecha_baja" | "razon_baja" | "estado" | "nombre" | "apellido", ExtArgs["result"]["usuarios"]>
   export type usuariosInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     logactividad?: boolean | usuarios$logactividadArgs<ExtArgs>
     movimientoscaja?: boolean | usuarios$movimientoscajaArgs<ExtArgs>
@@ -9188,6 +9247,8 @@ export namespace Prisma {
       fecha_baja: Date | null
       razon_baja: string | null
       estado: $Enums.estado_usuario | null
+      nombre: string | null
+      apellido: string | null
     }, ExtArgs["result"]["usuarios"]>
     composites: {}
   }
@@ -9624,6 +9685,8 @@ export namespace Prisma {
     readonly fecha_baja: FieldRef<"usuarios", 'DateTime'>
     readonly razon_baja: FieldRef<"usuarios", 'String'>
     readonly estado: FieldRef<"usuarios", 'estado_usuario'>
+    readonly nombre: FieldRef<"usuarios", 'String'>
+    readonly apellido: FieldRef<"usuarios", 'String'>
   }
     
 
@@ -10127,495 +10190,397 @@ export namespace Prisma {
 
 
   /**
-   * Model datos_prestamos
+   * Model direcciones
    */
 
-  export type AggregateDatos_prestamos = {
-    _count: Datos_prestamosCountAggregateOutputType | null
-    _avg: Datos_prestamosAvgAggregateOutputType | null
-    _sum: Datos_prestamosSumAggregateOutputType | null
-    _min: Datos_prestamosMinAggregateOutputType | null
-    _max: Datos_prestamosMaxAggregateOutputType | null
+  export type AggregateDirecciones = {
+    _count: DireccionesCountAggregateOutputType | null
+    _avg: DireccionesAvgAggregateOutputType | null
+    _sum: DireccionesSumAggregateOutputType | null
+    _min: DireccionesMinAggregateOutputType | null
+    _max: DireccionesMaxAggregateOutputType | null
   }
 
-  export type Datos_prestamosAvgAggregateOutputType = {
-    id_prestamo: number | null
+  export type DireccionesAvgAggregateOutputType = {
+    id: number | null
     id_cliente: number | null
-    monto: Decimal | null
-    interes: Decimal | null
-    cant_cuotas: number | null
+    latitud: Decimal | null
+    longitud: Decimal | null
   }
 
-  export type Datos_prestamosSumAggregateOutputType = {
-    id_prestamo: number | null
+  export type DireccionesSumAggregateOutputType = {
+    id: number | null
     id_cliente: number | null
-    monto: Decimal | null
-    interes: Decimal | null
-    cant_cuotas: number | null
+    latitud: Decimal | null
+    longitud: Decimal | null
   }
 
-  export type Datos_prestamosMinAggregateOutputType = {
-    id_prestamo: number | null
+  export type DireccionesMinAggregateOutputType = {
+    id: number | null
     id_cliente: number | null
-    nombre: string | null
-    cedula: string | null
-    telefono: string | null
-    direccion: string | null
-    foto_url: string | null
-    monto: Decimal | null
-    interes: Decimal | null
-    cant_cuotas: number | null
-    frecuencia_pago: $Enums.frecuencia_pago | null
-    fecha_inicio: Date | null
-    fecha_vencimiento: Date | null
-    estado: $Enums.estado_prestamo | null
+    latitud: Decimal | null
+    longitud: Decimal | null
+    desripcion: string | null
   }
 
-  export type Datos_prestamosMaxAggregateOutputType = {
-    id_prestamo: number | null
+  export type DireccionesMaxAggregateOutputType = {
+    id: number | null
     id_cliente: number | null
-    nombre: string | null
-    cedula: string | null
-    telefono: string | null
-    direccion: string | null
-    foto_url: string | null
-    monto: Decimal | null
-    interes: Decimal | null
-    cant_cuotas: number | null
-    frecuencia_pago: $Enums.frecuencia_pago | null
-    fecha_inicio: Date | null
-    fecha_vencimiento: Date | null
-    estado: $Enums.estado_prestamo | null
+    latitud: Decimal | null
+    longitud: Decimal | null
+    desripcion: string | null
   }
 
-  export type Datos_prestamosCountAggregateOutputType = {
-    id_prestamo: number
+  export type DireccionesCountAggregateOutputType = {
+    id: number
     id_cliente: number
-    nombre: number
-    cedula: number
-    telefono: number
-    direccion: number
-    foto_url: number
-    monto: number
-    interes: number
-    cant_cuotas: number
-    frecuencia_pago: number
-    fecha_inicio: number
-    fecha_vencimiento: number
-    estado: number
+    latitud: number
+    longitud: number
+    desripcion: number
     _all: number
   }
 
 
-  export type Datos_prestamosAvgAggregateInputType = {
-    id_prestamo?: true
+  export type DireccionesAvgAggregateInputType = {
+    id?: true
     id_cliente?: true
-    monto?: true
-    interes?: true
-    cant_cuotas?: true
+    latitud?: true
+    longitud?: true
   }
 
-  export type Datos_prestamosSumAggregateInputType = {
-    id_prestamo?: true
+  export type DireccionesSumAggregateInputType = {
+    id?: true
     id_cliente?: true
-    monto?: true
-    interes?: true
-    cant_cuotas?: true
+    latitud?: true
+    longitud?: true
   }
 
-  export type Datos_prestamosMinAggregateInputType = {
-    id_prestamo?: true
+  export type DireccionesMinAggregateInputType = {
+    id?: true
     id_cliente?: true
-    nombre?: true
-    cedula?: true
-    telefono?: true
-    direccion?: true
-    foto_url?: true
-    monto?: true
-    interes?: true
-    cant_cuotas?: true
-    frecuencia_pago?: true
-    fecha_inicio?: true
-    fecha_vencimiento?: true
-    estado?: true
+    latitud?: true
+    longitud?: true
+    desripcion?: true
   }
 
-  export type Datos_prestamosMaxAggregateInputType = {
-    id_prestamo?: true
+  export type DireccionesMaxAggregateInputType = {
+    id?: true
     id_cliente?: true
-    nombre?: true
-    cedula?: true
-    telefono?: true
-    direccion?: true
-    foto_url?: true
-    monto?: true
-    interes?: true
-    cant_cuotas?: true
-    frecuencia_pago?: true
-    fecha_inicio?: true
-    fecha_vencimiento?: true
-    estado?: true
+    latitud?: true
+    longitud?: true
+    desripcion?: true
   }
 
-  export type Datos_prestamosCountAggregateInputType = {
-    id_prestamo?: true
+  export type DireccionesCountAggregateInputType = {
+    id?: true
     id_cliente?: true
-    nombre?: true
-    cedula?: true
-    telefono?: true
-    direccion?: true
-    foto_url?: true
-    monto?: true
-    interes?: true
-    cant_cuotas?: true
-    frecuencia_pago?: true
-    fecha_inicio?: true
-    fecha_vencimiento?: true
-    estado?: true
+    latitud?: true
+    longitud?: true
+    desripcion?: true
     _all?: true
   }
 
-  export type Datos_prestamosAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DireccionesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which datos_prestamos to aggregate.
+     * Filter which direcciones to aggregate.
      */
-    where?: datos_prestamosWhereInput
+    where?: direccionesWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of datos_prestamos to fetch.
+     * Determine the order of direcciones to fetch.
      */
-    orderBy?: datos_prestamosOrderByWithRelationInput | datos_prestamosOrderByWithRelationInput[]
+    orderBy?: direccionesOrderByWithRelationInput | direccionesOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: datos_prestamosWhereUniqueInput
+    cursor?: direccionesWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` datos_prestamos from the position of the cursor.
+     * Take `±n` direcciones from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` datos_prestamos.
+     * Skip the first `n` direcciones.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned datos_prestamos
+     * Count returned direcciones
     **/
-    _count?: true | Datos_prestamosCountAggregateInputType
+    _count?: true | DireccionesCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: Datos_prestamosAvgAggregateInputType
+    _avg?: DireccionesAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: Datos_prestamosSumAggregateInputType
+    _sum?: DireccionesSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: Datos_prestamosMinAggregateInputType
+    _min?: DireccionesMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: Datos_prestamosMaxAggregateInputType
+    _max?: DireccionesMaxAggregateInputType
   }
 
-  export type GetDatos_prestamosAggregateType<T extends Datos_prestamosAggregateArgs> = {
-        [P in keyof T & keyof AggregateDatos_prestamos]: P extends '_count' | 'count'
+  export type GetDireccionesAggregateType<T extends DireccionesAggregateArgs> = {
+        [P in keyof T & keyof AggregateDirecciones]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateDatos_prestamos[P]>
-      : GetScalarType<T[P], AggregateDatos_prestamos[P]>
+        : GetScalarType<T[P], AggregateDirecciones[P]>
+      : GetScalarType<T[P], AggregateDirecciones[P]>
   }
 
 
 
 
-  export type datos_prestamosGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: datos_prestamosWhereInput
-    orderBy?: datos_prestamosOrderByWithAggregationInput | datos_prestamosOrderByWithAggregationInput[]
-    by: Datos_prestamosScalarFieldEnum[] | Datos_prestamosScalarFieldEnum
-    having?: datos_prestamosScalarWhereWithAggregatesInput
+  export type direccionesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: direccionesWhereInput
+    orderBy?: direccionesOrderByWithAggregationInput | direccionesOrderByWithAggregationInput[]
+    by: DireccionesScalarFieldEnum[] | DireccionesScalarFieldEnum
+    having?: direccionesScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: Datos_prestamosCountAggregateInputType | true
-    _avg?: Datos_prestamosAvgAggregateInputType
-    _sum?: Datos_prestamosSumAggregateInputType
-    _min?: Datos_prestamosMinAggregateInputType
-    _max?: Datos_prestamosMaxAggregateInputType
+    _count?: DireccionesCountAggregateInputType | true
+    _avg?: DireccionesAvgAggregateInputType
+    _sum?: DireccionesSumAggregateInputType
+    _min?: DireccionesMinAggregateInputType
+    _max?: DireccionesMaxAggregateInputType
   }
 
-  export type Datos_prestamosGroupByOutputType = {
-    id_prestamo: number
-    id_cliente: number | null
-    nombre: string | null
-    cedula: string | null
-    telefono: string | null
-    direccion: string | null
-    foto_url: string | null
-    monto: Decimal | null
-    interes: Decimal | null
-    cant_cuotas: number | null
-    frecuencia_pago: $Enums.frecuencia_pago | null
-    fecha_inicio: Date | null
-    fecha_vencimiento: Date | null
-    estado: $Enums.estado_prestamo | null
-    _count: Datos_prestamosCountAggregateOutputType | null
-    _avg: Datos_prestamosAvgAggregateOutputType | null
-    _sum: Datos_prestamosSumAggregateOutputType | null
-    _min: Datos_prestamosMinAggregateOutputType | null
-    _max: Datos_prestamosMaxAggregateOutputType | null
+  export type DireccionesGroupByOutputType = {
+    id: number
+    id_cliente: number
+    latitud: Decimal
+    longitud: Decimal
+    desripcion: string
+    _count: DireccionesCountAggregateOutputType | null
+    _avg: DireccionesAvgAggregateOutputType | null
+    _sum: DireccionesSumAggregateOutputType | null
+    _min: DireccionesMinAggregateOutputType | null
+    _max: DireccionesMaxAggregateOutputType | null
   }
 
-  type GetDatos_prestamosGroupByPayload<T extends datos_prestamosGroupByArgs> = Prisma.PrismaPromise<
+  type GetDireccionesGroupByPayload<T extends direccionesGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<Datos_prestamosGroupByOutputType, T['by']> &
+      PickEnumerable<DireccionesGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof Datos_prestamosGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof DireccionesGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], Datos_prestamosGroupByOutputType[P]>
-            : GetScalarType<T[P], Datos_prestamosGroupByOutputType[P]>
+              : GetScalarType<T[P], DireccionesGroupByOutputType[P]>
+            : GetScalarType<T[P], DireccionesGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type datos_prestamosSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id_prestamo?: boolean
+  export type direccionesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     id_cliente?: boolean
-    nombre?: boolean
-    cedula?: boolean
-    telefono?: boolean
-    direccion?: boolean
-    foto_url?: boolean
-    monto?: boolean
-    interes?: boolean
-    cant_cuotas?: boolean
-    frecuencia_pago?: boolean
-    fecha_inicio?: boolean
-    fecha_vencimiento?: boolean
-    estado?: boolean
-  }, ExtArgs["result"]["datos_prestamos"]>
+    latitud?: boolean
+    longitud?: boolean
+    desripcion?: boolean
+    clientes?: boolean | clientesDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["direcciones"]>
 
-  export type datos_prestamosSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id_prestamo?: boolean
+  export type direccionesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     id_cliente?: boolean
-    nombre?: boolean
-    cedula?: boolean
-    telefono?: boolean
-    direccion?: boolean
-    foto_url?: boolean
-    monto?: boolean
-    interes?: boolean
-    cant_cuotas?: boolean
-    frecuencia_pago?: boolean
-    fecha_inicio?: boolean
-    fecha_vencimiento?: boolean
-    estado?: boolean
-  }, ExtArgs["result"]["datos_prestamos"]>
+    latitud?: boolean
+    longitud?: boolean
+    desripcion?: boolean
+    clientes?: boolean | clientesDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["direcciones"]>
 
-  export type datos_prestamosSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id_prestamo?: boolean
+  export type direccionesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     id_cliente?: boolean
-    nombre?: boolean
-    cedula?: boolean
-    telefono?: boolean
-    direccion?: boolean
-    foto_url?: boolean
-    monto?: boolean
-    interes?: boolean
-    cant_cuotas?: boolean
-    frecuencia_pago?: boolean
-    fecha_inicio?: boolean
-    fecha_vencimiento?: boolean
-    estado?: boolean
-  }, ExtArgs["result"]["datos_prestamos"]>
+    latitud?: boolean
+    longitud?: boolean
+    desripcion?: boolean
+    clientes?: boolean | clientesDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["direcciones"]>
 
-  export type datos_prestamosSelectScalar = {
-    id_prestamo?: boolean
+  export type direccionesSelectScalar = {
+    id?: boolean
     id_cliente?: boolean
-    nombre?: boolean
-    cedula?: boolean
-    telefono?: boolean
-    direccion?: boolean
-    foto_url?: boolean
-    monto?: boolean
-    interes?: boolean
-    cant_cuotas?: boolean
-    frecuencia_pago?: boolean
-    fecha_inicio?: boolean
-    fecha_vencimiento?: boolean
-    estado?: boolean
+    latitud?: boolean
+    longitud?: boolean
+    desripcion?: boolean
   }
 
-  export type datos_prestamosOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id_prestamo" | "id_cliente" | "nombre" | "cedula" | "telefono" | "direccion" | "foto_url" | "monto" | "interes" | "cant_cuotas" | "frecuencia_pago" | "fecha_inicio" | "fecha_vencimiento" | "estado", ExtArgs["result"]["datos_prestamos"]>
+  export type direccionesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "id_cliente" | "latitud" | "longitud" | "desripcion", ExtArgs["result"]["direcciones"]>
+  export type direccionesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    clientes?: boolean | clientesDefaultArgs<ExtArgs>
+  }
+  export type direccionesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    clientes?: boolean | clientesDefaultArgs<ExtArgs>
+  }
+  export type direccionesIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    clientes?: boolean | clientesDefaultArgs<ExtArgs>
+  }
 
-  export type $datos_prestamosPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "datos_prestamos"
-    objects: {}
+  export type $direccionesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "direcciones"
+    objects: {
+      clientes: Prisma.$clientesPayload<ExtArgs>
+    }
     scalars: $Extensions.GetPayloadResult<{
-      id_prestamo: number
-      id_cliente: number | null
-      nombre: string | null
-      cedula: string | null
-      telefono: string | null
-      direccion: string | null
-      foto_url: string | null
-      monto: Prisma.Decimal | null
-      interes: Prisma.Decimal | null
-      cant_cuotas: number | null
-      frecuencia_pago: $Enums.frecuencia_pago | null
-      fecha_inicio: Date | null
-      fecha_vencimiento: Date | null
-      estado: $Enums.estado_prestamo | null
-    }, ExtArgs["result"]["datos_prestamos"]>
+      id: number
+      id_cliente: number
+      latitud: Prisma.Decimal
+      longitud: Prisma.Decimal
+      desripcion: string
+    }, ExtArgs["result"]["direcciones"]>
     composites: {}
   }
 
-  type datos_prestamosGetPayload<S extends boolean | null | undefined | datos_prestamosDefaultArgs> = $Result.GetResult<Prisma.$datos_prestamosPayload, S>
+  type direccionesGetPayload<S extends boolean | null | undefined | direccionesDefaultArgs> = $Result.GetResult<Prisma.$direccionesPayload, S>
 
-  type datos_prestamosCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<datos_prestamosFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: Datos_prestamosCountAggregateInputType | true
+  type direccionesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<direccionesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: DireccionesCountAggregateInputType | true
     }
 
-  export interface datos_prestamosDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['datos_prestamos'], meta: { name: 'datos_prestamos' } }
+  export interface direccionesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['direcciones'], meta: { name: 'direcciones' } }
     /**
-     * Find zero or one Datos_prestamos that matches the filter.
-     * @param {datos_prestamosFindUniqueArgs} args - Arguments to find a Datos_prestamos
+     * Find zero or one Direcciones that matches the filter.
+     * @param {direccionesFindUniqueArgs} args - Arguments to find a Direcciones
      * @example
-     * // Get one Datos_prestamos
-     * const datos_prestamos = await prisma.datos_prestamos.findUnique({
+     * // Get one Direcciones
+     * const direcciones = await prisma.direcciones.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends datos_prestamosFindUniqueArgs>(args: SelectSubset<T, datos_prestamosFindUniqueArgs<ExtArgs>>): Prisma__datos_prestamosClient<$Result.GetResult<Prisma.$datos_prestamosPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends direccionesFindUniqueArgs>(args: SelectSubset<T, direccionesFindUniqueArgs<ExtArgs>>): Prisma__direccionesClient<$Result.GetResult<Prisma.$direccionesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Datos_prestamos that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Direcciones that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {datos_prestamosFindUniqueOrThrowArgs} args - Arguments to find a Datos_prestamos
+     * @param {direccionesFindUniqueOrThrowArgs} args - Arguments to find a Direcciones
      * @example
-     * // Get one Datos_prestamos
-     * const datos_prestamos = await prisma.datos_prestamos.findUniqueOrThrow({
+     * // Get one Direcciones
+     * const direcciones = await prisma.direcciones.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends datos_prestamosFindUniqueOrThrowArgs>(args: SelectSubset<T, datos_prestamosFindUniqueOrThrowArgs<ExtArgs>>): Prisma__datos_prestamosClient<$Result.GetResult<Prisma.$datos_prestamosPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends direccionesFindUniqueOrThrowArgs>(args: SelectSubset<T, direccionesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__direccionesClient<$Result.GetResult<Prisma.$direccionesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Datos_prestamos that matches the filter.
+     * Find the first Direcciones that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {datos_prestamosFindFirstArgs} args - Arguments to find a Datos_prestamos
+     * @param {direccionesFindFirstArgs} args - Arguments to find a Direcciones
      * @example
-     * // Get one Datos_prestamos
-     * const datos_prestamos = await prisma.datos_prestamos.findFirst({
+     * // Get one Direcciones
+     * const direcciones = await prisma.direcciones.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends datos_prestamosFindFirstArgs>(args?: SelectSubset<T, datos_prestamosFindFirstArgs<ExtArgs>>): Prisma__datos_prestamosClient<$Result.GetResult<Prisma.$datos_prestamosPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends direccionesFindFirstArgs>(args?: SelectSubset<T, direccionesFindFirstArgs<ExtArgs>>): Prisma__direccionesClient<$Result.GetResult<Prisma.$direccionesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Datos_prestamos that matches the filter or
+     * Find the first Direcciones that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {datos_prestamosFindFirstOrThrowArgs} args - Arguments to find a Datos_prestamos
+     * @param {direccionesFindFirstOrThrowArgs} args - Arguments to find a Direcciones
      * @example
-     * // Get one Datos_prestamos
-     * const datos_prestamos = await prisma.datos_prestamos.findFirstOrThrow({
+     * // Get one Direcciones
+     * const direcciones = await prisma.direcciones.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends datos_prestamosFindFirstOrThrowArgs>(args?: SelectSubset<T, datos_prestamosFindFirstOrThrowArgs<ExtArgs>>): Prisma__datos_prestamosClient<$Result.GetResult<Prisma.$datos_prestamosPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends direccionesFindFirstOrThrowArgs>(args?: SelectSubset<T, direccionesFindFirstOrThrowArgs<ExtArgs>>): Prisma__direccionesClient<$Result.GetResult<Prisma.$direccionesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Datos_prestamos that matches the filter.
+     * Find zero or more Direcciones that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {datos_prestamosFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {direccionesFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Datos_prestamos
-     * const datos_prestamos = await prisma.datos_prestamos.findMany()
+     * // Get all Direcciones
+     * const direcciones = await prisma.direcciones.findMany()
      * 
-     * // Get first 10 Datos_prestamos
-     * const datos_prestamos = await prisma.datos_prestamos.findMany({ take: 10 })
+     * // Get first 10 Direcciones
+     * const direcciones = await prisma.direcciones.findMany({ take: 10 })
      * 
-     * // Only select the `id_prestamo`
-     * const datos_prestamosWithId_prestamoOnly = await prisma.datos_prestamos.findMany({ select: { id_prestamo: true } })
+     * // Only select the `id`
+     * const direccionesWithIdOnly = await prisma.direcciones.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends datos_prestamosFindManyArgs>(args?: SelectSubset<T, datos_prestamosFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$datos_prestamosPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends direccionesFindManyArgs>(args?: SelectSubset<T, direccionesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$direccionesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Datos_prestamos.
-     * @param {datos_prestamosCreateArgs} args - Arguments to create a Datos_prestamos.
+     * Create a Direcciones.
+     * @param {direccionesCreateArgs} args - Arguments to create a Direcciones.
      * @example
-     * // Create one Datos_prestamos
-     * const Datos_prestamos = await prisma.datos_prestamos.create({
+     * // Create one Direcciones
+     * const Direcciones = await prisma.direcciones.create({
      *   data: {
-     *     // ... data to create a Datos_prestamos
+     *     // ... data to create a Direcciones
      *   }
      * })
      * 
      */
-    create<T extends datos_prestamosCreateArgs>(args: SelectSubset<T, datos_prestamosCreateArgs<ExtArgs>>): Prisma__datos_prestamosClient<$Result.GetResult<Prisma.$datos_prestamosPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends direccionesCreateArgs>(args: SelectSubset<T, direccionesCreateArgs<ExtArgs>>): Prisma__direccionesClient<$Result.GetResult<Prisma.$direccionesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Datos_prestamos.
-     * @param {datos_prestamosCreateManyArgs} args - Arguments to create many Datos_prestamos.
+     * Create many Direcciones.
+     * @param {direccionesCreateManyArgs} args - Arguments to create many Direcciones.
      * @example
-     * // Create many Datos_prestamos
-     * const datos_prestamos = await prisma.datos_prestamos.createMany({
+     * // Create many Direcciones
+     * const direcciones = await prisma.direcciones.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends datos_prestamosCreateManyArgs>(args?: SelectSubset<T, datos_prestamosCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends direccionesCreateManyArgs>(args?: SelectSubset<T, direccionesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Datos_prestamos and returns the data saved in the database.
-     * @param {datos_prestamosCreateManyAndReturnArgs} args - Arguments to create many Datos_prestamos.
+     * Create many Direcciones and returns the data saved in the database.
+     * @param {direccionesCreateManyAndReturnArgs} args - Arguments to create many Direcciones.
      * @example
-     * // Create many Datos_prestamos
-     * const datos_prestamos = await prisma.datos_prestamos.createManyAndReturn({
+     * // Create many Direcciones
+     * const direcciones = await prisma.direcciones.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Datos_prestamos and only return the `id_prestamo`
-     * const datos_prestamosWithId_prestamoOnly = await prisma.datos_prestamos.createManyAndReturn({
-     *   select: { id_prestamo: true },
+     * // Create many Direcciones and only return the `id`
+     * const direccionesWithIdOnly = await prisma.direcciones.createManyAndReturn({
+     *   select: { id: true },
      *   data: [
      *     // ... provide data here
      *   ]
@@ -10624,28 +10589,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends datos_prestamosCreateManyAndReturnArgs>(args?: SelectSubset<T, datos_prestamosCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$datos_prestamosPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends direccionesCreateManyAndReturnArgs>(args?: SelectSubset<T, direccionesCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$direccionesPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Datos_prestamos.
-     * @param {datos_prestamosDeleteArgs} args - Arguments to delete one Datos_prestamos.
+     * Delete a Direcciones.
+     * @param {direccionesDeleteArgs} args - Arguments to delete one Direcciones.
      * @example
-     * // Delete one Datos_prestamos
-     * const Datos_prestamos = await prisma.datos_prestamos.delete({
+     * // Delete one Direcciones
+     * const Direcciones = await prisma.direcciones.delete({
      *   where: {
-     *     // ... filter to delete one Datos_prestamos
+     *     // ... filter to delete one Direcciones
      *   }
      * })
      * 
      */
-    delete<T extends datos_prestamosDeleteArgs>(args: SelectSubset<T, datos_prestamosDeleteArgs<ExtArgs>>): Prisma__datos_prestamosClient<$Result.GetResult<Prisma.$datos_prestamosPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends direccionesDeleteArgs>(args: SelectSubset<T, direccionesDeleteArgs<ExtArgs>>): Prisma__direccionesClient<$Result.GetResult<Prisma.$direccionesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Datos_prestamos.
-     * @param {datos_prestamosUpdateArgs} args - Arguments to update one Datos_prestamos.
+     * Update one Direcciones.
+     * @param {direccionesUpdateArgs} args - Arguments to update one Direcciones.
      * @example
-     * // Update one Datos_prestamos
-     * const datos_prestamos = await prisma.datos_prestamos.update({
+     * // Update one Direcciones
+     * const direcciones = await prisma.direcciones.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -10655,30 +10620,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends datos_prestamosUpdateArgs>(args: SelectSubset<T, datos_prestamosUpdateArgs<ExtArgs>>): Prisma__datos_prestamosClient<$Result.GetResult<Prisma.$datos_prestamosPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends direccionesUpdateArgs>(args: SelectSubset<T, direccionesUpdateArgs<ExtArgs>>): Prisma__direccionesClient<$Result.GetResult<Prisma.$direccionesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Datos_prestamos.
-     * @param {datos_prestamosDeleteManyArgs} args - Arguments to filter Datos_prestamos to delete.
+     * Delete zero or more Direcciones.
+     * @param {direccionesDeleteManyArgs} args - Arguments to filter Direcciones to delete.
      * @example
-     * // Delete a few Datos_prestamos
-     * const { count } = await prisma.datos_prestamos.deleteMany({
+     * // Delete a few Direcciones
+     * const { count } = await prisma.direcciones.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends datos_prestamosDeleteManyArgs>(args?: SelectSubset<T, datos_prestamosDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends direccionesDeleteManyArgs>(args?: SelectSubset<T, direccionesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Datos_prestamos.
+     * Update zero or more Direcciones.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {datos_prestamosUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {direccionesUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Datos_prestamos
-     * const datos_prestamos = await prisma.datos_prestamos.updateMany({
+     * // Update many Direcciones
+     * const direcciones = await prisma.direcciones.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -10688,14 +10653,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends datos_prestamosUpdateManyArgs>(args: SelectSubset<T, datos_prestamosUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends direccionesUpdateManyArgs>(args: SelectSubset<T, direccionesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Datos_prestamos and returns the data updated in the database.
-     * @param {datos_prestamosUpdateManyAndReturnArgs} args - Arguments to update many Datos_prestamos.
+     * Update zero or more Direcciones and returns the data updated in the database.
+     * @param {direccionesUpdateManyAndReturnArgs} args - Arguments to update many Direcciones.
      * @example
-     * // Update many Datos_prestamos
-     * const datos_prestamos = await prisma.datos_prestamos.updateManyAndReturn({
+     * // Update many Direcciones
+     * const direcciones = await prisma.direcciones.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -10704,9 +10669,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Datos_prestamos and only return the `id_prestamo`
-     * const datos_prestamosWithId_prestamoOnly = await prisma.datos_prestamos.updateManyAndReturn({
-     *   select: { id_prestamo: true },
+     * // Update zero or more Direcciones and only return the `id`
+     * const direccionesWithIdOnly = await prisma.direcciones.updateManyAndReturn({
+     *   select: { id: true },
      *   where: {
      *     // ... provide filter here
      *   },
@@ -10718,56 +10683,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends datos_prestamosUpdateManyAndReturnArgs>(args: SelectSubset<T, datos_prestamosUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$datos_prestamosPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends direccionesUpdateManyAndReturnArgs>(args: SelectSubset<T, direccionesUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$direccionesPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Datos_prestamos.
-     * @param {datos_prestamosUpsertArgs} args - Arguments to update or create a Datos_prestamos.
+     * Create or update one Direcciones.
+     * @param {direccionesUpsertArgs} args - Arguments to update or create a Direcciones.
      * @example
-     * // Update or create a Datos_prestamos
-     * const datos_prestamos = await prisma.datos_prestamos.upsert({
+     * // Update or create a Direcciones
+     * const direcciones = await prisma.direcciones.upsert({
      *   create: {
-     *     // ... data to create a Datos_prestamos
+     *     // ... data to create a Direcciones
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Datos_prestamos we want to update
+     *     // ... the filter for the Direcciones we want to update
      *   }
      * })
      */
-    upsert<T extends datos_prestamosUpsertArgs>(args: SelectSubset<T, datos_prestamosUpsertArgs<ExtArgs>>): Prisma__datos_prestamosClient<$Result.GetResult<Prisma.$datos_prestamosPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends direccionesUpsertArgs>(args: SelectSubset<T, direccionesUpsertArgs<ExtArgs>>): Prisma__direccionesClient<$Result.GetResult<Prisma.$direccionesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Datos_prestamos.
+     * Count the number of Direcciones.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {datos_prestamosCountArgs} args - Arguments to filter Datos_prestamos to count.
+     * @param {direccionesCountArgs} args - Arguments to filter Direcciones to count.
      * @example
-     * // Count the number of Datos_prestamos
-     * const count = await prisma.datos_prestamos.count({
+     * // Count the number of Direcciones
+     * const count = await prisma.direcciones.count({
      *   where: {
-     *     // ... the filter for the Datos_prestamos we want to count
+     *     // ... the filter for the Direcciones we want to count
      *   }
      * })
     **/
-    count<T extends datos_prestamosCountArgs>(
-      args?: Subset<T, datos_prestamosCountArgs>,
+    count<T extends direccionesCountArgs>(
+      args?: Subset<T, direccionesCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], Datos_prestamosCountAggregateOutputType>
+          : GetScalarType<T['select'], DireccionesCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Datos_prestamos.
+     * Allows you to perform aggregations operations on a Direcciones.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {Datos_prestamosAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {DireccionesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -10787,13 +10752,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends Datos_prestamosAggregateArgs>(args: Subset<T, Datos_prestamosAggregateArgs>): Prisma.PrismaPromise<GetDatos_prestamosAggregateType<T>>
+    aggregate<T extends DireccionesAggregateArgs>(args: Subset<T, DireccionesAggregateArgs>): Prisma.PrismaPromise<GetDireccionesAggregateType<T>>
 
     /**
-     * Group by Datos_prestamos.
+     * Group by Direcciones.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {datos_prestamosGroupByArgs} args - Group by arguments.
+     * @param {direccionesGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -10808,14 +10773,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends datos_prestamosGroupByArgs,
+      T extends direccionesGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: datos_prestamosGroupByArgs['orderBy'] }
-        : { orderBy?: datos_prestamosGroupByArgs['orderBy'] },
+        ? { orderBy: direccionesGroupByArgs['orderBy'] }
+        : { orderBy?: direccionesGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -10864,21 +10829,22 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, datos_prestamosGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDatos_prestamosGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, direccionesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDireccionesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the datos_prestamos model
+   * Fields of the direcciones model
    */
-  readonly fields: datos_prestamosFieldRefs;
+  readonly fields: direccionesFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for datos_prestamos.
+   * The delegate class that acts as a "Promise-like" for direcciones.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__datos_prestamosClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__direccionesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    clientes<T extends clientesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, clientesDefaultArgs<ExtArgs>>): Prisma__clientesClient<$Result.GetResult<Prisma.$clientesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -10905,386 +10871,425 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the datos_prestamos model
+   * Fields of the direcciones model
    */
-  interface datos_prestamosFieldRefs {
-    readonly id_prestamo: FieldRef<"datos_prestamos", 'Int'>
-    readonly id_cliente: FieldRef<"datos_prestamos", 'Int'>
-    readonly nombre: FieldRef<"datos_prestamos", 'String'>
-    readonly cedula: FieldRef<"datos_prestamos", 'String'>
-    readonly telefono: FieldRef<"datos_prestamos", 'String'>
-    readonly direccion: FieldRef<"datos_prestamos", 'String'>
-    readonly foto_url: FieldRef<"datos_prestamos", 'String'>
-    readonly monto: FieldRef<"datos_prestamos", 'Decimal'>
-    readonly interes: FieldRef<"datos_prestamos", 'Decimal'>
-    readonly cant_cuotas: FieldRef<"datos_prestamos", 'Int'>
-    readonly frecuencia_pago: FieldRef<"datos_prestamos", 'frecuencia_pago'>
-    readonly fecha_inicio: FieldRef<"datos_prestamos", 'DateTime'>
-    readonly fecha_vencimiento: FieldRef<"datos_prestamos", 'DateTime'>
-    readonly estado: FieldRef<"datos_prestamos", 'estado_prestamo'>
+  interface direccionesFieldRefs {
+    readonly id: FieldRef<"direcciones", 'Int'>
+    readonly id_cliente: FieldRef<"direcciones", 'Int'>
+    readonly latitud: FieldRef<"direcciones", 'Decimal'>
+    readonly longitud: FieldRef<"direcciones", 'Decimal'>
+    readonly desripcion: FieldRef<"direcciones", 'String'>
   }
     
 
   // Custom InputTypes
   /**
-   * datos_prestamos findUnique
+   * direcciones findUnique
    */
-  export type datos_prestamosFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type direccionesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the datos_prestamos
+     * Select specific fields to fetch from the direcciones
      */
-    select?: datos_prestamosSelect<ExtArgs> | null
+    select?: direccionesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the datos_prestamos
+     * Omit specific fields from the direcciones
      */
-    omit?: datos_prestamosOmit<ExtArgs> | null
+    omit?: direccionesOmit<ExtArgs> | null
     /**
-     * Filter, which datos_prestamos to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where: datos_prestamosWhereUniqueInput
+    include?: direccionesInclude<ExtArgs> | null
+    /**
+     * Filter, which direcciones to fetch.
+     */
+    where: direccionesWhereUniqueInput
   }
 
   /**
-   * datos_prestamos findUniqueOrThrow
+   * direcciones findUniqueOrThrow
    */
-  export type datos_prestamosFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type direccionesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the datos_prestamos
+     * Select specific fields to fetch from the direcciones
      */
-    select?: datos_prestamosSelect<ExtArgs> | null
+    select?: direccionesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the datos_prestamos
+     * Omit specific fields from the direcciones
      */
-    omit?: datos_prestamosOmit<ExtArgs> | null
+    omit?: direccionesOmit<ExtArgs> | null
     /**
-     * Filter, which datos_prestamos to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where: datos_prestamosWhereUniqueInput
+    include?: direccionesInclude<ExtArgs> | null
+    /**
+     * Filter, which direcciones to fetch.
+     */
+    where: direccionesWhereUniqueInput
   }
 
   /**
-   * datos_prestamos findFirst
+   * direcciones findFirst
    */
-  export type datos_prestamosFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type direccionesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the datos_prestamos
+     * Select specific fields to fetch from the direcciones
      */
-    select?: datos_prestamosSelect<ExtArgs> | null
+    select?: direccionesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the datos_prestamos
+     * Omit specific fields from the direcciones
      */
-    omit?: datos_prestamosOmit<ExtArgs> | null
+    omit?: direccionesOmit<ExtArgs> | null
     /**
-     * Filter, which datos_prestamos to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: datos_prestamosWhereInput
+    include?: direccionesInclude<ExtArgs> | null
+    /**
+     * Filter, which direcciones to fetch.
+     */
+    where?: direccionesWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of datos_prestamos to fetch.
+     * Determine the order of direcciones to fetch.
      */
-    orderBy?: datos_prestamosOrderByWithRelationInput | datos_prestamosOrderByWithRelationInput[]
+    orderBy?: direccionesOrderByWithRelationInput | direccionesOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for datos_prestamos.
+     * Sets the position for searching for direcciones.
      */
-    cursor?: datos_prestamosWhereUniqueInput
+    cursor?: direccionesWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` datos_prestamos from the position of the cursor.
+     * Take `±n` direcciones from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` datos_prestamos.
+     * Skip the first `n` direcciones.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of datos_prestamos.
+     * Filter by unique combinations of direcciones.
      */
-    distinct?: Datos_prestamosScalarFieldEnum | Datos_prestamosScalarFieldEnum[]
+    distinct?: DireccionesScalarFieldEnum | DireccionesScalarFieldEnum[]
   }
 
   /**
-   * datos_prestamos findFirstOrThrow
+   * direcciones findFirstOrThrow
    */
-  export type datos_prestamosFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type direccionesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the datos_prestamos
+     * Select specific fields to fetch from the direcciones
      */
-    select?: datos_prestamosSelect<ExtArgs> | null
+    select?: direccionesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the datos_prestamos
+     * Omit specific fields from the direcciones
      */
-    omit?: datos_prestamosOmit<ExtArgs> | null
+    omit?: direccionesOmit<ExtArgs> | null
     /**
-     * Filter, which datos_prestamos to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: datos_prestamosWhereInput
+    include?: direccionesInclude<ExtArgs> | null
+    /**
+     * Filter, which direcciones to fetch.
+     */
+    where?: direccionesWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of datos_prestamos to fetch.
+     * Determine the order of direcciones to fetch.
      */
-    orderBy?: datos_prestamosOrderByWithRelationInput | datos_prestamosOrderByWithRelationInput[]
+    orderBy?: direccionesOrderByWithRelationInput | direccionesOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for datos_prestamos.
+     * Sets the position for searching for direcciones.
      */
-    cursor?: datos_prestamosWhereUniqueInput
+    cursor?: direccionesWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` datos_prestamos from the position of the cursor.
+     * Take `±n` direcciones from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` datos_prestamos.
+     * Skip the first `n` direcciones.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of datos_prestamos.
+     * Filter by unique combinations of direcciones.
      */
-    distinct?: Datos_prestamosScalarFieldEnum | Datos_prestamosScalarFieldEnum[]
+    distinct?: DireccionesScalarFieldEnum | DireccionesScalarFieldEnum[]
   }
 
   /**
-   * datos_prestamos findMany
+   * direcciones findMany
    */
-  export type datos_prestamosFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type direccionesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the datos_prestamos
+     * Select specific fields to fetch from the direcciones
      */
-    select?: datos_prestamosSelect<ExtArgs> | null
+    select?: direccionesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the datos_prestamos
+     * Omit specific fields from the direcciones
      */
-    omit?: datos_prestamosOmit<ExtArgs> | null
+    omit?: direccionesOmit<ExtArgs> | null
     /**
-     * Filter, which datos_prestamos to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: datos_prestamosWhereInput
+    include?: direccionesInclude<ExtArgs> | null
+    /**
+     * Filter, which direcciones to fetch.
+     */
+    where?: direccionesWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of datos_prestamos to fetch.
+     * Determine the order of direcciones to fetch.
      */
-    orderBy?: datos_prestamosOrderByWithRelationInput | datos_prestamosOrderByWithRelationInput[]
+    orderBy?: direccionesOrderByWithRelationInput | direccionesOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing datos_prestamos.
+     * Sets the position for listing direcciones.
      */
-    cursor?: datos_prestamosWhereUniqueInput
+    cursor?: direccionesWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` datos_prestamos from the position of the cursor.
+     * Take `±n` direcciones from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` datos_prestamos.
+     * Skip the first `n` direcciones.
      */
     skip?: number
-    distinct?: Datos_prestamosScalarFieldEnum | Datos_prestamosScalarFieldEnum[]
+    distinct?: DireccionesScalarFieldEnum | DireccionesScalarFieldEnum[]
   }
 
   /**
-   * datos_prestamos create
+   * direcciones create
    */
-  export type datos_prestamosCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type direccionesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the datos_prestamos
+     * Select specific fields to fetch from the direcciones
      */
-    select?: datos_prestamosSelect<ExtArgs> | null
+    select?: direccionesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the datos_prestamos
+     * Omit specific fields from the direcciones
      */
-    omit?: datos_prestamosOmit<ExtArgs> | null
+    omit?: direccionesOmit<ExtArgs> | null
     /**
-     * The data needed to create a datos_prestamos.
+     * Choose, which related nodes to fetch as well
      */
-    data: XOR<datos_prestamosCreateInput, datos_prestamosUncheckedCreateInput>
+    include?: direccionesInclude<ExtArgs> | null
+    /**
+     * The data needed to create a direcciones.
+     */
+    data: XOR<direccionesCreateInput, direccionesUncheckedCreateInput>
   }
 
   /**
-   * datos_prestamos createMany
+   * direcciones createMany
    */
-  export type datos_prestamosCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type direccionesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many datos_prestamos.
+     * The data used to create many direcciones.
      */
-    data: datos_prestamosCreateManyInput | datos_prestamosCreateManyInput[]
+    data: direccionesCreateManyInput | direccionesCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * datos_prestamos createManyAndReturn
+   * direcciones createManyAndReturn
    */
-  export type datos_prestamosCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type direccionesCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the datos_prestamos
+     * Select specific fields to fetch from the direcciones
      */
-    select?: datos_prestamosSelectCreateManyAndReturn<ExtArgs> | null
+    select?: direccionesSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the datos_prestamos
+     * Omit specific fields from the direcciones
      */
-    omit?: datos_prestamosOmit<ExtArgs> | null
+    omit?: direccionesOmit<ExtArgs> | null
     /**
-     * The data used to create many datos_prestamos.
+     * The data used to create many direcciones.
      */
-    data: datos_prestamosCreateManyInput | datos_prestamosCreateManyInput[]
+    data: direccionesCreateManyInput | direccionesCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: direccionesIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * datos_prestamos update
+   * direcciones update
    */
-  export type datos_prestamosUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type direccionesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the datos_prestamos
+     * Select specific fields to fetch from the direcciones
      */
-    select?: datos_prestamosSelect<ExtArgs> | null
+    select?: direccionesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the datos_prestamos
+     * Omit specific fields from the direcciones
      */
-    omit?: datos_prestamosOmit<ExtArgs> | null
+    omit?: direccionesOmit<ExtArgs> | null
     /**
-     * The data needed to update a datos_prestamos.
+     * Choose, which related nodes to fetch as well
      */
-    data: XOR<datos_prestamosUpdateInput, datos_prestamosUncheckedUpdateInput>
+    include?: direccionesInclude<ExtArgs> | null
     /**
-     * Choose, which datos_prestamos to update.
+     * The data needed to update a direcciones.
      */
-    where: datos_prestamosWhereUniqueInput
+    data: XOR<direccionesUpdateInput, direccionesUncheckedUpdateInput>
+    /**
+     * Choose, which direcciones to update.
+     */
+    where: direccionesWhereUniqueInput
   }
 
   /**
-   * datos_prestamos updateMany
+   * direcciones updateMany
    */
-  export type datos_prestamosUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type direccionesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update datos_prestamos.
+     * The data used to update direcciones.
      */
-    data: XOR<datos_prestamosUpdateManyMutationInput, datos_prestamosUncheckedUpdateManyInput>
+    data: XOR<direccionesUpdateManyMutationInput, direccionesUncheckedUpdateManyInput>
     /**
-     * Filter which datos_prestamos to update
+     * Filter which direcciones to update
      */
-    where?: datos_prestamosWhereInput
+    where?: direccionesWhereInput
     /**
-     * Limit how many datos_prestamos to update.
+     * Limit how many direcciones to update.
      */
     limit?: number
   }
 
   /**
-   * datos_prestamos updateManyAndReturn
+   * direcciones updateManyAndReturn
    */
-  export type datos_prestamosUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type direccionesUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the datos_prestamos
+     * Select specific fields to fetch from the direcciones
      */
-    select?: datos_prestamosSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: direccionesSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the datos_prestamos
+     * Omit specific fields from the direcciones
      */
-    omit?: datos_prestamosOmit<ExtArgs> | null
+    omit?: direccionesOmit<ExtArgs> | null
     /**
-     * The data used to update datos_prestamos.
+     * The data used to update direcciones.
      */
-    data: XOR<datos_prestamosUpdateManyMutationInput, datos_prestamosUncheckedUpdateManyInput>
+    data: XOR<direccionesUpdateManyMutationInput, direccionesUncheckedUpdateManyInput>
     /**
-     * Filter which datos_prestamos to update
+     * Filter which direcciones to update
      */
-    where?: datos_prestamosWhereInput
+    where?: direccionesWhereInput
     /**
-     * Limit how many datos_prestamos to update.
+     * Limit how many direcciones to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: direccionesIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * direcciones upsert
+   */
+  export type direccionesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the direcciones
+     */
+    select?: direccionesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the direcciones
+     */
+    omit?: direccionesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: direccionesInclude<ExtArgs> | null
+    /**
+     * The filter to search for the direcciones to update in case it exists.
+     */
+    where: direccionesWhereUniqueInput
+    /**
+     * In case the direcciones found by the `where` argument doesn't exist, create a new direcciones with this data.
+     */
+    create: XOR<direccionesCreateInput, direccionesUncheckedCreateInput>
+    /**
+     * In case the direcciones was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<direccionesUpdateInput, direccionesUncheckedUpdateInput>
+  }
+
+  /**
+   * direcciones delete
+   */
+  export type direccionesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the direcciones
+     */
+    select?: direccionesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the direcciones
+     */
+    omit?: direccionesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: direccionesInclude<ExtArgs> | null
+    /**
+     * Filter which direcciones to delete.
+     */
+    where: direccionesWhereUniqueInput
+  }
+
+  /**
+   * direcciones deleteMany
+   */
+  export type direccionesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which direcciones to delete
+     */
+    where?: direccionesWhereInput
+    /**
+     * Limit how many direcciones to delete.
      */
     limit?: number
   }
 
   /**
-   * datos_prestamos upsert
+   * direcciones without action
    */
-  export type datos_prestamosUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type direccionesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the datos_prestamos
+     * Select specific fields to fetch from the direcciones
      */
-    select?: datos_prestamosSelect<ExtArgs> | null
+    select?: direccionesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the datos_prestamos
+     * Omit specific fields from the direcciones
      */
-    omit?: datos_prestamosOmit<ExtArgs> | null
+    omit?: direccionesOmit<ExtArgs> | null
     /**
-     * The filter to search for the datos_prestamos to update in case it exists.
+     * Choose, which related nodes to fetch as well
      */
-    where: datos_prestamosWhereUniqueInput
-    /**
-     * In case the datos_prestamos found by the `where` argument doesn't exist, create a new datos_prestamos with this data.
-     */
-    create: XOR<datos_prestamosCreateInput, datos_prestamosUncheckedCreateInput>
-    /**
-     * In case the datos_prestamos was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<datos_prestamosUpdateInput, datos_prestamosUncheckedUpdateInput>
-  }
-
-  /**
-   * datos_prestamos delete
-   */
-  export type datos_prestamosDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the datos_prestamos
-     */
-    select?: datos_prestamosSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the datos_prestamos
-     */
-    omit?: datos_prestamosOmit<ExtArgs> | null
-    /**
-     * Filter which datos_prestamos to delete.
-     */
-    where: datos_prestamosWhereUniqueInput
-  }
-
-  /**
-   * datos_prestamos deleteMany
-   */
-  export type datos_prestamosDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which datos_prestamos to delete
-     */
-    where?: datos_prestamosWhereInput
-    /**
-     * Limit how many datos_prestamos to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * datos_prestamos without action
-   */
-  export type datos_prestamosDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the datos_prestamos
-     */
-    select?: datos_prestamosSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the datos_prestamos
-     */
-    omit?: datos_prestamosOmit<ExtArgs> | null
+    include?: direccionesInclude<ExtArgs> | null
   }
 
 
@@ -11308,11 +11313,11 @@ export namespace Prisma {
     cedula: 'cedula',
     telefono: 'telefono',
     email: 'email',
-    direccion: 'direccion',
     foto_url: 'foto_url',
     notas: 'notas',
     referido_por: 'referido_por',
-    fecha_registro: 'fecha_registro'
+    fecha_registro: 'fecha_registro',
+    apellido: 'apellido'
   };
 
   export type ClientesScalarFieldEnum = (typeof ClientesScalarFieldEnum)[keyof typeof ClientesScalarFieldEnum]
@@ -11401,30 +11406,23 @@ export namespace Prisma {
     ultimo_acceso: 'ultimo_acceso',
     fecha_baja: 'fecha_baja',
     razon_baja: 'razon_baja',
-    estado: 'estado'
+    estado: 'estado',
+    nombre: 'nombre',
+    apellido: 'apellido'
   };
 
   export type UsuariosScalarFieldEnum = (typeof UsuariosScalarFieldEnum)[keyof typeof UsuariosScalarFieldEnum]
 
 
-  export const Datos_prestamosScalarFieldEnum: {
-    id_prestamo: 'id_prestamo',
+  export const DireccionesScalarFieldEnum: {
+    id: 'id',
     id_cliente: 'id_cliente',
-    nombre: 'nombre',
-    cedula: 'cedula',
-    telefono: 'telefono',
-    direccion: 'direccion',
-    foto_url: 'foto_url',
-    monto: 'monto',
-    interes: 'interes',
-    cant_cuotas: 'cant_cuotas',
-    frecuencia_pago: 'frecuencia_pago',
-    fecha_inicio: 'fecha_inicio',
-    fecha_vencimiento: 'fecha_vencimiento',
-    estado: 'estado'
+    latitud: 'latitud',
+    longitud: 'longitud',
+    desripcion: 'desripcion'
   };
 
-  export type Datos_prestamosScalarFieldEnum = (typeof Datos_prestamosScalarFieldEnum)[keyof typeof Datos_prestamosScalarFieldEnum]
+  export type DireccionesScalarFieldEnum = (typeof DireccionesScalarFieldEnum)[keyof typeof DireccionesScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -11650,11 +11648,12 @@ export namespace Prisma {
     cedula?: StringFilter<"clientes"> | string
     telefono?: StringNullableFilter<"clientes"> | string | null
     email?: StringNullableFilter<"clientes"> | string | null
-    direccion?: StringNullableFilter<"clientes"> | string | null
     foto_url?: StringNullableFilter<"clientes"> | string | null
     notas?: StringNullableFilter<"clientes"> | string | null
     referido_por?: StringNullableFilter<"clientes"> | string | null
     fecha_registro?: DateTimeNullableFilter<"clientes"> | Date | string | null
+    apellido?: StringNullableFilter<"clientes"> | string | null
+    direcciones?: DireccionesListRelationFilter
     prestamos?: PrestamosListRelationFilter
   }
 
@@ -11664,11 +11663,12 @@ export namespace Prisma {
     cedula?: SortOrder
     telefono?: SortOrderInput | SortOrder
     email?: SortOrderInput | SortOrder
-    direccion?: SortOrderInput | SortOrder
     foto_url?: SortOrderInput | SortOrder
     notas?: SortOrderInput | SortOrder
     referido_por?: SortOrderInput | SortOrder
     fecha_registro?: SortOrderInput | SortOrder
+    apellido?: SortOrderInput | SortOrder
+    direcciones?: direccionesOrderByRelationAggregateInput
     prestamos?: prestamosOrderByRelationAggregateInput
   }
 
@@ -11681,11 +11681,12 @@ export namespace Prisma {
     nombre?: StringFilter<"clientes"> | string
     telefono?: StringNullableFilter<"clientes"> | string | null
     email?: StringNullableFilter<"clientes"> | string | null
-    direccion?: StringNullableFilter<"clientes"> | string | null
     foto_url?: StringNullableFilter<"clientes"> | string | null
     notas?: StringNullableFilter<"clientes"> | string | null
     referido_por?: StringNullableFilter<"clientes"> | string | null
     fecha_registro?: DateTimeNullableFilter<"clientes"> | Date | string | null
+    apellido?: StringNullableFilter<"clientes"> | string | null
+    direcciones?: DireccionesListRelationFilter
     prestamos?: PrestamosListRelationFilter
   }, "id_cliente" | "cedula">
 
@@ -11695,11 +11696,11 @@ export namespace Prisma {
     cedula?: SortOrder
     telefono?: SortOrderInput | SortOrder
     email?: SortOrderInput | SortOrder
-    direccion?: SortOrderInput | SortOrder
     foto_url?: SortOrderInput | SortOrder
     notas?: SortOrderInput | SortOrder
     referido_por?: SortOrderInput | SortOrder
     fecha_registro?: SortOrderInput | SortOrder
+    apellido?: SortOrderInput | SortOrder
     _count?: clientesCountOrderByAggregateInput
     _avg?: clientesAvgOrderByAggregateInput
     _max?: clientesMaxOrderByAggregateInput
@@ -11716,11 +11717,11 @@ export namespace Prisma {
     cedula?: StringWithAggregatesFilter<"clientes"> | string
     telefono?: StringNullableWithAggregatesFilter<"clientes"> | string | null
     email?: StringNullableWithAggregatesFilter<"clientes"> | string | null
-    direccion?: StringNullableWithAggregatesFilter<"clientes"> | string | null
     foto_url?: StringNullableWithAggregatesFilter<"clientes"> | string | null
     notas?: StringNullableWithAggregatesFilter<"clientes"> | string | null
     referido_por?: StringNullableWithAggregatesFilter<"clientes"> | string | null
     fecha_registro?: DateTimeNullableWithAggregatesFilter<"clientes"> | Date | string | null
+    apellido?: StringNullableWithAggregatesFilter<"clientes"> | string | null
   }
 
   export type cuotasWhereInput = {
@@ -12128,6 +12129,8 @@ export namespace Prisma {
     fecha_baja?: DateTimeNullableFilter<"usuarios"> | Date | string | null
     razon_baja?: StringNullableFilter<"usuarios"> | string | null
     estado?: Enumestado_usuarioNullableFilter<"usuarios"> | $Enums.estado_usuario | null
+    nombre?: StringNullableFilter<"usuarios"> | string | null
+    apellido?: StringNullableFilter<"usuarios"> | string | null
     logactividad?: LogactividadListRelationFilter
     movimientoscaja?: MovimientoscajaListRelationFilter
     pagos?: PagosListRelationFilter
@@ -12144,6 +12147,8 @@ export namespace Prisma {
     fecha_baja?: SortOrderInput | SortOrder
     razon_baja?: SortOrderInput | SortOrder
     estado?: SortOrderInput | SortOrder
+    nombre?: SortOrderInput | SortOrder
+    apellido?: SortOrderInput | SortOrder
     logactividad?: logactividadOrderByRelationAggregateInput
     movimientoscaja?: movimientoscajaOrderByRelationAggregateInput
     pagos?: pagosOrderByRelationAggregateInput
@@ -12163,6 +12168,8 @@ export namespace Prisma {
     fecha_baja?: DateTimeNullableFilter<"usuarios"> | Date | string | null
     razon_baja?: StringNullableFilter<"usuarios"> | string | null
     estado?: Enumestado_usuarioNullableFilter<"usuarios"> | $Enums.estado_usuario | null
+    nombre?: StringNullableFilter<"usuarios"> | string | null
+    apellido?: StringNullableFilter<"usuarios"> | string | null
     logactividad?: LogactividadListRelationFilter
     movimientoscaja?: MovimientoscajaListRelationFilter
     pagos?: PagosListRelationFilter
@@ -12179,6 +12186,8 @@ export namespace Prisma {
     fecha_baja?: SortOrderInput | SortOrder
     razon_baja?: SortOrderInput | SortOrder
     estado?: SortOrderInput | SortOrder
+    nombre?: SortOrderInput | SortOrder
+    apellido?: SortOrderInput | SortOrder
     _count?: usuariosCountOrderByAggregateInput
     _avg?: usuariosAvgOrderByAggregateInput
     _max?: usuariosMaxOrderByAggregateInput
@@ -12199,105 +12208,65 @@ export namespace Prisma {
     fecha_baja?: DateTimeNullableWithAggregatesFilter<"usuarios"> | Date | string | null
     razon_baja?: StringNullableWithAggregatesFilter<"usuarios"> | string | null
     estado?: Enumestado_usuarioNullableWithAggregatesFilter<"usuarios"> | $Enums.estado_usuario | null
+    nombre?: StringNullableWithAggregatesFilter<"usuarios"> | string | null
+    apellido?: StringNullableWithAggregatesFilter<"usuarios"> | string | null
   }
 
-  export type datos_prestamosWhereInput = {
-    AND?: datos_prestamosWhereInput | datos_prestamosWhereInput[]
-    OR?: datos_prestamosWhereInput[]
-    NOT?: datos_prestamosWhereInput | datos_prestamosWhereInput[]
-    id_prestamo?: IntFilter<"datos_prestamos"> | number
-    id_cliente?: IntNullableFilter<"datos_prestamos"> | number | null
-    nombre?: StringNullableFilter<"datos_prestamos"> | string | null
-    cedula?: StringNullableFilter<"datos_prestamos"> | string | null
-    telefono?: StringNullableFilter<"datos_prestamos"> | string | null
-    direccion?: StringNullableFilter<"datos_prestamos"> | string | null
-    foto_url?: StringNullableFilter<"datos_prestamos"> | string | null
-    monto?: DecimalNullableFilter<"datos_prestamos"> | Decimal | DecimalJsLike | number | string | null
-    interes?: DecimalNullableFilter<"datos_prestamos"> | Decimal | DecimalJsLike | number | string | null
-    cant_cuotas?: IntNullableFilter<"datos_prestamos"> | number | null
-    frecuencia_pago?: Enumfrecuencia_pagoNullableFilter<"datos_prestamos"> | $Enums.frecuencia_pago | null
-    fecha_inicio?: DateTimeNullableFilter<"datos_prestamos"> | Date | string | null
-    fecha_vencimiento?: DateTimeNullableFilter<"datos_prestamos"> | Date | string | null
-    estado?: Enumestado_prestamoNullableFilter<"datos_prestamos"> | $Enums.estado_prestamo | null
+  export type direccionesWhereInput = {
+    AND?: direccionesWhereInput | direccionesWhereInput[]
+    OR?: direccionesWhereInput[]
+    NOT?: direccionesWhereInput | direccionesWhereInput[]
+    id?: IntFilter<"direcciones"> | number
+    id_cliente?: IntFilter<"direcciones"> | number
+    latitud?: DecimalFilter<"direcciones"> | Decimal | DecimalJsLike | number | string
+    longitud?: DecimalFilter<"direcciones"> | Decimal | DecimalJsLike | number | string
+    desripcion?: StringFilter<"direcciones"> | string
+    clientes?: XOR<ClientesScalarRelationFilter, clientesWhereInput>
   }
 
-  export type datos_prestamosOrderByWithRelationInput = {
-    id_prestamo?: SortOrder
-    id_cliente?: SortOrderInput | SortOrder
-    nombre?: SortOrderInput | SortOrder
-    cedula?: SortOrderInput | SortOrder
-    telefono?: SortOrderInput | SortOrder
-    direccion?: SortOrderInput | SortOrder
-    foto_url?: SortOrderInput | SortOrder
-    monto?: SortOrderInput | SortOrder
-    interes?: SortOrderInput | SortOrder
-    cant_cuotas?: SortOrderInput | SortOrder
-    frecuencia_pago?: SortOrderInput | SortOrder
-    fecha_inicio?: SortOrderInput | SortOrder
-    fecha_vencimiento?: SortOrderInput | SortOrder
-    estado?: SortOrderInput | SortOrder
+  export type direccionesOrderByWithRelationInput = {
+    id?: SortOrder
+    id_cliente?: SortOrder
+    latitud?: SortOrder
+    longitud?: SortOrder
+    desripcion?: SortOrder
+    clientes?: clientesOrderByWithRelationInput
   }
 
-  export type datos_prestamosWhereUniqueInput = Prisma.AtLeast<{
-    id_prestamo?: number
-    AND?: datos_prestamosWhereInput | datos_prestamosWhereInput[]
-    OR?: datos_prestamosWhereInput[]
-    NOT?: datos_prestamosWhereInput | datos_prestamosWhereInput[]
-    id_cliente?: IntNullableFilter<"datos_prestamos"> | number | null
-    nombre?: StringNullableFilter<"datos_prestamos"> | string | null
-    cedula?: StringNullableFilter<"datos_prestamos"> | string | null
-    telefono?: StringNullableFilter<"datos_prestamos"> | string | null
-    direccion?: StringNullableFilter<"datos_prestamos"> | string | null
-    foto_url?: StringNullableFilter<"datos_prestamos"> | string | null
-    monto?: DecimalNullableFilter<"datos_prestamos"> | Decimal | DecimalJsLike | number | string | null
-    interes?: DecimalNullableFilter<"datos_prestamos"> | Decimal | DecimalJsLike | number | string | null
-    cant_cuotas?: IntNullableFilter<"datos_prestamos"> | number | null
-    frecuencia_pago?: Enumfrecuencia_pagoNullableFilter<"datos_prestamos"> | $Enums.frecuencia_pago | null
-    fecha_inicio?: DateTimeNullableFilter<"datos_prestamos"> | Date | string | null
-    fecha_vencimiento?: DateTimeNullableFilter<"datos_prestamos"> | Date | string | null
-    estado?: Enumestado_prestamoNullableFilter<"datos_prestamos"> | $Enums.estado_prestamo | null
-  }, "id_prestamo">
+  export type direccionesWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: direccionesWhereInput | direccionesWhereInput[]
+    OR?: direccionesWhereInput[]
+    NOT?: direccionesWhereInput | direccionesWhereInput[]
+    id_cliente?: IntFilter<"direcciones"> | number
+    latitud?: DecimalFilter<"direcciones"> | Decimal | DecimalJsLike | number | string
+    longitud?: DecimalFilter<"direcciones"> | Decimal | DecimalJsLike | number | string
+    desripcion?: StringFilter<"direcciones"> | string
+    clientes?: XOR<ClientesScalarRelationFilter, clientesWhereInput>
+  }, "id">
 
-  export type datos_prestamosOrderByWithAggregationInput = {
-    id_prestamo?: SortOrder
-    id_cliente?: SortOrderInput | SortOrder
-    nombre?: SortOrderInput | SortOrder
-    cedula?: SortOrderInput | SortOrder
-    telefono?: SortOrderInput | SortOrder
-    direccion?: SortOrderInput | SortOrder
-    foto_url?: SortOrderInput | SortOrder
-    monto?: SortOrderInput | SortOrder
-    interes?: SortOrderInput | SortOrder
-    cant_cuotas?: SortOrderInput | SortOrder
-    frecuencia_pago?: SortOrderInput | SortOrder
-    fecha_inicio?: SortOrderInput | SortOrder
-    fecha_vencimiento?: SortOrderInput | SortOrder
-    estado?: SortOrderInput | SortOrder
-    _count?: datos_prestamosCountOrderByAggregateInput
-    _avg?: datos_prestamosAvgOrderByAggregateInput
-    _max?: datos_prestamosMaxOrderByAggregateInput
-    _min?: datos_prestamosMinOrderByAggregateInput
-    _sum?: datos_prestamosSumOrderByAggregateInput
+  export type direccionesOrderByWithAggregationInput = {
+    id?: SortOrder
+    id_cliente?: SortOrder
+    latitud?: SortOrder
+    longitud?: SortOrder
+    desripcion?: SortOrder
+    _count?: direccionesCountOrderByAggregateInput
+    _avg?: direccionesAvgOrderByAggregateInput
+    _max?: direccionesMaxOrderByAggregateInput
+    _min?: direccionesMinOrderByAggregateInput
+    _sum?: direccionesSumOrderByAggregateInput
   }
 
-  export type datos_prestamosScalarWhereWithAggregatesInput = {
-    AND?: datos_prestamosScalarWhereWithAggregatesInput | datos_prestamosScalarWhereWithAggregatesInput[]
-    OR?: datos_prestamosScalarWhereWithAggregatesInput[]
-    NOT?: datos_prestamosScalarWhereWithAggregatesInput | datos_prestamosScalarWhereWithAggregatesInput[]
-    id_prestamo?: IntWithAggregatesFilter<"datos_prestamos"> | number
-    id_cliente?: IntNullableWithAggregatesFilter<"datos_prestamos"> | number | null
-    nombre?: StringNullableWithAggregatesFilter<"datos_prestamos"> | string | null
-    cedula?: StringNullableWithAggregatesFilter<"datos_prestamos"> | string | null
-    telefono?: StringNullableWithAggregatesFilter<"datos_prestamos"> | string | null
-    direccion?: StringNullableWithAggregatesFilter<"datos_prestamos"> | string | null
-    foto_url?: StringNullableWithAggregatesFilter<"datos_prestamos"> | string | null
-    monto?: DecimalNullableWithAggregatesFilter<"datos_prestamos"> | Decimal | DecimalJsLike | number | string | null
-    interes?: DecimalNullableWithAggregatesFilter<"datos_prestamos"> | Decimal | DecimalJsLike | number | string | null
-    cant_cuotas?: IntNullableWithAggregatesFilter<"datos_prestamos"> | number | null
-    frecuencia_pago?: Enumfrecuencia_pagoNullableWithAggregatesFilter<"datos_prestamos"> | $Enums.frecuencia_pago | null
-    fecha_inicio?: DateTimeNullableWithAggregatesFilter<"datos_prestamos"> | Date | string | null
-    fecha_vencimiento?: DateTimeNullableWithAggregatesFilter<"datos_prestamos"> | Date | string | null
-    estado?: Enumestado_prestamoNullableWithAggregatesFilter<"datos_prestamos"> | $Enums.estado_prestamo | null
+  export type direccionesScalarWhereWithAggregatesInput = {
+    AND?: direccionesScalarWhereWithAggregatesInput | direccionesScalarWhereWithAggregatesInput[]
+    OR?: direccionesScalarWhereWithAggregatesInput[]
+    NOT?: direccionesScalarWhereWithAggregatesInput | direccionesScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"direcciones"> | number
+    id_cliente?: IntWithAggregatesFilter<"direcciones"> | number
+    latitud?: DecimalWithAggregatesFilter<"direcciones"> | Decimal | DecimalJsLike | number | string
+    longitud?: DecimalWithAggregatesFilter<"direcciones"> | Decimal | DecimalJsLike | number | string
+    desripcion?: StringWithAggregatesFilter<"direcciones"> | string
   }
 
   export type clientesCreateInput = {
@@ -12305,11 +12274,12 @@ export namespace Prisma {
     cedula: string
     telefono?: string | null
     email?: string | null
-    direccion?: string | null
     foto_url?: string | null
     notas?: string | null
     referido_por?: string | null
     fecha_registro?: Date | string | null
+    apellido?: string | null
+    direcciones?: direccionesCreateNestedManyWithoutClientesInput
     prestamos?: prestamosCreateNestedManyWithoutClientesInput
   }
 
@@ -12319,11 +12289,12 @@ export namespace Prisma {
     cedula: string
     telefono?: string | null
     email?: string | null
-    direccion?: string | null
     foto_url?: string | null
     notas?: string | null
     referido_por?: string | null
     fecha_registro?: Date | string | null
+    apellido?: string | null
+    direcciones?: direccionesUncheckedCreateNestedManyWithoutClientesInput
     prestamos?: prestamosUncheckedCreateNestedManyWithoutClientesInput
   }
 
@@ -12332,11 +12303,12 @@ export namespace Prisma {
     cedula?: StringFieldUpdateOperationsInput | string
     telefono?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    direccion?: NullableStringFieldUpdateOperationsInput | string | null
     foto_url?: NullableStringFieldUpdateOperationsInput | string | null
     notas?: NullableStringFieldUpdateOperationsInput | string | null
     referido_por?: NullableStringFieldUpdateOperationsInput | string | null
     fecha_registro?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
+    direcciones?: direccionesUpdateManyWithoutClientesNestedInput
     prestamos?: prestamosUpdateManyWithoutClientesNestedInput
   }
 
@@ -12346,11 +12318,12 @@ export namespace Prisma {
     cedula?: StringFieldUpdateOperationsInput | string
     telefono?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    direccion?: NullableStringFieldUpdateOperationsInput | string | null
     foto_url?: NullableStringFieldUpdateOperationsInput | string | null
     notas?: NullableStringFieldUpdateOperationsInput | string | null
     referido_por?: NullableStringFieldUpdateOperationsInput | string | null
     fecha_registro?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
+    direcciones?: direccionesUncheckedUpdateManyWithoutClientesNestedInput
     prestamos?: prestamosUncheckedUpdateManyWithoutClientesNestedInput
   }
 
@@ -12360,11 +12333,11 @@ export namespace Prisma {
     cedula: string
     telefono?: string | null
     email?: string | null
-    direccion?: string | null
     foto_url?: string | null
     notas?: string | null
     referido_por?: string | null
     fecha_registro?: Date | string | null
+    apellido?: string | null
   }
 
   export type clientesUpdateManyMutationInput = {
@@ -12372,11 +12345,11 @@ export namespace Prisma {
     cedula?: StringFieldUpdateOperationsInput | string
     telefono?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    direccion?: NullableStringFieldUpdateOperationsInput | string | null
     foto_url?: NullableStringFieldUpdateOperationsInput | string | null
     notas?: NullableStringFieldUpdateOperationsInput | string | null
     referido_por?: NullableStringFieldUpdateOperationsInput | string | null
     fecha_registro?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type clientesUncheckedUpdateManyInput = {
@@ -12385,11 +12358,11 @@ export namespace Prisma {
     cedula?: StringFieldUpdateOperationsInput | string
     telefono?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    direccion?: NullableStringFieldUpdateOperationsInput | string | null
     foto_url?: NullableStringFieldUpdateOperationsInput | string | null
     notas?: NullableStringFieldUpdateOperationsInput | string | null
     referido_por?: NullableStringFieldUpdateOperationsInput | string | null
     fecha_registro?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type cuotasCreateInput = {
@@ -12800,6 +12773,8 @@ export namespace Prisma {
     fecha_baja?: Date | string | null
     razon_baja?: string | null
     estado?: $Enums.estado_usuario | null
+    nombre?: string | null
+    apellido?: string | null
     logactividad?: logactividadCreateNestedManyWithoutUsuariosInput
     movimientoscaja?: movimientoscajaCreateNestedManyWithoutUsuariosInput
     pagos?: pagosCreateNestedManyWithoutUsuariosInput
@@ -12816,6 +12791,8 @@ export namespace Prisma {
     fecha_baja?: Date | string | null
     razon_baja?: string | null
     estado?: $Enums.estado_usuario | null
+    nombre?: string | null
+    apellido?: string | null
     logactividad?: logactividadUncheckedCreateNestedManyWithoutUsuariosInput
     movimientoscaja?: movimientoscajaUncheckedCreateNestedManyWithoutUsuariosInput
     pagos?: pagosUncheckedCreateNestedManyWithoutUsuariosInput
@@ -12831,6 +12808,8 @@ export namespace Prisma {
     fecha_baja?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     razon_baja?: NullableStringFieldUpdateOperationsInput | string | null
     estado?: NullableEnumestado_usuarioFieldUpdateOperationsInput | $Enums.estado_usuario | null
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
     logactividad?: logactividadUpdateManyWithoutUsuariosNestedInput
     movimientoscaja?: movimientoscajaUpdateManyWithoutUsuariosNestedInput
     pagos?: pagosUpdateManyWithoutUsuariosNestedInput
@@ -12847,6 +12826,8 @@ export namespace Prisma {
     fecha_baja?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     razon_baja?: NullableStringFieldUpdateOperationsInput | string | null
     estado?: NullableEnumestado_usuarioFieldUpdateOperationsInput | $Enums.estado_usuario | null
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
     logactividad?: logactividadUncheckedUpdateManyWithoutUsuariosNestedInput
     movimientoscaja?: movimientoscajaUncheckedUpdateManyWithoutUsuariosNestedInput
     pagos?: pagosUncheckedUpdateManyWithoutUsuariosNestedInput
@@ -12863,6 +12844,8 @@ export namespace Prisma {
     fecha_baja?: Date | string | null
     razon_baja?: string | null
     estado?: $Enums.estado_usuario | null
+    nombre?: string | null
+    apellido?: string | null
   }
 
   export type usuariosUpdateManyMutationInput = {
@@ -12874,6 +12857,8 @@ export namespace Prisma {
     fecha_baja?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     razon_baja?: NullableStringFieldUpdateOperationsInput | string | null
     estado?: NullableEnumestado_usuarioFieldUpdateOperationsInput | $Enums.estado_usuario | null
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type usuariosUncheckedUpdateManyInput = {
@@ -12886,125 +12871,60 @@ export namespace Prisma {
     fecha_baja?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     razon_baja?: NullableStringFieldUpdateOperationsInput | string | null
     estado?: NullableEnumestado_usuarioFieldUpdateOperationsInput | $Enums.estado_usuario | null
-  }
-
-  export type datos_prestamosCreateInput = {
-    id_prestamo: number
-    id_cliente?: number | null
-    nombre?: string | null
-    cedula?: string | null
-    telefono?: string | null
-    direccion?: string | null
-    foto_url?: string | null
-    monto?: Decimal | DecimalJsLike | number | string | null
-    interes?: Decimal | DecimalJsLike | number | string | null
-    cant_cuotas?: number | null
-    frecuencia_pago?: $Enums.frecuencia_pago | null
-    fecha_inicio?: Date | string | null
-    fecha_vencimiento?: Date | string | null
-    estado?: $Enums.estado_prestamo | null
-  }
-
-  export type datos_prestamosUncheckedCreateInput = {
-    id_prestamo: number
-    id_cliente?: number | null
-    nombre?: string | null
-    cedula?: string | null
-    telefono?: string | null
-    direccion?: string | null
-    foto_url?: string | null
-    monto?: Decimal | DecimalJsLike | number | string | null
-    interes?: Decimal | DecimalJsLike | number | string | null
-    cant_cuotas?: number | null
-    frecuencia_pago?: $Enums.frecuencia_pago | null
-    fecha_inicio?: Date | string | null
-    fecha_vencimiento?: Date | string | null
-    estado?: $Enums.estado_prestamo | null
-  }
-
-  export type datos_prestamosUpdateInput = {
-    id_prestamo?: IntFieldUpdateOperationsInput | number
-    id_cliente?: NullableIntFieldUpdateOperationsInput | number | null
     nombre?: NullableStringFieldUpdateOperationsInput | string | null
-    cedula?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    direccion?: NullableStringFieldUpdateOperationsInput | string | null
-    foto_url?: NullableStringFieldUpdateOperationsInput | string | null
-    monto?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    interes?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    cant_cuotas?: NullableIntFieldUpdateOperationsInput | number | null
-    frecuencia_pago?: NullableEnumfrecuencia_pagoFieldUpdateOperationsInput | $Enums.frecuencia_pago | null
-    fecha_inicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    fecha_vencimiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    estado?: NullableEnumestado_prestamoFieldUpdateOperationsInput | $Enums.estado_prestamo | null
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type datos_prestamosUncheckedUpdateInput = {
-    id_prestamo?: IntFieldUpdateOperationsInput | number
-    id_cliente?: NullableIntFieldUpdateOperationsInput | number | null
-    nombre?: NullableStringFieldUpdateOperationsInput | string | null
-    cedula?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    direccion?: NullableStringFieldUpdateOperationsInput | string | null
-    foto_url?: NullableStringFieldUpdateOperationsInput | string | null
-    monto?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    interes?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    cant_cuotas?: NullableIntFieldUpdateOperationsInput | number | null
-    frecuencia_pago?: NullableEnumfrecuencia_pagoFieldUpdateOperationsInput | $Enums.frecuencia_pago | null
-    fecha_inicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    fecha_vencimiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    estado?: NullableEnumestado_prestamoFieldUpdateOperationsInput | $Enums.estado_prestamo | null
+  export type direccionesCreateInput = {
+    latitud: Decimal | DecimalJsLike | number | string
+    longitud: Decimal | DecimalJsLike | number | string
+    desripcion: string
+    clientes: clientesCreateNestedOneWithoutDireccionesInput
   }
 
-  export type datos_prestamosCreateManyInput = {
-    id_prestamo: number
-    id_cliente?: number | null
-    nombre?: string | null
-    cedula?: string | null
-    telefono?: string | null
-    direccion?: string | null
-    foto_url?: string | null
-    monto?: Decimal | DecimalJsLike | number | string | null
-    interes?: Decimal | DecimalJsLike | number | string | null
-    cant_cuotas?: number | null
-    frecuencia_pago?: $Enums.frecuencia_pago | null
-    fecha_inicio?: Date | string | null
-    fecha_vencimiento?: Date | string | null
-    estado?: $Enums.estado_prestamo | null
+  export type direccionesUncheckedCreateInput = {
+    id?: number
+    id_cliente: number
+    latitud: Decimal | DecimalJsLike | number | string
+    longitud: Decimal | DecimalJsLike | number | string
+    desripcion: string
   }
 
-  export type datos_prestamosUpdateManyMutationInput = {
-    id_prestamo?: IntFieldUpdateOperationsInput | number
-    id_cliente?: NullableIntFieldUpdateOperationsInput | number | null
-    nombre?: NullableStringFieldUpdateOperationsInput | string | null
-    cedula?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    direccion?: NullableStringFieldUpdateOperationsInput | string | null
-    foto_url?: NullableStringFieldUpdateOperationsInput | string | null
-    monto?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    interes?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    cant_cuotas?: NullableIntFieldUpdateOperationsInput | number | null
-    frecuencia_pago?: NullableEnumfrecuencia_pagoFieldUpdateOperationsInput | $Enums.frecuencia_pago | null
-    fecha_inicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    fecha_vencimiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    estado?: NullableEnumestado_prestamoFieldUpdateOperationsInput | $Enums.estado_prestamo | null
+  export type direccionesUpdateInput = {
+    latitud?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    longitud?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    desripcion?: StringFieldUpdateOperationsInput | string
+    clientes?: clientesUpdateOneRequiredWithoutDireccionesNestedInput
   }
 
-  export type datos_prestamosUncheckedUpdateManyInput = {
-    id_prestamo?: IntFieldUpdateOperationsInput | number
-    id_cliente?: NullableIntFieldUpdateOperationsInput | number | null
-    nombre?: NullableStringFieldUpdateOperationsInput | string | null
-    cedula?: NullableStringFieldUpdateOperationsInput | string | null
-    telefono?: NullableStringFieldUpdateOperationsInput | string | null
-    direccion?: NullableStringFieldUpdateOperationsInput | string | null
-    foto_url?: NullableStringFieldUpdateOperationsInput | string | null
-    monto?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    interes?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    cant_cuotas?: NullableIntFieldUpdateOperationsInput | number | null
-    frecuencia_pago?: NullableEnumfrecuencia_pagoFieldUpdateOperationsInput | $Enums.frecuencia_pago | null
-    fecha_inicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    fecha_vencimiento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    estado?: NullableEnumestado_prestamoFieldUpdateOperationsInput | $Enums.estado_prestamo | null
+  export type direccionesUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    id_cliente?: IntFieldUpdateOperationsInput | number
+    latitud?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    longitud?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    desripcion?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type direccionesCreateManyInput = {
+    id?: number
+    id_cliente: number
+    latitud: Decimal | DecimalJsLike | number | string
+    longitud: Decimal | DecimalJsLike | number | string
+    desripcion: string
+  }
+
+  export type direccionesUpdateManyMutationInput = {
+    latitud?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    longitud?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    desripcion?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type direccionesUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    id_cliente?: IntFieldUpdateOperationsInput | number
+    latitud?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    longitud?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    desripcion?: StringFieldUpdateOperationsInput | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -13059,6 +12979,12 @@ export namespace Prisma {
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
+  export type DireccionesListRelationFilter = {
+    every?: direccionesWhereInput
+    some?: direccionesWhereInput
+    none?: direccionesWhereInput
+  }
+
   export type PrestamosListRelationFilter = {
     every?: prestamosWhereInput
     some?: prestamosWhereInput
@@ -13068,6 +12994,10 @@ export namespace Prisma {
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
+  }
+
+  export type direccionesOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type prestamosOrderByRelationAggregateInput = {
@@ -13080,11 +13010,11 @@ export namespace Prisma {
     cedula?: SortOrder
     telefono?: SortOrder
     email?: SortOrder
-    direccion?: SortOrder
     foto_url?: SortOrder
     notas?: SortOrder
     referido_por?: SortOrder
     fecha_registro?: SortOrder
+    apellido?: SortOrder
   }
 
   export type clientesAvgOrderByAggregateInput = {
@@ -13097,11 +13027,11 @@ export namespace Prisma {
     cedula?: SortOrder
     telefono?: SortOrder
     email?: SortOrder
-    direccion?: SortOrder
     foto_url?: SortOrder
     notas?: SortOrder
     referido_por?: SortOrder
     fecha_registro?: SortOrder
+    apellido?: SortOrder
   }
 
   export type clientesMinOrderByAggregateInput = {
@@ -13110,11 +13040,11 @@ export namespace Prisma {
     cedula?: SortOrder
     telefono?: SortOrder
     email?: SortOrder
-    direccion?: SortOrder
     foto_url?: SortOrder
     notas?: SortOrder
     referido_por?: SortOrder
     fecha_registro?: SortOrder
+    apellido?: SortOrder
   }
 
   export type clientesSumOrderByAggregateInput = {
@@ -13745,6 +13675,8 @@ export namespace Prisma {
     fecha_baja?: SortOrder
     razon_baja?: SortOrder
     estado?: SortOrder
+    nombre?: SortOrder
+    apellido?: SortOrder
   }
 
   export type usuariosAvgOrderByAggregateInput = {
@@ -13761,6 +13693,8 @@ export namespace Prisma {
     fecha_baja?: SortOrder
     razon_baja?: SortOrder
     estado?: SortOrder
+    nombre?: SortOrder
+    apellido?: SortOrder
   }
 
   export type usuariosMinOrderByAggregateInput = {
@@ -13773,6 +13707,8 @@ export namespace Prisma {
     fecha_baja?: SortOrder
     razon_baja?: SortOrder
     estado?: SortOrder
+    nombre?: SortOrder
+    apellido?: SortOrder
   }
 
   export type usuariosSumOrderByAggregateInput = {
@@ -13799,88 +13735,49 @@ export namespace Prisma {
     _max?: NestedEnumestado_usuarioNullableFilter<$PrismaModel>
   }
 
-  export type Enumfrecuencia_pagoNullableFilter<$PrismaModel = never> = {
-    equals?: $Enums.frecuencia_pago | Enumfrecuencia_pagoFieldRefInput<$PrismaModel> | null
-    in?: $Enums.frecuencia_pago[] | ListEnumfrecuencia_pagoFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.frecuencia_pago[] | ListEnumfrecuencia_pagoFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumfrecuencia_pagoNullableFilter<$PrismaModel> | $Enums.frecuencia_pago | null
-  }
-
-  export type datos_prestamosCountOrderByAggregateInput = {
-    id_prestamo?: SortOrder
+  export type direccionesCountOrderByAggregateInput = {
+    id?: SortOrder
     id_cliente?: SortOrder
-    nombre?: SortOrder
-    cedula?: SortOrder
-    telefono?: SortOrder
-    direccion?: SortOrder
-    foto_url?: SortOrder
-    monto?: SortOrder
-    interes?: SortOrder
-    cant_cuotas?: SortOrder
-    frecuencia_pago?: SortOrder
-    fecha_inicio?: SortOrder
-    fecha_vencimiento?: SortOrder
-    estado?: SortOrder
+    latitud?: SortOrder
+    longitud?: SortOrder
+    desripcion?: SortOrder
   }
 
-  export type datos_prestamosAvgOrderByAggregateInput = {
-    id_prestamo?: SortOrder
+  export type direccionesAvgOrderByAggregateInput = {
+    id?: SortOrder
     id_cliente?: SortOrder
-    monto?: SortOrder
-    interes?: SortOrder
-    cant_cuotas?: SortOrder
+    latitud?: SortOrder
+    longitud?: SortOrder
   }
 
-  export type datos_prestamosMaxOrderByAggregateInput = {
-    id_prestamo?: SortOrder
+  export type direccionesMaxOrderByAggregateInput = {
+    id?: SortOrder
     id_cliente?: SortOrder
-    nombre?: SortOrder
-    cedula?: SortOrder
-    telefono?: SortOrder
-    direccion?: SortOrder
-    foto_url?: SortOrder
-    monto?: SortOrder
-    interes?: SortOrder
-    cant_cuotas?: SortOrder
-    frecuencia_pago?: SortOrder
-    fecha_inicio?: SortOrder
-    fecha_vencimiento?: SortOrder
-    estado?: SortOrder
+    latitud?: SortOrder
+    longitud?: SortOrder
+    desripcion?: SortOrder
   }
 
-  export type datos_prestamosMinOrderByAggregateInput = {
-    id_prestamo?: SortOrder
+  export type direccionesMinOrderByAggregateInput = {
+    id?: SortOrder
     id_cliente?: SortOrder
-    nombre?: SortOrder
-    cedula?: SortOrder
-    telefono?: SortOrder
-    direccion?: SortOrder
-    foto_url?: SortOrder
-    monto?: SortOrder
-    interes?: SortOrder
-    cant_cuotas?: SortOrder
-    frecuencia_pago?: SortOrder
-    fecha_inicio?: SortOrder
-    fecha_vencimiento?: SortOrder
-    estado?: SortOrder
+    latitud?: SortOrder
+    longitud?: SortOrder
+    desripcion?: SortOrder
   }
 
-  export type datos_prestamosSumOrderByAggregateInput = {
-    id_prestamo?: SortOrder
+  export type direccionesSumOrderByAggregateInput = {
+    id?: SortOrder
     id_cliente?: SortOrder
-    monto?: SortOrder
-    interes?: SortOrder
-    cant_cuotas?: SortOrder
+    latitud?: SortOrder
+    longitud?: SortOrder
   }
 
-  export type Enumfrecuencia_pagoNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.frecuencia_pago | Enumfrecuencia_pagoFieldRefInput<$PrismaModel> | null
-    in?: $Enums.frecuencia_pago[] | ListEnumfrecuencia_pagoFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.frecuencia_pago[] | ListEnumfrecuencia_pagoFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumfrecuencia_pagoNullableWithAggregatesFilter<$PrismaModel> | $Enums.frecuencia_pago | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedEnumfrecuencia_pagoNullableFilter<$PrismaModel>
-    _max?: NestedEnumfrecuencia_pagoNullableFilter<$PrismaModel>
+  export type direccionesCreateNestedManyWithoutClientesInput = {
+    create?: XOR<direccionesCreateWithoutClientesInput, direccionesUncheckedCreateWithoutClientesInput> | direccionesCreateWithoutClientesInput[] | direccionesUncheckedCreateWithoutClientesInput[]
+    connectOrCreate?: direccionesCreateOrConnectWithoutClientesInput | direccionesCreateOrConnectWithoutClientesInput[]
+    createMany?: direccionesCreateManyClientesInputEnvelope
+    connect?: direccionesWhereUniqueInput | direccionesWhereUniqueInput[]
   }
 
   export type prestamosCreateNestedManyWithoutClientesInput = {
@@ -13888,6 +13785,13 @@ export namespace Prisma {
     connectOrCreate?: prestamosCreateOrConnectWithoutClientesInput | prestamosCreateOrConnectWithoutClientesInput[]
     createMany?: prestamosCreateManyClientesInputEnvelope
     connect?: prestamosWhereUniqueInput | prestamosWhereUniqueInput[]
+  }
+
+  export type direccionesUncheckedCreateNestedManyWithoutClientesInput = {
+    create?: XOR<direccionesCreateWithoutClientesInput, direccionesUncheckedCreateWithoutClientesInput> | direccionesCreateWithoutClientesInput[] | direccionesUncheckedCreateWithoutClientesInput[]
+    connectOrCreate?: direccionesCreateOrConnectWithoutClientesInput | direccionesCreateOrConnectWithoutClientesInput[]
+    createMany?: direccionesCreateManyClientesInputEnvelope
+    connect?: direccionesWhereUniqueInput | direccionesWhereUniqueInput[]
   }
 
   export type prestamosUncheckedCreateNestedManyWithoutClientesInput = {
@@ -13907,6 +13811,20 @@ export namespace Prisma {
 
   export type NullableDateTimeFieldUpdateOperationsInput = {
     set?: Date | string | null
+  }
+
+  export type direccionesUpdateManyWithoutClientesNestedInput = {
+    create?: XOR<direccionesCreateWithoutClientesInput, direccionesUncheckedCreateWithoutClientesInput> | direccionesCreateWithoutClientesInput[] | direccionesUncheckedCreateWithoutClientesInput[]
+    connectOrCreate?: direccionesCreateOrConnectWithoutClientesInput | direccionesCreateOrConnectWithoutClientesInput[]
+    upsert?: direccionesUpsertWithWhereUniqueWithoutClientesInput | direccionesUpsertWithWhereUniqueWithoutClientesInput[]
+    createMany?: direccionesCreateManyClientesInputEnvelope
+    set?: direccionesWhereUniqueInput | direccionesWhereUniqueInput[]
+    disconnect?: direccionesWhereUniqueInput | direccionesWhereUniqueInput[]
+    delete?: direccionesWhereUniqueInput | direccionesWhereUniqueInput[]
+    connect?: direccionesWhereUniqueInput | direccionesWhereUniqueInput[]
+    update?: direccionesUpdateWithWhereUniqueWithoutClientesInput | direccionesUpdateWithWhereUniqueWithoutClientesInput[]
+    updateMany?: direccionesUpdateManyWithWhereWithoutClientesInput | direccionesUpdateManyWithWhereWithoutClientesInput[]
+    deleteMany?: direccionesScalarWhereInput | direccionesScalarWhereInput[]
   }
 
   export type prestamosUpdateManyWithoutClientesNestedInput = {
@@ -13929,6 +13847,20 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type direccionesUncheckedUpdateManyWithoutClientesNestedInput = {
+    create?: XOR<direccionesCreateWithoutClientesInput, direccionesUncheckedCreateWithoutClientesInput> | direccionesCreateWithoutClientesInput[] | direccionesUncheckedCreateWithoutClientesInput[]
+    connectOrCreate?: direccionesCreateOrConnectWithoutClientesInput | direccionesCreateOrConnectWithoutClientesInput[]
+    upsert?: direccionesUpsertWithWhereUniqueWithoutClientesInput | direccionesUpsertWithWhereUniqueWithoutClientesInput[]
+    createMany?: direccionesCreateManyClientesInputEnvelope
+    set?: direccionesWhereUniqueInput | direccionesWhereUniqueInput[]
+    disconnect?: direccionesWhereUniqueInput | direccionesWhereUniqueInput[]
+    delete?: direccionesWhereUniqueInput | direccionesWhereUniqueInput[]
+    connect?: direccionesWhereUniqueInput | direccionesWhereUniqueInput[]
+    update?: direccionesUpdateWithWhereUniqueWithoutClientesInput | direccionesUpdateWithWhereUniqueWithoutClientesInput[]
+    updateMany?: direccionesUpdateManyWithWhereWithoutClientesInput | direccionesUpdateManyWithWhereWithoutClientesInput[]
+    deleteMany?: direccionesScalarWhereInput | direccionesScalarWhereInput[]
   }
 
   export type prestamosUncheckedUpdateManyWithoutClientesNestedInput = {
@@ -14361,8 +14293,18 @@ export namespace Prisma {
     deleteMany?: prestamosScalarWhereInput | prestamosScalarWhereInput[]
   }
 
-  export type NullableEnumfrecuencia_pagoFieldUpdateOperationsInput = {
-    set?: $Enums.frecuencia_pago | null
+  export type clientesCreateNestedOneWithoutDireccionesInput = {
+    create?: XOR<clientesCreateWithoutDireccionesInput, clientesUncheckedCreateWithoutDireccionesInput>
+    connectOrCreate?: clientesCreateOrConnectWithoutDireccionesInput
+    connect?: clientesWhereUniqueInput
+  }
+
+  export type clientesUpdateOneRequiredWithoutDireccionesNestedInput = {
+    create?: XOR<clientesCreateWithoutDireccionesInput, clientesUncheckedCreateWithoutDireccionesInput>
+    connectOrCreate?: clientesCreateOrConnectWithoutDireccionesInput
+    upsert?: clientesUpsertWithoutDireccionesInput
+    connect?: clientesWhereUniqueInput
+    update?: XOR<XOR<clientesUpdateToOneWithWhereWithoutDireccionesInput, clientesUpdateWithoutDireccionesInput>, clientesUncheckedUpdateWithoutDireccionesInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -14743,21 +14685,27 @@ export namespace Prisma {
     _max?: NestedEnumestado_usuarioNullableFilter<$PrismaModel>
   }
 
-  export type NestedEnumfrecuencia_pagoNullableFilter<$PrismaModel = never> = {
-    equals?: $Enums.frecuencia_pago | Enumfrecuencia_pagoFieldRefInput<$PrismaModel> | null
-    in?: $Enums.frecuencia_pago[] | ListEnumfrecuencia_pagoFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.frecuencia_pago[] | ListEnumfrecuencia_pagoFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumfrecuencia_pagoNullableFilter<$PrismaModel> | $Enums.frecuencia_pago | null
+  export type direccionesCreateWithoutClientesInput = {
+    latitud: Decimal | DecimalJsLike | number | string
+    longitud: Decimal | DecimalJsLike | number | string
+    desripcion: string
   }
 
-  export type NestedEnumfrecuencia_pagoNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.frecuencia_pago | Enumfrecuencia_pagoFieldRefInput<$PrismaModel> | null
-    in?: $Enums.frecuencia_pago[] | ListEnumfrecuencia_pagoFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.frecuencia_pago[] | ListEnumfrecuencia_pagoFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumfrecuencia_pagoNullableWithAggregatesFilter<$PrismaModel> | $Enums.frecuencia_pago | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedEnumfrecuencia_pagoNullableFilter<$PrismaModel>
-    _max?: NestedEnumfrecuencia_pagoNullableFilter<$PrismaModel>
+  export type direccionesUncheckedCreateWithoutClientesInput = {
+    id?: number
+    latitud: Decimal | DecimalJsLike | number | string
+    longitud: Decimal | DecimalJsLike | number | string
+    desripcion: string
+  }
+
+  export type direccionesCreateOrConnectWithoutClientesInput = {
+    where: direccionesWhereUniqueInput
+    create: XOR<direccionesCreateWithoutClientesInput, direccionesUncheckedCreateWithoutClientesInput>
+  }
+
+  export type direccionesCreateManyClientesInputEnvelope = {
+    data: direccionesCreateManyClientesInput | direccionesCreateManyClientesInput[]
+    skipDuplicates?: boolean
   }
 
   export type prestamosCreateWithoutClientesInput = {
@@ -14799,6 +14747,33 @@ export namespace Prisma {
   export type prestamosCreateManyClientesInputEnvelope = {
     data: prestamosCreateManyClientesInput | prestamosCreateManyClientesInput[]
     skipDuplicates?: boolean
+  }
+
+  export type direccionesUpsertWithWhereUniqueWithoutClientesInput = {
+    where: direccionesWhereUniqueInput
+    update: XOR<direccionesUpdateWithoutClientesInput, direccionesUncheckedUpdateWithoutClientesInput>
+    create: XOR<direccionesCreateWithoutClientesInput, direccionesUncheckedCreateWithoutClientesInput>
+  }
+
+  export type direccionesUpdateWithWhereUniqueWithoutClientesInput = {
+    where: direccionesWhereUniqueInput
+    data: XOR<direccionesUpdateWithoutClientesInput, direccionesUncheckedUpdateWithoutClientesInput>
+  }
+
+  export type direccionesUpdateManyWithWhereWithoutClientesInput = {
+    where: direccionesScalarWhereInput
+    data: XOR<direccionesUpdateManyMutationInput, direccionesUncheckedUpdateManyWithoutClientesInput>
+  }
+
+  export type direccionesScalarWhereInput = {
+    AND?: direccionesScalarWhereInput | direccionesScalarWhereInput[]
+    OR?: direccionesScalarWhereInput[]
+    NOT?: direccionesScalarWhereInput | direccionesScalarWhereInput[]
+    id?: IntFilter<"direcciones"> | number
+    id_cliente?: IntFilter<"direcciones"> | number
+    latitud?: DecimalFilter<"direcciones"> | Decimal | DecimalJsLike | number | string
+    longitud?: DecimalFilter<"direcciones"> | Decimal | DecimalJsLike | number | string
+    desripcion?: StringFilter<"direcciones"> | string
   }
 
   export type prestamosUpsertWithWhereUniqueWithoutClientesInput = {
@@ -14982,6 +14957,8 @@ export namespace Prisma {
     fecha_baja?: Date | string | null
     razon_baja?: string | null
     estado?: $Enums.estado_usuario | null
+    nombre?: string | null
+    apellido?: string | null
     movimientoscaja?: movimientoscajaCreateNestedManyWithoutUsuariosInput
     pagos?: pagosCreateNestedManyWithoutUsuariosInput
     prestamos?: prestamosCreateNestedManyWithoutUsuariosInput
@@ -14997,6 +14974,8 @@ export namespace Prisma {
     fecha_baja?: Date | string | null
     razon_baja?: string | null
     estado?: $Enums.estado_usuario | null
+    nombre?: string | null
+    apellido?: string | null
     movimientoscaja?: movimientoscajaUncheckedCreateNestedManyWithoutUsuariosInput
     pagos?: pagosUncheckedCreateNestedManyWithoutUsuariosInput
     prestamos?: prestamosUncheckedCreateNestedManyWithoutUsuariosInput
@@ -15027,6 +15006,8 @@ export namespace Prisma {
     fecha_baja?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     razon_baja?: NullableStringFieldUpdateOperationsInput | string | null
     estado?: NullableEnumestado_usuarioFieldUpdateOperationsInput | $Enums.estado_usuario | null
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
     movimientoscaja?: movimientoscajaUpdateManyWithoutUsuariosNestedInput
     pagos?: pagosUpdateManyWithoutUsuariosNestedInput
     prestamos?: prestamosUpdateManyWithoutUsuariosNestedInput
@@ -15042,6 +15023,8 @@ export namespace Prisma {
     fecha_baja?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     razon_baja?: NullableStringFieldUpdateOperationsInput | string | null
     estado?: NullableEnumestado_usuarioFieldUpdateOperationsInput | $Enums.estado_usuario | null
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
     movimientoscaja?: movimientoscajaUncheckedUpdateManyWithoutUsuariosNestedInput
     pagos?: pagosUncheckedUpdateManyWithoutUsuariosNestedInput
     prestamos?: prestamosUncheckedUpdateManyWithoutUsuariosNestedInput
@@ -15056,6 +15039,8 @@ export namespace Prisma {
     fecha_baja?: Date | string | null
     razon_baja?: string | null
     estado?: $Enums.estado_usuario | null
+    nombre?: string | null
+    apellido?: string | null
     logactividad?: logactividadCreateNestedManyWithoutUsuariosInput
     pagos?: pagosCreateNestedManyWithoutUsuariosInput
     prestamos?: prestamosCreateNestedManyWithoutUsuariosInput
@@ -15071,6 +15056,8 @@ export namespace Prisma {
     fecha_baja?: Date | string | null
     razon_baja?: string | null
     estado?: $Enums.estado_usuario | null
+    nombre?: string | null
+    apellido?: string | null
     logactividad?: logactividadUncheckedCreateNestedManyWithoutUsuariosInput
     pagos?: pagosUncheckedCreateNestedManyWithoutUsuariosInput
     prestamos?: prestamosUncheckedCreateNestedManyWithoutUsuariosInput
@@ -15101,6 +15088,8 @@ export namespace Prisma {
     fecha_baja?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     razon_baja?: NullableStringFieldUpdateOperationsInput | string | null
     estado?: NullableEnumestado_usuarioFieldUpdateOperationsInput | $Enums.estado_usuario | null
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
     logactividad?: logactividadUpdateManyWithoutUsuariosNestedInput
     pagos?: pagosUpdateManyWithoutUsuariosNestedInput
     prestamos?: prestamosUpdateManyWithoutUsuariosNestedInput
@@ -15116,6 +15105,8 @@ export namespace Prisma {
     fecha_baja?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     razon_baja?: NullableStringFieldUpdateOperationsInput | string | null
     estado?: NullableEnumestado_usuarioFieldUpdateOperationsInput | $Enums.estado_usuario | null
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
     logactividad?: logactividadUncheckedUpdateManyWithoutUsuariosNestedInput
     pagos?: pagosUncheckedUpdateManyWithoutUsuariosNestedInput
     prestamos?: prestamosUncheckedUpdateManyWithoutUsuariosNestedInput
@@ -15130,6 +15121,8 @@ export namespace Prisma {
     fecha_baja?: Date | string | null
     razon_baja?: string | null
     estado?: $Enums.estado_usuario | null
+    nombre?: string | null
+    apellido?: string | null
     logactividad?: logactividadCreateNestedManyWithoutUsuariosInput
     movimientoscaja?: movimientoscajaCreateNestedManyWithoutUsuariosInput
     prestamos?: prestamosCreateNestedManyWithoutUsuariosInput
@@ -15145,6 +15138,8 @@ export namespace Prisma {
     fecha_baja?: Date | string | null
     razon_baja?: string | null
     estado?: $Enums.estado_usuario | null
+    nombre?: string | null
+    apellido?: string | null
     logactividad?: logactividadUncheckedCreateNestedManyWithoutUsuariosInput
     movimientoscaja?: movimientoscajaUncheckedCreateNestedManyWithoutUsuariosInput
     prestamos?: prestamosUncheckedCreateNestedManyWithoutUsuariosInput
@@ -15207,6 +15202,8 @@ export namespace Prisma {
     fecha_baja?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     razon_baja?: NullableStringFieldUpdateOperationsInput | string | null
     estado?: NullableEnumestado_usuarioFieldUpdateOperationsInput | $Enums.estado_usuario | null
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
     logactividad?: logactividadUpdateManyWithoutUsuariosNestedInput
     movimientoscaja?: movimientoscajaUpdateManyWithoutUsuariosNestedInput
     prestamos?: prestamosUpdateManyWithoutUsuariosNestedInput
@@ -15222,6 +15219,8 @@ export namespace Prisma {
     fecha_baja?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     razon_baja?: NullableStringFieldUpdateOperationsInput | string | null
     estado?: NullableEnumestado_usuarioFieldUpdateOperationsInput | $Enums.estado_usuario | null
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
     logactividad?: logactividadUncheckedUpdateManyWithoutUsuariosNestedInput
     movimientoscaja?: movimientoscajaUncheckedUpdateManyWithoutUsuariosNestedInput
     prestamos?: prestamosUncheckedUpdateManyWithoutUsuariosNestedInput
@@ -15307,11 +15306,12 @@ export namespace Prisma {
     cedula: string
     telefono?: string | null
     email?: string | null
-    direccion?: string | null
     foto_url?: string | null
     notas?: string | null
     referido_por?: string | null
     fecha_registro?: Date | string | null
+    apellido?: string | null
+    direcciones?: direccionesCreateNestedManyWithoutClientesInput
   }
 
   export type clientesUncheckedCreateWithoutPrestamosInput = {
@@ -15320,11 +15320,12 @@ export namespace Prisma {
     cedula: string
     telefono?: string | null
     email?: string | null
-    direccion?: string | null
     foto_url?: string | null
     notas?: string | null
     referido_por?: string | null
     fecha_registro?: Date | string | null
+    apellido?: string | null
+    direcciones?: direccionesUncheckedCreateNestedManyWithoutClientesInput
   }
 
   export type clientesCreateOrConnectWithoutPrestamosInput = {
@@ -15341,6 +15342,8 @@ export namespace Prisma {
     fecha_baja?: Date | string | null
     razon_baja?: string | null
     estado?: $Enums.estado_usuario | null
+    nombre?: string | null
+    apellido?: string | null
     logactividad?: logactividadCreateNestedManyWithoutUsuariosInput
     movimientoscaja?: movimientoscajaCreateNestedManyWithoutUsuariosInput
     pagos?: pagosCreateNestedManyWithoutUsuariosInput
@@ -15356,6 +15359,8 @@ export namespace Prisma {
     fecha_baja?: Date | string | null
     razon_baja?: string | null
     estado?: $Enums.estado_usuario | null
+    nombre?: string | null
+    apellido?: string | null
     logactividad?: logactividadUncheckedCreateNestedManyWithoutUsuariosInput
     movimientoscaja?: movimientoscajaUncheckedCreateNestedManyWithoutUsuariosInput
     pagos?: pagosUncheckedCreateNestedManyWithoutUsuariosInput
@@ -15415,11 +15420,12 @@ export namespace Prisma {
     cedula?: StringFieldUpdateOperationsInput | string
     telefono?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    direccion?: NullableStringFieldUpdateOperationsInput | string | null
     foto_url?: NullableStringFieldUpdateOperationsInput | string | null
     notas?: NullableStringFieldUpdateOperationsInput | string | null
     referido_por?: NullableStringFieldUpdateOperationsInput | string | null
     fecha_registro?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
+    direcciones?: direccionesUpdateManyWithoutClientesNestedInput
   }
 
   export type clientesUncheckedUpdateWithoutPrestamosInput = {
@@ -15428,11 +15434,12 @@ export namespace Prisma {
     cedula?: StringFieldUpdateOperationsInput | string
     telefono?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    direccion?: NullableStringFieldUpdateOperationsInput | string | null
     foto_url?: NullableStringFieldUpdateOperationsInput | string | null
     notas?: NullableStringFieldUpdateOperationsInput | string | null
     referido_por?: NullableStringFieldUpdateOperationsInput | string | null
     fecha_registro?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
+    direcciones?: direccionesUncheckedUpdateManyWithoutClientesNestedInput
   }
 
   export type usuariosUpsertWithoutPrestamosInput = {
@@ -15455,6 +15462,8 @@ export namespace Prisma {
     fecha_baja?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     razon_baja?: NullableStringFieldUpdateOperationsInput | string | null
     estado?: NullableEnumestado_usuarioFieldUpdateOperationsInput | $Enums.estado_usuario | null
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
     logactividad?: logactividadUpdateManyWithoutUsuariosNestedInput
     movimientoscaja?: movimientoscajaUpdateManyWithoutUsuariosNestedInput
     pagos?: pagosUpdateManyWithoutUsuariosNestedInput
@@ -15470,6 +15479,8 @@ export namespace Prisma {
     fecha_baja?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     razon_baja?: NullableStringFieldUpdateOperationsInput | string | null
     estado?: NullableEnumestado_usuarioFieldUpdateOperationsInput | $Enums.estado_usuario | null
+    nombre?: NullableStringFieldUpdateOperationsInput | string | null
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
     logactividad?: logactividadUncheckedUpdateManyWithoutUsuariosNestedInput
     movimientoscaja?: movimientoscajaUncheckedUpdateManyWithoutUsuariosNestedInput
     pagos?: pagosUncheckedUpdateManyWithoutUsuariosNestedInput
@@ -15683,6 +15694,83 @@ export namespace Prisma {
     data: XOR<prestamosUpdateManyMutationInput, prestamosUncheckedUpdateManyWithoutUsuariosInput>
   }
 
+  export type clientesCreateWithoutDireccionesInput = {
+    nombre: string
+    cedula: string
+    telefono?: string | null
+    email?: string | null
+    foto_url?: string | null
+    notas?: string | null
+    referido_por?: string | null
+    fecha_registro?: Date | string | null
+    apellido?: string | null
+    prestamos?: prestamosCreateNestedManyWithoutClientesInput
+  }
+
+  export type clientesUncheckedCreateWithoutDireccionesInput = {
+    id_cliente?: number
+    nombre: string
+    cedula: string
+    telefono?: string | null
+    email?: string | null
+    foto_url?: string | null
+    notas?: string | null
+    referido_por?: string | null
+    fecha_registro?: Date | string | null
+    apellido?: string | null
+    prestamos?: prestamosUncheckedCreateNestedManyWithoutClientesInput
+  }
+
+  export type clientesCreateOrConnectWithoutDireccionesInput = {
+    where: clientesWhereUniqueInput
+    create: XOR<clientesCreateWithoutDireccionesInput, clientesUncheckedCreateWithoutDireccionesInput>
+  }
+
+  export type clientesUpsertWithoutDireccionesInput = {
+    update: XOR<clientesUpdateWithoutDireccionesInput, clientesUncheckedUpdateWithoutDireccionesInput>
+    create: XOR<clientesCreateWithoutDireccionesInput, clientesUncheckedCreateWithoutDireccionesInput>
+    where?: clientesWhereInput
+  }
+
+  export type clientesUpdateToOneWithWhereWithoutDireccionesInput = {
+    where?: clientesWhereInput
+    data: XOR<clientesUpdateWithoutDireccionesInput, clientesUncheckedUpdateWithoutDireccionesInput>
+  }
+
+  export type clientesUpdateWithoutDireccionesInput = {
+    nombre?: StringFieldUpdateOperationsInput | string
+    cedula?: StringFieldUpdateOperationsInput | string
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    foto_url?: NullableStringFieldUpdateOperationsInput | string | null
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
+    referido_por?: NullableStringFieldUpdateOperationsInput | string | null
+    fecha_registro?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
+    prestamos?: prestamosUpdateManyWithoutClientesNestedInput
+  }
+
+  export type clientesUncheckedUpdateWithoutDireccionesInput = {
+    id_cliente?: IntFieldUpdateOperationsInput | number
+    nombre?: StringFieldUpdateOperationsInput | string
+    cedula?: StringFieldUpdateOperationsInput | string
+    telefono?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    foto_url?: NullableStringFieldUpdateOperationsInput | string | null
+    notas?: NullableStringFieldUpdateOperationsInput | string | null
+    referido_por?: NullableStringFieldUpdateOperationsInput | string | null
+    fecha_registro?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    apellido?: NullableStringFieldUpdateOperationsInput | string | null
+    prestamos?: prestamosUncheckedUpdateManyWithoutClientesNestedInput
+  }
+
+  export type direccionesCreateManyClientesInput = {
+    id?: number
+    latitud: Decimal | DecimalJsLike | number | string
+    longitud: Decimal | DecimalJsLike | number | string
+    desripcion: string
+  }
+
   export type prestamosCreateManyClientesInput = {
     id_prestamo?: number
     monto: Decimal | DecimalJsLike | number | string
@@ -15696,6 +15784,26 @@ export namespace Prisma {
     fecha_vencimiento: Date | string
     estado?: $Enums.estado_prestamo | null
     notas?: string | null
+  }
+
+  export type direccionesUpdateWithoutClientesInput = {
+    latitud?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    longitud?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    desripcion?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type direccionesUncheckedUpdateWithoutClientesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    latitud?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    longitud?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    desripcion?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type direccionesUncheckedUpdateManyWithoutClientesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    latitud?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    longitud?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    desripcion?: StringFieldUpdateOperationsInput | string
   }
 
   export type prestamosUpdateWithoutClientesInput = {
