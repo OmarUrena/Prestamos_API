@@ -71,13 +71,7 @@ router.get("/:id", obtenerCliente);
  *               telefono:
  *                 type: string
  *               email:
- *                 type: string
- *              direccion:
- *               
- *             example:
- *               nombre: "Juan"
- *               apellido: "Perez"
- *               email: "juan.perez@example.com"
+ *                 type: string              
  *     responses:
  *       201:
  *         description: Cliente creado exitosamente
