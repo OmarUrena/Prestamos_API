@@ -13,12 +13,22 @@ export const obtenerClientes = async (req: Request, res: Response) => {
     }
     const clientes = await prisma.clientes.findMany({
         include: {
-            prestamos: true,
+            prestamos: {
+
+            },
             direcciones: true
         }
     })
 
-    res.json(clientes)
+    const clientesConMontosNumericos = clientes.map(cliente => ({
+  ...cliente,
+  prestamos: cliente.prestamos.map(prestamo => ({
+    ...prestamo,
+    monto: prestamo.monto.toNumber(), // convierte Decimal a Number
+  }))
+}));
+
+    res.json(clientesConMontosNumericos)
 }
 
 
@@ -40,7 +50,14 @@ export const obtenerCliente = async (req: Request, res: Response) => {
     })
 
     if (cliente != null) {
-        res.json(cliente)
+        const clienteConMontosNumericos = {
+            ...cliente,
+            prestamos: cliente.prestamos.map(prestamo => ({
+                ...prestamo,
+                monto: prestamo.monto.toNumber() // convierte Decimal a Number
+            }))
+        }
+        res.json(clienteConMontosNumericos)
     }
     else {
         res.status(404).send(`No se encontró el cliente con el id: ${id}`)
