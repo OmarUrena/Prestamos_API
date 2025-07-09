@@ -54,8 +54,9 @@ export const nuevoCliente = async (req: Request, res: Response) => {
         res.status(verificacion?.statusCode).send(verificacion?.statusMessage);
 
     }
-    const datos: clientes = req.body['cliente']
-    const ubicaciones: Array<direcciones> = req.body['ubicaciones']
+    const datos: clientes = req.body.cliente as clientes
+    
+    const ubicaciones: Array<direcciones> = req.body.ubicaciones as Array<direcciones> || []
 
 
     console.log(ubicaciones)
