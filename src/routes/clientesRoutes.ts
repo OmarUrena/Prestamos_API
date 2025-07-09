@@ -51,7 +51,7 @@ router.get("/:id", obtenerCliente);
  * @swagger
  * /client/clientes:
  *   post:
- *     summary: Crea un nuevo cliente
+ *     summary: Crea un nuevo cliente junto con sus ubicaciones
  *     security:
  *       - bearerAuth: []
  *     tags: [Clientes]
@@ -62,19 +62,76 @@ router.get("/:id", obtenerCliente);
  *           schema:
  *             type: object
  *             properties:
- *               nombre:
- *                 type: string
- *               apellido:
- *                 type: string
- *               cedula:
- *                 type: string
- *               telefono:
- *                 type: string
- *               email:
- *                 type: string              
+ *               cliente:
+ *                 type: object
+ *                 properties:
+ *                   nombre:
+ *                     type: string
+ *                     description: Nombre del cliente
+ *                   apellido:
+ *                     type: string
+ *                     description: Apellido del cliente
+ *                   cedula:
+ *                     type: string
+ *                     description: Cédula del cliente
+ *                   telefono:
+ *                     type: string
+ *                     description: Teléfono del cliente
+ *                   email:
+ *                     type: string
+ *                     description: Correo electrónico del cliente
+ *                   foto_url:
+ *                     type: string
+ *                     description: URL de la foto del cliente
+ *                   notas:
+ *                     type: string
+ *                     description: Notas adicionales sobre el cliente
+ *                   referido_por:
+ *                     type: string
+ *                     description: Nombre de la persona que refirió al cliente
+ *               ubicaciones:
+ *                 type: array
+ *                 items:
+ *                   type: object
+ *                   properties:
+ *                     latitud:
+ *                       type: number
+ *                       description: Latitud de la ubicación
+ *                     longitud:
+ *                       type: number
+ *                       description: Longitud de la ubicación
+ *                     descripcion:
+ *                       type: string
+ *                       description: Descripción de la ubicación
+ *                     direccion:
+ *                       type: string
+ *                       description: Dirección de la ubicación
+ *             example:
+ *               cliente:
+ *                 nombre: "Juan"
+ *                 apellido: "Pérez"
+ *                 cedula: "001-1234567-8"
+ *                 telefono: "809-123-4567"
+ *                 email: "juan.perez@example.com"
+ *                 foto_url: "https://example.com/foto.jpg"
+ *                 notas: "Cliente preferencial"
+ *                 referido_por: "Pedro Gómez"
+ *               ubicaciones:
+ *                 - latitud: 18.4834
+ *                   longitud: -69.9396
+ *                   descripcion: "Casa principal"
+ *                   direccion: "Calle 123, Santo Domingo"
+ *                 - latitud: 18.5000
+ *                   longitud: -69.9500
+ *                   descripcion: "Oficina"
+ *                   direccion: "Av. Independencia, Santo Domingo"
  *     responses:
  *       201:
  *         description: Cliente creado exitosamente
+ *       400:
+ *         description: Error en los datos enviados
+ *       500:
+ *         description: Error interno del servidor
  */
 router.post("/", nuevoCliente);
 

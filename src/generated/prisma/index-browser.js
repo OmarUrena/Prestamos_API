@@ -211,7 +211,8 @@ exports.Prisma.DireccionesScalarFieldEnum = {
   id_cliente: 'id_cliente',
   latitud: 'latitud',
   longitud: 'longitud',
-  desripcion: 'desripcion'
+  descripcion: 'descripcion',
+  direccion: 'direccion'
 };
 
 exports.Prisma.SortOrder = {

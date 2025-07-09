@@ -10220,7 +10220,8 @@ export namespace Prisma {
     id_cliente: number | null
     latitud: Decimal | null
     longitud: Decimal | null
-    desripcion: string | null
+    descripcion: string | null
+    direccion: string | null
   }
 
   export type DireccionesMaxAggregateOutputType = {
@@ -10228,7 +10229,8 @@ export namespace Prisma {
     id_cliente: number | null
     latitud: Decimal | null
     longitud: Decimal | null
-    desripcion: string | null
+    descripcion: string | null
+    direccion: string | null
   }
 
   export type DireccionesCountAggregateOutputType = {
@@ -10236,7 +10238,8 @@ export namespace Prisma {
     id_cliente: number
     latitud: number
     longitud: number
-    desripcion: number
+    descripcion: number
+    direccion: number
     _all: number
   }
 
@@ -10260,7 +10263,8 @@ export namespace Prisma {
     id_cliente?: true
     latitud?: true
     longitud?: true
-    desripcion?: true
+    descripcion?: true
+    direccion?: true
   }
 
   export type DireccionesMaxAggregateInputType = {
@@ -10268,7 +10272,8 @@ export namespace Prisma {
     id_cliente?: true
     latitud?: true
     longitud?: true
-    desripcion?: true
+    descripcion?: true
+    direccion?: true
   }
 
   export type DireccionesCountAggregateInputType = {
@@ -10276,7 +10281,8 @@ export namespace Prisma {
     id_cliente?: true
     latitud?: true
     longitud?: true
-    desripcion?: true
+    descripcion?: true
+    direccion?: true
     _all?: true
   }
 
@@ -10371,7 +10377,8 @@ export namespace Prisma {
     id_cliente: number
     latitud: Decimal
     longitud: Decimal
-    desripcion: string
+    descripcion: string
+    direccion: string
     _count: DireccionesCountAggregateOutputType | null
     _avg: DireccionesAvgAggregateOutputType | null
     _sum: DireccionesSumAggregateOutputType | null
@@ -10398,7 +10405,8 @@ export namespace Prisma {
     id_cliente?: boolean
     latitud?: boolean
     longitud?: boolean
-    desripcion?: boolean
+    descripcion?: boolean
+    direccion?: boolean
     clientes?: boolean | clientesDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["direcciones"]>
 
@@ -10407,7 +10415,8 @@ export namespace Prisma {
     id_cliente?: boolean
     latitud?: boolean
     longitud?: boolean
-    desripcion?: boolean
+    descripcion?: boolean
+    direccion?: boolean
     clientes?: boolean | clientesDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["direcciones"]>
 
@@ -10416,7 +10425,8 @@ export namespace Prisma {
     id_cliente?: boolean
     latitud?: boolean
     longitud?: boolean
-    desripcion?: boolean
+    descripcion?: boolean
+    direccion?: boolean
     clientes?: boolean | clientesDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["direcciones"]>
 
@@ -10425,10 +10435,11 @@ export namespace Prisma {
     id_cliente?: boolean
     latitud?: boolean
     longitud?: boolean
-    desripcion?: boolean
+    descripcion?: boolean
+    direccion?: boolean
   }
 
-  export type direccionesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "id_cliente" | "latitud" | "longitud" | "desripcion", ExtArgs["result"]["direcciones"]>
+  export type direccionesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "id_cliente" | "latitud" | "longitud" | "descripcion" | "direccion", ExtArgs["result"]["direcciones"]>
   export type direccionesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     clientes?: boolean | clientesDefaultArgs<ExtArgs>
   }
@@ -10449,7 +10460,8 @@ export namespace Prisma {
       id_cliente: number
       latitud: Prisma.Decimal
       longitud: Prisma.Decimal
-      desripcion: string
+      descripcion: string
+      direccion: string
     }, ExtArgs["result"]["direcciones"]>
     composites: {}
   }
@@ -10878,7 +10890,8 @@ export namespace Prisma {
     readonly id_cliente: FieldRef<"direcciones", 'Int'>
     readonly latitud: FieldRef<"direcciones", 'Decimal'>
     readonly longitud: FieldRef<"direcciones", 'Decimal'>
-    readonly desripcion: FieldRef<"direcciones", 'String'>
+    readonly descripcion: FieldRef<"direcciones", 'String'>
+    readonly direccion: FieldRef<"direcciones", 'String'>
   }
     
 
@@ -11419,7 +11432,8 @@ export namespace Prisma {
     id_cliente: 'id_cliente',
     latitud: 'latitud',
     longitud: 'longitud',
-    desripcion: 'desripcion'
+    descripcion: 'descripcion',
+    direccion: 'direccion'
   };
 
   export type DireccionesScalarFieldEnum = (typeof DireccionesScalarFieldEnum)[keyof typeof DireccionesScalarFieldEnum]
@@ -12220,7 +12234,8 @@ export namespace Prisma {
     id_cliente?: IntFilter<"direcciones"> | number
     latitud?: DecimalFilter<"direcciones"> | Decimal | DecimalJsLike | number | string
     longitud?: DecimalFilter<"direcciones"> | Decimal | DecimalJsLike | number | string
-    desripcion?: StringFilter<"direcciones"> | string
+    descripcion?: StringFilter<"direcciones"> | string
+    direccion?: StringFilter<"direcciones"> | string
     clientes?: XOR<ClientesScalarRelationFilter, clientesWhereInput>
   }
 
@@ -12229,7 +12244,8 @@ export namespace Prisma {
     id_cliente?: SortOrder
     latitud?: SortOrder
     longitud?: SortOrder
-    desripcion?: SortOrder
+    descripcion?: SortOrder
+    direccion?: SortOrder
     clientes?: clientesOrderByWithRelationInput
   }
 
@@ -12241,7 +12257,8 @@ export namespace Prisma {
     id_cliente?: IntFilter<"direcciones"> | number
     latitud?: DecimalFilter<"direcciones"> | Decimal | DecimalJsLike | number | string
     longitud?: DecimalFilter<"direcciones"> | Decimal | DecimalJsLike | number | string
-    desripcion?: StringFilter<"direcciones"> | string
+    descripcion?: StringFilter<"direcciones"> | string
+    direccion?: StringFilter<"direcciones"> | string
     clientes?: XOR<ClientesScalarRelationFilter, clientesWhereInput>
   }, "id">
 
@@ -12250,7 +12267,8 @@ export namespace Prisma {
     id_cliente?: SortOrder
     latitud?: SortOrder
     longitud?: SortOrder
-    desripcion?: SortOrder
+    descripcion?: SortOrder
+    direccion?: SortOrder
     _count?: direccionesCountOrderByAggregateInput
     _avg?: direccionesAvgOrderByAggregateInput
     _max?: direccionesMaxOrderByAggregateInput
@@ -12266,7 +12284,8 @@ export namespace Prisma {
     id_cliente?: IntWithAggregatesFilter<"direcciones"> | number
     latitud?: DecimalWithAggregatesFilter<"direcciones"> | Decimal | DecimalJsLike | number | string
     longitud?: DecimalWithAggregatesFilter<"direcciones"> | Decimal | DecimalJsLike | number | string
-    desripcion?: StringWithAggregatesFilter<"direcciones"> | string
+    descripcion?: StringWithAggregatesFilter<"direcciones"> | string
+    direccion?: StringWithAggregatesFilter<"direcciones"> | string
   }
 
   export type clientesCreateInput = {
@@ -12878,7 +12897,8 @@ export namespace Prisma {
   export type direccionesCreateInput = {
     latitud: Decimal | DecimalJsLike | number | string
     longitud: Decimal | DecimalJsLike | number | string
-    desripcion: string
+    descripcion: string
+    direccion: string
     clientes: clientesCreateNestedOneWithoutDireccionesInput
   }
 
@@ -12887,13 +12907,15 @@ export namespace Prisma {
     id_cliente: number
     latitud: Decimal | DecimalJsLike | number | string
     longitud: Decimal | DecimalJsLike | number | string
-    desripcion: string
+    descripcion: string
+    direccion: string
   }
 
   export type direccionesUpdateInput = {
     latitud?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     longitud?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    desripcion?: StringFieldUpdateOperationsInput | string
+    descripcion?: StringFieldUpdateOperationsInput | string
+    direccion?: StringFieldUpdateOperationsInput | string
     clientes?: clientesUpdateOneRequiredWithoutDireccionesNestedInput
   }
 
@@ -12902,7 +12924,8 @@ export namespace Prisma {
     id_cliente?: IntFieldUpdateOperationsInput | number
     latitud?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     longitud?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    desripcion?: StringFieldUpdateOperationsInput | string
+    descripcion?: StringFieldUpdateOperationsInput | string
+    direccion?: StringFieldUpdateOperationsInput | string
   }
 
   export type direccionesCreateManyInput = {
@@ -12910,13 +12933,15 @@ export namespace Prisma {
     id_cliente: number
     latitud: Decimal | DecimalJsLike | number | string
     longitud: Decimal | DecimalJsLike | number | string
-    desripcion: string
+    descripcion: string
+    direccion: string
   }
 
   export type direccionesUpdateManyMutationInput = {
     latitud?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     longitud?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    desripcion?: StringFieldUpdateOperationsInput | string
+    descripcion?: StringFieldUpdateOperationsInput | string
+    direccion?: StringFieldUpdateOperationsInput | string
   }
 
   export type direccionesUncheckedUpdateManyInput = {
@@ -12924,7 +12949,8 @@ export namespace Prisma {
     id_cliente?: IntFieldUpdateOperationsInput | number
     latitud?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     longitud?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    desripcion?: StringFieldUpdateOperationsInput | string
+    descripcion?: StringFieldUpdateOperationsInput | string
+    direccion?: StringFieldUpdateOperationsInput | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -13740,7 +13766,8 @@ export namespace Prisma {
     id_cliente?: SortOrder
     latitud?: SortOrder
     longitud?: SortOrder
-    desripcion?: SortOrder
+    descripcion?: SortOrder
+    direccion?: SortOrder
   }
 
   export type direccionesAvgOrderByAggregateInput = {
@@ -13755,7 +13782,8 @@ export namespace Prisma {
     id_cliente?: SortOrder
     latitud?: SortOrder
     longitud?: SortOrder
-    desripcion?: SortOrder
+    descripcion?: SortOrder
+    direccion?: SortOrder
   }
 
   export type direccionesMinOrderByAggregateInput = {
@@ -13763,7 +13791,8 @@ export namespace Prisma {
     id_cliente?: SortOrder
     latitud?: SortOrder
     longitud?: SortOrder
-    desripcion?: SortOrder
+    descripcion?: SortOrder
+    direccion?: SortOrder
   }
 
   export type direccionesSumOrderByAggregateInput = {
@@ -14688,14 +14717,16 @@ export namespace Prisma {
   export type direccionesCreateWithoutClientesInput = {
     latitud: Decimal | DecimalJsLike | number | string
     longitud: Decimal | DecimalJsLike | number | string
-    desripcion: string
+    descripcion: string
+    direccion: string
   }
 
   export type direccionesUncheckedCreateWithoutClientesInput = {
     id?: number
     latitud: Decimal | DecimalJsLike | number | string
     longitud: Decimal | DecimalJsLike | number | string
-    desripcion: string
+    descripcion: string
+    direccion: string
   }
 
   export type direccionesCreateOrConnectWithoutClientesInput = {
@@ -14773,7 +14804,8 @@ export namespace Prisma {
     id_cliente?: IntFilter<"direcciones"> | number
     latitud?: DecimalFilter<"direcciones"> | Decimal | DecimalJsLike | number | string
     longitud?: DecimalFilter<"direcciones"> | Decimal | DecimalJsLike | number | string
-    desripcion?: StringFilter<"direcciones"> | string
+    descripcion?: StringFilter<"direcciones"> | string
+    direccion?: StringFilter<"direcciones"> | string
   }
 
   export type prestamosUpsertWithWhereUniqueWithoutClientesInput = {
@@ -15768,7 +15800,8 @@ export namespace Prisma {
     id?: number
     latitud: Decimal | DecimalJsLike | number | string
     longitud: Decimal | DecimalJsLike | number | string
-    desripcion: string
+    descripcion: string
+    direccion: string
   }
 
   export type prestamosCreateManyClientesInput = {
@@ -15789,21 +15822,24 @@ export namespace Prisma {
   export type direccionesUpdateWithoutClientesInput = {
     latitud?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     longitud?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    desripcion?: StringFieldUpdateOperationsInput | string
+    descripcion?: StringFieldUpdateOperationsInput | string
+    direccion?: StringFieldUpdateOperationsInput | string
   }
 
   export type direccionesUncheckedUpdateWithoutClientesInput = {
     id?: IntFieldUpdateOperationsInput | number
     latitud?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     longitud?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    desripcion?: StringFieldUpdateOperationsInput | string
+    descripcion?: StringFieldUpdateOperationsInput | string
+    direccion?: StringFieldUpdateOperationsInput | string
   }
 
   export type direccionesUncheckedUpdateManyWithoutClientesInput = {
     id?: IntFieldUpdateOperationsInput | number
     latitud?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     longitud?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
-    desripcion?: StringFieldUpdateOperationsInput | string
+    descripcion?: StringFieldUpdateOperationsInput | string
+    direccion?: StringFieldUpdateOperationsInput | string
   }
 
   export type prestamosUpdateWithoutClientesInput = {

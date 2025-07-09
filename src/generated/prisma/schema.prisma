@@ -112,12 +112,13 @@ model usuarios {
 }
 
 model direcciones {
-  id         Int      @id(map: "ubicaciones_pkey") @default(autoincrement())
-  id_cliente Int
-  latitud    Decimal  @db.Decimal
-  longitud   Decimal  @db.Decimal
-  desripcion String   @db.VarChar(50)
-  clientes   clientes @relation(fields: [id_cliente], references: [id_cliente], onDelete: NoAction, onUpdate: NoAction, map: "id_cliente_fk")
+  id          Int      @id(map: "ubicaciones_pkey") @default(autoincrement())
+  id_cliente  Int
+  latitud     Decimal  @db.Decimal
+  longitud    Decimal  @db.Decimal
+  descripcion String   @db.VarChar(50)
+  direccion   String   @db.VarChar(60)
+  clientes    clientes @relation(fields: [id_cliente], references: [id_cliente], onDelete: NoAction, onUpdate: NoAction, map: "id_cliente_fk")
 }
 
 enum estado_cuota {
