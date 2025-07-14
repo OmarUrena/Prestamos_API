@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { estado_cuota, pagos, PrismaClient } from "../../generated/prisma";
 import { verificarToken } from "../services";
-import { Decimal } from "../../generated/prisma/runtime/library";
 
 
 const prisma = new PrismaClient()
@@ -68,21 +67,23 @@ export const nuevoPago = async (req: Request, res: Response) => {
         })
     
         if(resultado){
-
             const cuota = await prisma.cuotas.findUnique({
                 where: {
                     id_cuota: resultado.id_cuota
                 }
             })
 
-            let nuevoEstado : estado_cuota = 'pendiente'
-
-            if(cuota && cuota.monto_restante === Decimal(0.0)){
+            var nuevoEstado : estado_cuota = 'pendiente'
+            console.log(cuota?.monto_restante, resultado.monto_pagado)
+            if(cuota?.monto_restante.equals(resultado.monto_pagado)){
+                console.log('actualizando cuota')
                 nuevoEstado = 'pagada'
             }
             else if(cuota && cuota.estado_pago === 'atrasada'){
                 nuevoEstado = 'atrasada'
             }
+
+            console.log(nuevoEstado)
 
             await prisma.cuotas.update({
                 where: {
