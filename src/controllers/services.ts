@@ -73,6 +73,36 @@ export const actualizarCuotas = async () => {
 }
 
 
+export const actualizarPrestamos = async () => {
+    const prestamos = await prisma.prestamos.findMany({
+        where: {
+            estado: 'mora'
+        },
+        include:{
+            cuotas:{
+                where:{
+                    estado_pago: 'atrasada'
+                }
+            }
+        }
+    })
+
+
+    for(const prestamo of prestamos){
+        if(prestamo.cuotas.length === 0){
+            await prisma.prestamos.update({
+                where: {
+                    id_prestamo: prestamo.id_prestamo
+                },
+                data: {
+                    estado: 'activo'
+                }
+            })
+        }
+    }
+}
+
+
 
 /*Genera todas las cuotas de un préstamo, calculando las cuotas, el abono al capital el abono a los intereses
 y la fecha pautada para pagar cada una. Devuelve el monto de las cuotas y la lista de cuotas*/

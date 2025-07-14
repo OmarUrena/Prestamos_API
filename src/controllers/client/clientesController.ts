@@ -12,6 +12,9 @@ export const obtenerClientes = async (req: Request, res: Response) => {
 
     }
     const clientes = await prisma.clientes.findMany({
+        orderBy: {
+            nombre: "asc"
+        },
         include: {
             prestamos: {
 

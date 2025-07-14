@@ -23,6 +23,9 @@ export const obtenerPrestamos = async (req: Request, res: Response) => {
     const prestamos = await prisma.prestamos.findMany({
         include: {
             clientes: true
+        },
+        orderBy:{
+            fecha_inicio: "desc"
         }
     })
 
@@ -47,6 +50,10 @@ export const obtenerCuotasPendientes = async (req: Request, res: Response) => {
     const cuotasPendientes = await prisma.cuotas.findMany({
         where: {
             fecha_prevista: new Date(fecha as string)
+        },
+
+        orderBy:{
+            id_prestamo: "asc"
         },
 
         include: {
@@ -80,8 +87,15 @@ export const obtenerPrestamo = async (req: Request, res: Response) => {
             clientes: true,
             usuarios: true,
             cuotas: {
+                orderBy: {
+                    numero: "asc"
+                },
                 include: {
-                    pagos: true
+                    pagos: {
+                        orderBy: {
+                            fecha_pago: "desc"
+                        }
+                    }
                 }
             }
         }
@@ -115,6 +129,9 @@ export const obtenerCuotas = async (req: Request, res: Response) => {
             cuotas: {
                 include: {
                     pagos: true
+                },
+                orderBy:{
+                    numero: "asc"
                 }
             }
 
@@ -147,8 +164,16 @@ export const obtenerPagos = async (req: Request, res: Response) => {
         },
         include: {
             cuotas: {
+                orderBy:{
+                    numero: "asc"
+                },
                 include: {
-                    pagos: true
+
+                    pagos: {
+                        orderBy: {
+                            fecha_pago: "desc"
+                        }
+                    }
                 }
             }
 
