@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { estado_cuota, pagos, PrismaClient } from "../../generated/prisma";
 import { verificarToken } from "../services";
+import { Decimal } from "../../generated/prisma/runtime/library";
 
 
 const prisma = new PrismaClient()
@@ -76,7 +77,7 @@ export const nuevoPago = async (req: Request, res: Response) => {
 
             let nuevoEstado : estado_cuota = 'pendiente'
 
-            if(cuota && cuota.monto_restante === resultado.monto_pagado){
+            if(cuota && cuota.monto_restante === Decimal(0.0)){
                 nuevoEstado = 'pagada'
             }
             else if(cuota && cuota.estado_pago === 'atrasada'){
