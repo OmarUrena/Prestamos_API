@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { estado_cuota, pagos, PrismaClient } from "../../generated/prisma";
-import { verificarToken } from "../services";
+import { actualizarPrestamos, verificarToken } from "../services";
 
 
 const prisma = new PrismaClient()
@@ -99,6 +99,8 @@ export const nuevoPago = async (req: Request, res: Response) => {
                 },
                 
             })
+
+            await actualizarPrestamos();
 
 
             res.status(200).send("Pago registrado correctamente!")
