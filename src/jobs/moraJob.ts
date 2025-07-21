@@ -9,7 +9,7 @@ const prisma = new PrismaClient();
 
 
 
-cron.schedule('* * * * *', async () => {
+cron.schedule('0 0 * * *', async () => {
     
     actualizarCuotas()
     console.log("Ejecutando node Cron")
