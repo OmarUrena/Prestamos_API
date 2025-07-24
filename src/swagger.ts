@@ -14,7 +14,7 @@ const options = {
         url: "http://localhost:3000",
       },
       {
-        url: "https://prestamos-api-nzhe.onrender.com"
+        url: "https://prestamos-api.up.railway.app"
       }
     ],
     components: {
