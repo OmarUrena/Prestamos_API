@@ -88,6 +88,7 @@ model prestamos {
   fecha_vencimiento DateTime         @db.Date
   estado            estado_prestamo? @default(activo)
   notas             String?
+  desembolsado      Boolean          @default(false)
   cuotas            cuotas[]
   clientes          clientes         @relation(fields: [id_cliente], references: [id_cliente], onDelete: NoAction, onUpdate: NoAction)
   usuarios          usuarios         @relation(fields: [id_usuario], references: [id_usuario], onDelete: NoAction, onUpdate: NoAction)
@@ -116,8 +117,8 @@ model direcciones {
   id_cliente  Int
   latitud     Decimal  @db.Decimal
   longitud    Decimal  @db.Decimal
-  descripcion String   @db.VarChar(50)
-  direccion   String   @db.VarChar(60)
+  descripcion String   @db.VarChar(100)
+  direccion   String   @db.VarChar(100)
   clientes    clientes @relation(fields: [id_cliente], references: [id_cliente], onDelete: NoAction, onUpdate: NoAction, map: "id_cliente_fk")
 }
 

@@ -189,7 +189,8 @@ exports.Prisma.PrestamosScalarFieldEnum = {
   fecha_inicio: 'fecha_inicio',
   fecha_vencimiento: 'fecha_vencimiento',
   estado: 'estado',
-  notas: 'notas'
+  notas: 'notas',
+  desembolsado: 'desembolsado'
 };
 
 exports.Prisma.UsuariosScalarFieldEnum = {

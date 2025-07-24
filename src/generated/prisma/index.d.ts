@@ -7711,6 +7711,7 @@ export namespace Prisma {
     fecha_vencimiento: Date | null
     estado: $Enums.estado_prestamo | null
     notas: string | null
+    desembolsado: boolean | null
   }
 
   export type PrestamosMaxAggregateOutputType = {
@@ -7727,6 +7728,7 @@ export namespace Prisma {
     fecha_vencimiento: Date | null
     estado: $Enums.estado_prestamo | null
     notas: string | null
+    desembolsado: boolean | null
   }
 
   export type PrestamosCountAggregateOutputType = {
@@ -7743,6 +7745,7 @@ export namespace Prisma {
     fecha_vencimiento: number
     estado: number
     notas: number
+    desembolsado: number
     _all: number
   }
 
@@ -7781,6 +7784,7 @@ export namespace Prisma {
     fecha_vencimiento?: true
     estado?: true
     notas?: true
+    desembolsado?: true
   }
 
   export type PrestamosMaxAggregateInputType = {
@@ -7797,6 +7801,7 @@ export namespace Prisma {
     fecha_vencimiento?: true
     estado?: true
     notas?: true
+    desembolsado?: true
   }
 
   export type PrestamosCountAggregateInputType = {
@@ -7813,6 +7818,7 @@ export namespace Prisma {
     fecha_vencimiento?: true
     estado?: true
     notas?: true
+    desembolsado?: true
     _all?: true
   }
 
@@ -7916,6 +7922,7 @@ export namespace Prisma {
     fecha_vencimiento: Date
     estado: $Enums.estado_prestamo | null
     notas: string | null
+    desembolsado: boolean
     _count: PrestamosCountAggregateOutputType | null
     _avg: PrestamosAvgAggregateOutputType | null
     _sum: PrestamosSumAggregateOutputType | null
@@ -7951,6 +7958,7 @@ export namespace Prisma {
     fecha_vencimiento?: boolean
     estado?: boolean
     notas?: boolean
+    desembolsado?: boolean
     cuotas?: boolean | prestamos$cuotasArgs<ExtArgs>
     clientes?: boolean | clientesDefaultArgs<ExtArgs>
     usuarios?: boolean | usuariosDefaultArgs<ExtArgs>
@@ -7971,6 +7979,7 @@ export namespace Prisma {
     fecha_vencimiento?: boolean
     estado?: boolean
     notas?: boolean
+    desembolsado?: boolean
     clientes?: boolean | clientesDefaultArgs<ExtArgs>
     usuarios?: boolean | usuariosDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["prestamos"]>
@@ -7989,6 +7998,7 @@ export namespace Prisma {
     fecha_vencimiento?: boolean
     estado?: boolean
     notas?: boolean
+    desembolsado?: boolean
     clientes?: boolean | clientesDefaultArgs<ExtArgs>
     usuarios?: boolean | usuariosDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["prestamos"]>
@@ -8007,9 +8017,10 @@ export namespace Prisma {
     fecha_vencimiento?: boolean
     estado?: boolean
     notas?: boolean
+    desembolsado?: boolean
   }
 
-  export type prestamosOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id_prestamo" | "id_cliente" | "monto" | "interes" | "total_pagado" | "tipo_interes" | "id_usuario" | "cant_cuotas" | "frecuencia_pago" | "fecha_inicio" | "fecha_vencimiento" | "estado" | "notas", ExtArgs["result"]["prestamos"]>
+  export type prestamosOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id_prestamo" | "id_cliente" | "monto" | "interes" | "total_pagado" | "tipo_interes" | "id_usuario" | "cant_cuotas" | "frecuencia_pago" | "fecha_inicio" | "fecha_vencimiento" | "estado" | "notas" | "desembolsado", ExtArgs["result"]["prestamos"]>
   export type prestamosInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     cuotas?: boolean | prestamos$cuotasArgs<ExtArgs>
     clientes?: boolean | clientesDefaultArgs<ExtArgs>
@@ -8046,6 +8057,7 @@ export namespace Prisma {
       fecha_vencimiento: Date
       estado: $Enums.estado_prestamo | null
       notas: string | null
+      desembolsado: boolean
     }, ExtArgs["result"]["prestamos"]>
     composites: {}
   }
@@ -8485,6 +8497,7 @@ export namespace Prisma {
     readonly fecha_vencimiento: FieldRef<"prestamos", 'DateTime'>
     readonly estado: FieldRef<"prestamos", 'estado_prestamo'>
     readonly notas: FieldRef<"prestamos", 'String'>
+    readonly desembolsado: FieldRef<"prestamos", 'Boolean'>
   }
     
 
@@ -11404,7 +11417,8 @@ export namespace Prisma {
     fecha_inicio: 'fecha_inicio',
     fecha_vencimiento: 'fecha_vencimiento',
     estado: 'estado',
-    notas: 'notas'
+    notas: 'notas',
+    desembolsado: 'desembolsado'
   };
 
   export type PrestamosScalarFieldEnum = (typeof PrestamosScalarFieldEnum)[keyof typeof PrestamosScalarFieldEnum]
@@ -11605,6 +11619,13 @@ export namespace Prisma {
    * Reference to a field of type 'estado_prestamo[]'
    */
   export type ListEnumestado_prestamoFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'estado_prestamo[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -12044,6 +12065,7 @@ export namespace Prisma {
     fecha_vencimiento?: DateTimeFilter<"prestamos"> | Date | string
     estado?: Enumestado_prestamoNullableFilter<"prestamos"> | $Enums.estado_prestamo | null
     notas?: StringNullableFilter<"prestamos"> | string | null
+    desembolsado?: BoolFilter<"prestamos"> | boolean
     cuotas?: CuotasListRelationFilter
     clientes?: XOR<ClientesScalarRelationFilter, clientesWhereInput>
     usuarios?: XOR<UsuariosScalarRelationFilter, usuariosWhereInput>
@@ -12063,6 +12085,7 @@ export namespace Prisma {
     fecha_vencimiento?: SortOrder
     estado?: SortOrderInput | SortOrder
     notas?: SortOrderInput | SortOrder
+    desembolsado?: SortOrder
     cuotas?: cuotasOrderByRelationAggregateInput
     clientes?: clientesOrderByWithRelationInput
     usuarios?: usuariosOrderByWithRelationInput
@@ -12085,6 +12108,7 @@ export namespace Prisma {
     fecha_vencimiento?: DateTimeFilter<"prestamos"> | Date | string
     estado?: Enumestado_prestamoNullableFilter<"prestamos"> | $Enums.estado_prestamo | null
     notas?: StringNullableFilter<"prestamos"> | string | null
+    desembolsado?: BoolFilter<"prestamos"> | boolean
     cuotas?: CuotasListRelationFilter
     clientes?: XOR<ClientesScalarRelationFilter, clientesWhereInput>
     usuarios?: XOR<UsuariosScalarRelationFilter, usuariosWhereInput>
@@ -12104,6 +12128,7 @@ export namespace Prisma {
     fecha_vencimiento?: SortOrder
     estado?: SortOrderInput | SortOrder
     notas?: SortOrderInput | SortOrder
+    desembolsado?: SortOrder
     _count?: prestamosCountOrderByAggregateInput
     _avg?: prestamosAvgOrderByAggregateInput
     _max?: prestamosMaxOrderByAggregateInput
@@ -12128,6 +12153,7 @@ export namespace Prisma {
     fecha_vencimiento?: DateTimeWithAggregatesFilter<"prestamos"> | Date | string
     estado?: Enumestado_prestamoNullableWithAggregatesFilter<"prestamos"> | $Enums.estado_prestamo | null
     notas?: StringNullableWithAggregatesFilter<"prestamos"> | string | null
+    desembolsado?: BoolWithAggregatesFilter<"prestamos"> | boolean
   }
 
   export type usuariosWhereInput = {
@@ -12683,6 +12709,7 @@ export namespace Prisma {
     fecha_vencimiento: Date | string
     estado?: $Enums.estado_prestamo | null
     notas?: string | null
+    desembolsado?: boolean
     cuotas?: cuotasCreateNestedManyWithoutPrestamosInput
     clientes: clientesCreateNestedOneWithoutPrestamosInput
     usuarios: usuariosCreateNestedOneWithoutPrestamosInput
@@ -12702,6 +12729,7 @@ export namespace Prisma {
     fecha_vencimiento: Date | string
     estado?: $Enums.estado_prestamo | null
     notas?: string | null
+    desembolsado?: boolean
     cuotas?: cuotasUncheckedCreateNestedManyWithoutPrestamosInput
   }
 
@@ -12716,6 +12744,7 @@ export namespace Prisma {
     fecha_vencimiento?: DateTimeFieldUpdateOperationsInput | Date | string
     estado?: NullableEnumestado_prestamoFieldUpdateOperationsInput | $Enums.estado_prestamo | null
     notas?: NullableStringFieldUpdateOperationsInput | string | null
+    desembolsado?: BoolFieldUpdateOperationsInput | boolean
     cuotas?: cuotasUpdateManyWithoutPrestamosNestedInput
     clientes?: clientesUpdateOneRequiredWithoutPrestamosNestedInput
     usuarios?: usuariosUpdateOneRequiredWithoutPrestamosNestedInput
@@ -12735,6 +12764,7 @@ export namespace Prisma {
     fecha_vencimiento?: DateTimeFieldUpdateOperationsInput | Date | string
     estado?: NullableEnumestado_prestamoFieldUpdateOperationsInput | $Enums.estado_prestamo | null
     notas?: NullableStringFieldUpdateOperationsInput | string | null
+    desembolsado?: BoolFieldUpdateOperationsInput | boolean
     cuotas?: cuotasUncheckedUpdateManyWithoutPrestamosNestedInput
   }
 
@@ -12752,6 +12782,7 @@ export namespace Prisma {
     fecha_vencimiento: Date | string
     estado?: $Enums.estado_prestamo | null
     notas?: string | null
+    desembolsado?: boolean
   }
 
   export type prestamosUpdateManyMutationInput = {
@@ -12765,6 +12796,7 @@ export namespace Prisma {
     fecha_vencimiento?: DateTimeFieldUpdateOperationsInput | Date | string
     estado?: NullableEnumestado_prestamoFieldUpdateOperationsInput | $Enums.estado_prestamo | null
     notas?: NullableStringFieldUpdateOperationsInput | string | null
+    desembolsado?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type prestamosUncheckedUpdateManyInput = {
@@ -12781,6 +12813,7 @@ export namespace Prisma {
     fecha_vencimiento?: DateTimeFieldUpdateOperationsInput | Date | string
     estado?: NullableEnumestado_prestamoFieldUpdateOperationsInput | $Enums.estado_prestamo | null
     notas?: NullableStringFieldUpdateOperationsInput | string | null
+    desembolsado?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type usuariosCreateInput = {
@@ -13539,6 +13572,11 @@ export namespace Prisma {
     not?: NestedEnumestado_prestamoNullableFilter<$PrismaModel> | $Enums.estado_prestamo | null
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type CuotasListRelationFilter = {
     every?: cuotasWhereInput
     some?: cuotasWhereInput
@@ -13573,6 +13611,7 @@ export namespace Prisma {
     fecha_vencimiento?: SortOrder
     estado?: SortOrder
     notas?: SortOrder
+    desembolsado?: SortOrder
   }
 
   export type prestamosAvgOrderByAggregateInput = {
@@ -13599,6 +13638,7 @@ export namespace Prisma {
     fecha_vencimiento?: SortOrder
     estado?: SortOrder
     notas?: SortOrder
+    desembolsado?: SortOrder
   }
 
   export type prestamosMinOrderByAggregateInput = {
@@ -13615,6 +13655,7 @@ export namespace Prisma {
     fecha_vencimiento?: SortOrder
     estado?: SortOrder
     notas?: SortOrder
+    desembolsado?: SortOrder
   }
 
   export type prestamosSumOrderByAggregateInput = {
@@ -13655,6 +13696,14 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedEnumestado_prestamoNullableFilter<$PrismaModel>
     _max?: NestedEnumestado_prestamoNullableFilter<$PrismaModel>
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type EnumrolFilter<$PrismaModel = never> = {
@@ -14100,6 +14149,10 @@ export namespace Prisma {
 
   export type NullableEnumestado_prestamoFieldUpdateOperationsInput = {
     set?: $Enums.estado_prestamo | null
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type cuotasUpdateManyWithoutPrestamosNestedInput = {
@@ -14650,6 +14703,11 @@ export namespace Prisma {
     not?: NestedEnumestado_prestamoNullableFilter<$PrismaModel> | $Enums.estado_prestamo | null
   }
 
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type NestedEnumtipo_interesNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: $Enums.tipo_interes | Enumtipo_interesFieldRefInput<$PrismaModel> | null
     in?: $Enums.tipo_interes[] | ListEnumtipo_interesFieldRefInput<$PrismaModel> | null
@@ -14678,6 +14736,14 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedEnumestado_prestamoNullableFilter<$PrismaModel>
     _max?: NestedEnumestado_prestamoNullableFilter<$PrismaModel>
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type NestedEnumrolFilter<$PrismaModel = never> = {
@@ -14750,6 +14816,7 @@ export namespace Prisma {
     fecha_vencimiento: Date | string
     estado?: $Enums.estado_prestamo | null
     notas?: string | null
+    desembolsado?: boolean
     cuotas?: cuotasCreateNestedManyWithoutPrestamosInput
     usuarios: usuariosCreateNestedOneWithoutPrestamosInput
   }
@@ -14767,6 +14834,7 @@ export namespace Prisma {
     fecha_vencimiento: Date | string
     estado?: $Enums.estado_prestamo | null
     notas?: string | null
+    desembolsado?: boolean
     cuotas?: cuotasUncheckedCreateNestedManyWithoutPrestamosInput
   }
 
@@ -14841,6 +14909,7 @@ export namespace Prisma {
     fecha_vencimiento?: DateTimeFilter<"prestamos"> | Date | string
     estado?: Enumestado_prestamoNullableFilter<"prestamos"> | $Enums.estado_prestamo | null
     notas?: StringNullableFilter<"prestamos"> | string | null
+    desembolsado?: BoolFilter<"prestamos"> | boolean
   }
 
   export type prestamosCreateWithoutCuotasInput = {
@@ -14854,6 +14923,7 @@ export namespace Prisma {
     fecha_vencimiento: Date | string
     estado?: $Enums.estado_prestamo | null
     notas?: string | null
+    desembolsado?: boolean
     clientes: clientesCreateNestedOneWithoutPrestamosInput
     usuarios: usuariosCreateNestedOneWithoutPrestamosInput
   }
@@ -14872,6 +14942,7 @@ export namespace Prisma {
     fecha_vencimiento: Date | string
     estado?: $Enums.estado_prestamo | null
     notas?: string | null
+    desembolsado?: boolean
   }
 
   export type prestamosCreateOrConnectWithoutCuotasInput = {
@@ -14930,6 +15001,7 @@ export namespace Prisma {
     fecha_vencimiento?: DateTimeFieldUpdateOperationsInput | Date | string
     estado?: NullableEnumestado_prestamoFieldUpdateOperationsInput | $Enums.estado_prestamo | null
     notas?: NullableStringFieldUpdateOperationsInput | string | null
+    desembolsado?: BoolFieldUpdateOperationsInput | boolean
     clientes?: clientesUpdateOneRequiredWithoutPrestamosNestedInput
     usuarios?: usuariosUpdateOneRequiredWithoutPrestamosNestedInput
   }
@@ -14948,6 +15020,7 @@ export namespace Prisma {
     fecha_vencimiento?: DateTimeFieldUpdateOperationsInput | Date | string
     estado?: NullableEnumestado_prestamoFieldUpdateOperationsInput | $Enums.estado_prestamo | null
     notas?: NullableStringFieldUpdateOperationsInput | string | null
+    desembolsado?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type pagosUpsertWithWhereUniqueWithoutCuotasInput = {
@@ -15608,6 +15681,7 @@ export namespace Prisma {
     fecha_vencimiento: Date | string
     estado?: $Enums.estado_prestamo | null
     notas?: string | null
+    desembolsado?: boolean
     cuotas?: cuotasCreateNestedManyWithoutPrestamosInput
     clientes: clientesCreateNestedOneWithoutPrestamosInput
   }
@@ -15625,6 +15699,7 @@ export namespace Prisma {
     fecha_vencimiento: Date | string
     estado?: $Enums.estado_prestamo | null
     notas?: string | null
+    desembolsado?: boolean
     cuotas?: cuotasUncheckedCreateNestedManyWithoutPrestamosInput
   }
 
@@ -15817,6 +15892,7 @@ export namespace Prisma {
     fecha_vencimiento: Date | string
     estado?: $Enums.estado_prestamo | null
     notas?: string | null
+    desembolsado?: boolean
   }
 
   export type direccionesUpdateWithoutClientesInput = {
@@ -15853,6 +15929,7 @@ export namespace Prisma {
     fecha_vencimiento?: DateTimeFieldUpdateOperationsInput | Date | string
     estado?: NullableEnumestado_prestamoFieldUpdateOperationsInput | $Enums.estado_prestamo | null
     notas?: NullableStringFieldUpdateOperationsInput | string | null
+    desembolsado?: BoolFieldUpdateOperationsInput | boolean
     cuotas?: cuotasUpdateManyWithoutPrestamosNestedInput
     usuarios?: usuariosUpdateOneRequiredWithoutPrestamosNestedInput
   }
@@ -15870,6 +15947,7 @@ export namespace Prisma {
     fecha_vencimiento?: DateTimeFieldUpdateOperationsInput | Date | string
     estado?: NullableEnumestado_prestamoFieldUpdateOperationsInput | $Enums.estado_prestamo | null
     notas?: NullableStringFieldUpdateOperationsInput | string | null
+    desembolsado?: BoolFieldUpdateOperationsInput | boolean
     cuotas?: cuotasUncheckedUpdateManyWithoutPrestamosNestedInput
   }
 
@@ -15886,6 +15964,7 @@ export namespace Prisma {
     fecha_vencimiento?: DateTimeFieldUpdateOperationsInput | Date | string
     estado?: NullableEnumestado_prestamoFieldUpdateOperationsInput | $Enums.estado_prestamo | null
     notas?: NullableStringFieldUpdateOperationsInput | string | null
+    desembolsado?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type pagosCreateManyCuotasInput = {
@@ -16019,6 +16098,7 @@ export namespace Prisma {
     fecha_vencimiento: Date | string
     estado?: $Enums.estado_prestamo | null
     notas?: string | null
+    desembolsado?: boolean
   }
 
   export type logactividadUpdateWithoutUsuariosInput = {
@@ -16107,6 +16187,7 @@ export namespace Prisma {
     fecha_vencimiento?: DateTimeFieldUpdateOperationsInput | Date | string
     estado?: NullableEnumestado_prestamoFieldUpdateOperationsInput | $Enums.estado_prestamo | null
     notas?: NullableStringFieldUpdateOperationsInput | string | null
+    desembolsado?: BoolFieldUpdateOperationsInput | boolean
     cuotas?: cuotasUpdateManyWithoutPrestamosNestedInput
     clientes?: clientesUpdateOneRequiredWithoutPrestamosNestedInput
   }
@@ -16124,6 +16205,7 @@ export namespace Prisma {
     fecha_vencimiento?: DateTimeFieldUpdateOperationsInput | Date | string
     estado?: NullableEnumestado_prestamoFieldUpdateOperationsInput | $Enums.estado_prestamo | null
     notas?: NullableStringFieldUpdateOperationsInput | string | null
+    desembolsado?: BoolFieldUpdateOperationsInput | boolean
     cuotas?: cuotasUncheckedUpdateManyWithoutPrestamosNestedInput
   }
 
@@ -16140,6 +16222,7 @@ export namespace Prisma {
     fecha_vencimiento?: DateTimeFieldUpdateOperationsInput | Date | string
     estado?: NullableEnumestado_prestamoFieldUpdateOperationsInput | $Enums.estado_prestamo | null
     notas?: NullableStringFieldUpdateOperationsInput | string | null
+    desembolsado?: BoolFieldUpdateOperationsInput | boolean
   }
 
 
