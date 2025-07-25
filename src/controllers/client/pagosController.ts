@@ -103,7 +103,10 @@ export const nuevoPago = async (req: Request, res: Response) => {
             await actualizarPrestamos();
 
 
-            res.status(200).send("Pago registrado correctamente!")
+            res.status(200).json({
+                "message": "Pago registrado correctamente",
+                "pago" : resultado
+            })
         }
         else{
             res.status(500).send("No se pudo registrar el pago")
