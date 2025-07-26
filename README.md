@@ -236,7 +236,19 @@ Accede a: `http://localhost:3000/api-docs`
 - ✅ **Gestión de estados** de entidades
 - ✅ **Reporting** y auditoría
 
-## 👨‍💻 Autor
+## � Licencia
+
+Este proyecto está licenciado bajo la **GNU Affero General Public License v3.0** (AGPL-3.0) - ver el archivo [LICENSE](LICENSE) para más detalles.
+
+### 💼 Licencia Comercial
+
+¿Necesitas usar este código en un proyecto comercial sin las restricciones de AGPL? 
+
+**Contacta al autor** para obtener una **licencia comercial propietaria**.
+
+
+
+## �👨‍💻 Autor
 
 **Omar Ureña**
 - LinkedIn: [Omar Ureña](https://www.linkedin.com/in/omar-ure%C3%B1a-2a6001197/)
