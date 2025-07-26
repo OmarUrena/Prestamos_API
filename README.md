@@ -239,7 +239,7 @@ Accede a: `http://localhost:3000/api-docs`
 ## 👨‍💻 Autor
 
 **Omar Ureña**
-- LinkedIn: [Omar Ureña(https://www.linkedin.com/in/omar-ure%C3%B1a-2a6001197/)]
+- LinkedIn: [Omar Ureña](https://www.linkedin.com/in/omar-ure%C3%B1a-2a6001197/)
 - Email: [1988informatica@gmail.com]
 - GitHub: [@OmarUrena](https://github.com/OmarUrena)
 
